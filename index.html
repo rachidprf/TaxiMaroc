@@ -251,7 +251,7 @@
 </div>  
 
 <!-- Modification du formulaire pour l'intégration Netlify + Google Sheets -->
-<form id="taxiForm" method="POST" name="taxiForm"  >
+<form id="taxiForm" method="POST" name="taxiForm" action="https://script.google.com/macros/s/AKfycbwyhZZWaoNTisxNidDUKSPm2uuP2-RMpQbFTMb0SfZMJayaTW4eJSgbJC5fHOHw2tgo/exec">
   <input name="form-name" type="hidden" value="taxiForm"/>  
   
   <!-- Champ honeypot pour la protection anti-spam -->
@@ -1085,8 +1085,7 @@
 </form>
 
 
-<script>
-// Variables globales
+<script>// Variables globales
 let currentSection = 0;
 const totalSections = 5;
 
@@ -1098,6 +1097,63 @@ updateProgressBar();
 document.querySelectorAll('input[name="autre_activite"]').forEach(radio => {
   radio.addEventListener('change', function() {
     document.getElementById('preciser_activite_label').style.display = 
+      this.value === 'oui' ? 'block' : 'none';
+  });
+});
+
+document.querySelectorAll('input[name="regles_priorite"]').forEach(radio => {
+  radio.addEventListener('change', function() {
+    document.getElementById('respect_regles_label').style.display = 
+      this.value === 'oui' ? 'block' : 'none';
+  });
+});
+
+document.querySelectorAll('input[name="pointage_controle"]').forEach(radio => {
+  radio.addEventListener('change', function() {
+    const show = this.value === 'oui';
+    document.getElementById('autorite_controle_label').style.display = show ? 'block' : 'none';
+    document.getElementById('controle_efficace_label').style.display = show ? 'block' : 'none';
+  });
+});
+
+document.querySelectorAll('input[name="conflits_station"]').forEach(radio => {
+  radio.addEventListener('change', function() {
+    document.getElementById('nature_conflits_label').style.display = 
+      this.value === 'oui' ? 'block' : 'none';
+  });
+});
+
+document.querySelectorAll('input[name="modalite_retribution"]').forEach(radio => {
+  radio.addEventListener('change', function() {
+    document.getElementById('autre_retribution_label').style.display = 
+      this.value === 'autre' ? 'block' : 'none';
+  });
+});
+
+document.querySelectorAll('input[name="prise_charge_assurance"]').forEach(radio => {
+  radio.addEventListener('change', function() {
+    document.getElementById('part_assurance_label').style.display = 
+      this.value === 'partage' ? 'block' : 'none';
+  });
+});
+
+document.querySelectorAll('input[name="prise_charge_entretien"]').forEach(radio => {
+  radio.addEventListener('change', function() {
+    document.getElementById('part_entretien_label').style.display = 
+      this.value === 'partage' ? 'block' : 'none';
+  });
+});
+
+document.querySelectorAll('input[name="prise_charge_reparations"]').forEach(radio => {
+  radio.addEventListener('change', function() {
+    document.getElementById('part_reparations_label').style.display = 
+      this.value === 'partage' ? 'block' : 'none';
+  });
+});
+
+document.querySelectorAll('input[name="autre_revenu"]').forEach(radio => {
+  radio.addEventListener('change', function() {
+    document.getElementById('preciser_revenu_label').style.display = 
       this.value === 'oui' ? 'block' : 'none';
   });
 });
@@ -1163,7 +1219,7 @@ function validateSection(sectionNum) {
   });
   
   if (!isValid) {
-    alert('يرجى ملء جميع الحقول الإلزامية المشار إليها بعلامة النجمة (*)');
+    alert('Veuillez remplir tous les champs obligatoires marqués d\'un astérisque (*)');
     const firstError = section.querySelector('.error') || 
                       section.querySelector('input[required]:not(:checked)');
     if (firstError) {
@@ -1183,57 +1239,19 @@ function updateProgressBar() {
   document.getElementById('progressBar').style.width = `${progress}%`;
 }
 
-// Gestion de la soumission du formulaire
+// Soumission du formulaire (gérée par Netlify)
 document.getElementById('taxiForm').addEventListener('submit', function(e) {
-  e.preventDefault();
-  
-  // Vérifier si c'est un bot (honeypot field rempli)
-  const honeypot = document.querySelector('input[name="bot-field"]');
-  if (honeypot && honeypot.value) {
-    document.getElementById('alert-error').style.display = 'block';
-    return false;
-  }
-  
-  // Feedback visuel
+  // Netlify gère automatiquement la soumission
+  // Nous ajoutons juste un feedback visuel
   const submitBtn = document.getElementById('submitBtn');
   submitBtn.disabled = true;
-  submitBtn.textContent = 'جاري الإرسال...';
+  submitBtn.textContent = 'Envoi en cours...';
   
-  // Récupérer les données du formulaire
-  const formData = new FormData(document.getElementById('taxiForm'));
-  const data = {};
-  for (const [key, value] of formData.entries()) {
-    data[key] = value;
-  }
-  
-  // Envoyer les données à Google Sheets
-  const scriptURL = 'https://script.google.com/macros/s/AKfycbwyhZZWaoNTisxNidDUKSPm2uuP2-RMpQbFTMb0SfZMJayaTW4eJSgbJC5fHOHw2tgo/exec';
-  
- fetch(scriptURL, {
-   method: 'POST',
-    body: JSON.stringify(data),
-    headers: {
-      'Content-Type': 'application/json'
-    }
-  })
-  .then(response => response.json())
-  .then(data => {
-    if (data.result === 'success') {
-      document.getElementById('alert-success').style.display = 'block';
-      document.getElementById('taxiForm').reset();
-    } else {
-      document.getElementById('alert-error').style.display = 'block';
-    }
-  })
-  .catch(error => {
-    console.error('Error:', error);
-    document.getElementById('alert-error').style.display = 'block';
-  })
-  .finally(() => {
+  // Réinitialiser après 5 secondes (au cas où la redirection ne fonctionne pas)
+  setTimeout(() => {
     submitBtn.disabled = false;
-    submitBtn.textContent = 'صيفط الاستمارة';
-  });
-});
-</script>
+    submitBtn.textContent = 'Soumettre le questionnaire';
+  }, 5000);
+});</script>
 </body>
 </html>
