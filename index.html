@@ -152,7 +152,7 @@
     }
     
     .error-message {
-      color: var(--danger);
+      color: var(--danger;
       font-size: 0.8rem;
       margin-top: 5px;
       display: none;
@@ -194,7 +194,6 @@
       direction: rtl;
       font-family: 'Noto Naskh Arabic', serif;
     }
-
 
     
     label, legend, h1, h2, button, input, select, textarea {
@@ -250,8 +249,8 @@
   <div class="progress-bar" id="progressBar"></div>  
 </div>  
 
-<!-- Modification du formulaire pour l'intégration Netlify + Google Sheets -->
-<form id="taxiForm" method="POST" name="taxiForm" action="https://script.google.com/macros/s/AKfycbxJxhLAqrGD7DORn2fs5VUcFWVG5TpkGBnJ_LXV9irn3o1K29aI1FzTzvpiC4cVactM/exec">
+<!-- Modification du formulaire pour l'intégration Google Sheets -->
+<form id="taxiForm" name="taxiForm">
   <input name="form-name" type="hidden" value="taxiForm"/>  
   
   <!-- Champ honeypot pour la protection anti-spam -->
@@ -809,7 +808,7 @@
 </label>  
 <label id="autre_retribution_label" style="display:none;">  وضح طريقة أخرى<input name="autre_modalite_retribution" type="text"/>  
 </label>  
-<label class="required">  <span class="style2">  مصاريف البنزين (درهم/نهار)<input min="0" name="depense_carburant" required="" type="number"/>  
+<label class="required">  <span class="style2">  مصاريف البنزین (درهم/نهار)<input min="0" name="depense_carburant" required="" type="number"/>  
 </label>  
 <label>  كراء الطوموبيل (درهم/نهار)<input min="0" name="depense_location" type="number"/>  
 </label>  
@@ -960,7 +959,7 @@
 </div>  
 </div>  
 </label>  
-<label>  منتمي لشي سنترال ديال التليفون؟  
+<label>  منتمي لشي سنترال ديال التليفون？  
 <div class="radio-option">  
 <input id="centrale_oui" name="centrale_telephonique" type="radio" value="oui"/>  
 <label for="centrale_oui">  إيه</label>  
@@ -1038,7 +1037,7 @@
 </div>  
 </div>  
 </label>  
-<label class="required">  <span class="style2">  بغيتي تدوز تكوينات مهنية？  
+<label class="required">  <span class="style2">  بغيتي تدوز تكوينات مهنية؟  
 <div class="radio-option">  
 <input id="formation_oui" name="formation_professionnelle" required="" type="radio" value="oui"/>  
 <label for="formation_oui">  إيه</label>  
@@ -1099,8 +1098,6 @@ document.querySelectorAll('input[name="autre_activite"]').forEach(radio => {
       this.value === 'oui' ? 'block' : 'none';
   });
 });
-
-// ... (le reste des gestionnaires de champs conditionnels)
 
 // Navigation entre sections
 function nextSection(sectionNum) {
@@ -1185,10 +1182,11 @@ function updateProgressBar() {
 
 // Gestion de la soumission du formulaire
 document.getElementById('taxiForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+  
   // Vérifier si c'est un bot (honeypot field rempli)
   const honeypot = document.querySelector('input[name="bot-field"]');
   if (honeypot && honeypot.value) {
-    e.preventDefault();
     document.getElementById('alert-error').style.display = 'block';
     return false;
   }
@@ -1198,25 +1196,40 @@ document.getElementById('taxiForm').addEventListener('submit', function(e) {
   submitBtn.disabled = true;
   submitBtn.textContent = 'جاري الإرسال...';
   
-  // Réinitialiser après 5 secondes (au cas où la redirection ne fonctionne pas)
-  setTimeout(() => {
+  // Récupérer les données du formulaire
+  const formData = new FormData(document.getElementById('taxiForm'));
+  const data = {};
+  for (const [key, value] of formData.entries()) {
+    data[key] = value;
+  }
+  
+  // Envoyer les données à Google Sheets
+  const scriptURL = 'https://script.google.com/macros/s/AKfycbxJxhLAqrGD7DORn2fs5VUcFWVG5TpkGBnJ_LXV9irn3o1K29aI1FzTzvpiC4cVactM/exec';
+  
+  fetch(scriptURL, {
+    method: 'POST',
+    body: JSON.stringify(data),
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  })
+  .then(response => response.json())
+  .then(data => {
+    if (data.result === 'success') {
+      document.getElementById('alert-success').style.display = 'block';
+      document.getElementById('taxiForm').reset();
+    } else {
+      document.getElementById('alert-error').style.display = 'block';
+    }
+  })
+  .catch(error => {
+    console.error('Error:', error);
+    document.getElementById('alert-error').style.display = 'block';
+  })
+  .finally(() => {
     submitBtn.disabled = false;
     submitBtn.textContent = 'صيفط الاستمارة';
-  }, 5000);
-});
-
-// Vérifier les paramètres d'URL pour afficher les messages de confirmation
-window.addEventListener('load', function() {
-  const urlParams = new URLSearchParams(window.location.search);
-  if (urlParams.get('success')) {
-    document.getElementById('alert-success').style.display = 'block';
-    // Faire défiler jusqu'au message de succès
-    setTimeout(() => {
-      document.getElementById('alert-success').scrollIntoView({ behavior: 'smooth' });
-    }, 500);
-  } else if (urlParams.get('error')) {
-    document.getElementById('alert-error').style.display = 'block';
-  }
+  });
 });
 </script>
 </body>
