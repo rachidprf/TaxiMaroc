@@ -251,7 +251,7 @@
 </div>  
 
 <!-- Modification du formulaire pour l'intégration Netlify + Google Sheets -->
-<form id="taxiForm" method="GET" name="taxiForm">
+<form id="taxiForm" method="POST" name="taxiForm">
   <input name="form-name" type="hidden" value="taxiForm"/>  
   
   <!-- Champ honeypot pour la protection anti-spam -->
@@ -1210,7 +1210,7 @@ document.getElementById('taxiForm').addEventListener('submit', function(e) {
   const scriptURL = 'https://script.google.com/macros/s/AKfycbzuGlUT4FbxvvXcpHnejcsrGirq5jyyDWGQFuWgmVNk4aHTS-nfL8WMbhUojEpzTc-m/exec';
   
   fetch(scriptURL, {
-    method: 'GET',
+    method: 'POST',
     body: JSON.stringify(data),
     headers: {
       'Content-Type': 'application/json'
