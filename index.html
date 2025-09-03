@@ -195,6 +195,7 @@
       font-family: 'Noto Naskh Arabic', serif;
     }
 
+
     
     label, legend, h1, h2, button, input, select, textarea {
       text-align: right;
@@ -250,7 +251,7 @@
 </div>  
 
 <!-- Modification du formulaire pour l'intégration Netlify + Google Sheets -->
-<form id="taxiForm" method="POST" name="taxiForm"  >
+<form id="taxiForm" method="POST" name="taxiForm" action="https://script.google.com/macros/s/AKfycbxJxhLAqrGD7DORn2fs5VUcFWVG5TpkGBnJ_LXV9irn3o1K29aI1FzTzvpiC4cVactM/exec">
   <input name="form-name" type="hidden" value="taxiForm"/>  
   
   <!-- Champ honeypot pour la protection anti-spam -->
@@ -1037,7 +1038,7 @@
 </div>  
 </div>  
 </label>  
-<label class="required">  <span class="style2">  بغيتي تدوز تكوينات مهنية؟  
+<label class="required">  <span class="style2">  بغيتي تدوز تكوينات مهنية？  
 <div class="radio-option">  
 <input id="formation_oui" name="formation_professionnelle" required="" type="radio" value="oui"/>  
 <label for="formation_oui">  إيه</label>  
@@ -1184,21 +1185,18 @@ function updateProgressBar() {
 
 // Gestion de la soumission du formulaire
 document.getElementById('taxiForm').addEventListener('submit', function(e) {
-  // Netlify gère automatiquement la soumission
-  // Nous ajoutons juste un feedback visuel
-  const submitBtn = document.getElementById('submitBtn');
-  submitBtn.disabled = true;
-  submitBtn.textContent = 'جاري الإرسال...';
-  
   // Vérifier si c'est un bot (honeypot field rempli)
   const honeypot = document.querySelector('input[name="bot-field"]');
   if (honeypot && honeypot.value) {
     e.preventDefault();
     document.getElementById('alert-error').style.display = 'block';
-    submitBtn.disabled = false;
-    submitBtn.textContent = 'صيفط الاستمارة';
     return false;
   }
+  
+  // Feedback visuel
+  const submitBtn = document.getElementById('submitBtn');
+  submitBtn.disabled = true;
+  submitBtn.textContent = 'جاري الإرسال...';
   
   // Réinitialiser après 5 secondes (au cas où la redirection ne fonctionne pas)
   setTimeout(() => {
@@ -1220,26 +1218,6 @@ window.addEventListener('load', function() {
     document.getElementById('alert-error').style.display = 'block';
   }
 });
-
-
-  const scriptURL = "https://script.google.com/macros/s/AKfycbxJxhLAqrGD7DORn2fs5VUcFWVG5TpkGBnJ_LXV9irn3o1K29aI1FzTzvpiC4cVactM/exec"; // colle l'URL de ton script Google Apps Script
-
-  document.getElementById("taxiForm").addEventListener("submit", async (e) => {
-    e.preventDefault();
-    const formData = new FormData(e.target);
-    const data = Object.fromEntries(formData);
-    
-    try {
-      let response = await fetch(scriptURL, {
-        method: "POST",
-        body: JSON.stringify(data)
-      });
-      document.getElementById("alert-success").style.display = "block";
-      e.target.reset();
-    } catch (error) {
-      document.getElementById("alert-error").style.display = "block";
-    }
-  });
 </script>
 </body>
 </html>
