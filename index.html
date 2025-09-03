@@ -1,0 +1,1245 @@
+<!DOCTYPE html>  
+<html dir="rtl" lang="ar">  
+<head>  
+<meta charset="utf-8"/>  
+<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport"/>  
+<title>استمارة لمهنيين ديال الطاكسيات</title>  
+<style>  
+:root {
+      --primary: #2c3e50;
+      --secondary: #3498db;
+      --light: #ecf0f1;
+      --danger: #e74c3c;
+    }
+    
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background-color: #f5f5f5;
+      padding: 15px;
+      max-width: 100%;
+      overflow-x: hidden;
+    }
+    
+    h1, h2 {
+      color: var(--primary);
+      text-align: center;
+      margin: 15px 0;
+      font-size: 1.5rem;
+    }
+    
+    h2 {
+      font-size: 1.3rem;
+      text-align: left;
+      margin-top: 25px;
+      border-bottom: 2px solid var(--secondary);
+      padding-bottom: 5px;
+    }
+    
+    .progress-container {
+      width: 100%;
+      background-color: #ddd;
+      border-radius: 5px;
+      margin: 20px 0;
+    }
+    
+    .progress-bar {
+      height: 8px;
+      background-color: var(--secondary);
+      border-radius: 5px;
+      width: 0%;
+      transition: width 0.3s;
+    }
+    
+    fieldset {
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      padding: 15px;
+      margin-bottom: 20px;
+      background: white;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    
+    legend {
+      padding: 0 10px;
+      font-weight: bold;
+      color: var(--primary);
+      font-size: 1.1rem;
+    }
+    
+    label {
+     /*display: block;*/
+      margin: 15px 0 5px;
+      font-size: 0.95rem;
+      color: #222;
+    }
+    
+    input[type="text"],
+    input[type="number"],
+    input[type="date"],
+    input[type="time"],
+    select,
+    textarea {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      font-size: 1rem;
+      margin-top: 5px;
+      background-color: white;
+    }
+    
+    input:focus,
+    select:focus,
+    textarea:focus {
+      border-color: var(--secondary);
+      outline: none;
+      box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
+    }
+    
+    .radio-group, .checkbox-group {
+      margin: 10px 0;
+    }
+    
+    .radio-option, .checkbox-option {
+      display: flex;
+      align-items: center;
+      margin: 8px 0;
+    }
+    
+    .radio-option input, .checkbox-option input {
+      width: auto;
+      margin-right: 10px;
+    }
+    
+    button {
+      background-color: var(--secondary);
+      color: white;
+      border: none;
+      padding: 15px 20px;
+      font-size: 1.1rem;
+      border-radius: 6px;
+      cursor: pointer;
+      width: 100%;
+      margin: 20px 0;
+      font-weight: bold;
+      transition: background-color 0.3s;
+    }
+    
+    button:hover {
+      background-color: #2980b9;
+    }
+    
+    button:disabled {
+      background-color: #95a5a6;
+      cursor: not-allowed;
+    }
+    
+    .required::after {
+      content: " *";
+      color: var(--danger);
+    }
+    
+    .error {
+      border-color: var(--danger) !important;
+    }
+    
+    .error-message {
+      color: var(--danger);
+      font-size: 0.8rem;
+      margin-top: 5px;
+      display: none;
+    }
+    
+    .section-nav {
+      display: flex;
+      justify-content: space-between;
+      margin: 20px 0;
+    }
+    
+    .section-nav button {
+      width: 48%;
+    }
+    
+    .form-intro {
+      background-color: white;
+      padding: 15px;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    
+    @media (max-width: 480px) {
+      h1 {
+        font-size: 1.3rem;
+      }
+      
+      h2 {
+        font-size: 1.1rem;
+      }
+      
+      input, select, textarea {
+        padding: 10px;
+      }
+    }
+    
+    body {
+      direction: rtl;
+      font-family: 'Noto Naskh Arabic', serif;
+    }
+
+    
+    label, legend, h1, h2, button, input, select, textarea {
+      text-align: right;
+    }
+    
+    .alert {
+      padding: 15px;
+      border-radius: 6px;
+      margin-bottom: 20px;
+      display: none;
+    }
+    
+    .alert-success {
+      background-color: #d4edda;
+      color: #155724;
+      border: 1px solid #c3e6cb;
+    }
+    
+    .alert-error {
+      background-color: #f8d7da;
+      color: #721c24;
+      border: 1px solid #f5c6cb;
+    }
+    
+    .style1 {color: #3333FF}
+    .style2 {
+      color: #FFFFFF;
+      font-weight: bold;
+    }
+    .style4 {color: #FFFFFF}
+</style>  
+<link href="https://fonts.googleapis.com/css2?family=Noto+Naskh+Arabic&amp;display=swap" rel="stylesheet"/>  
+</head>  
+<body>  
+
+<!-- Ajout des messages d'alerte -->
+<div id="alert-success" class="alert alert-success">
+  شكراً لك! تم إرسال الاستمارة بنجاح.
+</div>
+
+<div id="alert-error" class="alert alert-error">
+  عذراً، حدث خطأ أثناء الإرسال. يرجى المحاولة مرة أخرى.
+</div>
+
+<table width="100%" border="0">
+  <tr>
+    <tD><img src="../1.png" width="100%"></tD>
+  </tr>
+</table>
+
+<div class="progress-container">  
+  <div class="progress-bar" id="progressBar"></div>  
+</div>  
+
+<!-- Modification du formulaire pour l'intégration Netlify + Google Sheets -->
+<form id="taxiForm" method="POST" name="taxiForm"  >
+  <input name="form-name" type="hidden" value="taxiForm"/>  
+  
+  <!-- Champ honeypot pour la protection anti-spam -->
+  <p style="display: none;">
+    <label>لا تملأ هذا الحقل إذا كنت إنسان: <input name="bot-field"></label>
+  </p>
+
+
+
+
+<fieldset class="form-section" id="section0">  
+<legend>  قسم الباحث</legend>  
+<table width="100%" border="0">
+   <tr>
+	  <td bgcolor= "#3498db" align="center" height="35" >
+	  <label class="">  <span class="style2">  كود ديال الباحث</span>  
+	  </TD>
+	</tr>
+</table> 
+
+<input name="identifiant_enqueteur" type="text"/>  
+</label>  
+<table width="100%" border="0">
+   <tr>
+	  <td bgcolor= "#3498db" align="center" height="35">
+	  <label class="required">  <span class="style2">  المدينة / الجماعة </span>  
+	  </TD>
+	</tr>
+</table> 
+<input name="ville" required=""  type="text"/>  
+</label>  
+<table width="100%" border="0">
+   <tr>
+	  <td bgcolor= "#3498db" align="center" height="35">
+	  <label >  <span class="style2">  بلاصة اللقاء
+	  </TD>
+	</tr>
+</table>
+<input name="lieu_entretien"  type="text"/>  
+</label>  
+<table width="100%" border="0">
+   <tr>
+	  <td bgcolor= "#3498db" align="center" height="35">
+	  <label class="">  <span class="style2">  التاريخ
+	  </TD>
+	</tr>
+</table><input name="date_enquete"  type="date"/>  
+</label>  
+<table width="100%" border="0">
+   <tr>
+	  <td bgcolor= "#3498db" align="center" height="35">
+	  <label class="">  <span class="style2">  الوقت
+	  </TD>
+	</tr>
+</table><input name="heure_enquete"  type="time"/>  
+</label>  
+</fieldset>  
+
+
+
+<fieldset class="form-section" id="section1" style="display:none;">  
+<h2>  1. Profil et statut professionnel</h2>  
+
+<table width="100%" border="0">
+   <tr>
+	  <td bgcolor= "#3498db" align="center" height="35">
+	  <label class="required">  <span class="style2">  نوع الطاكسي لي خدام بيه   </label>
+	  </TD>
+	</tr>
+</table> 
+<div class="radio-group">	
+<div class="radio-option">
+<input id="petit_taxi" name="type_taxi" required="" type="radio" value="petit"/>  
+<label for="petit_taxi">  طاكسي صغير  </label>  
+<input id="grand_taxi" name="type_taxi" required="" type="radio" value="grand"/>  
+<label for="grand_taxi">  طاكسي كبير  </label>  
+</div>
+</div>
+  
+ 
+  
+<table width="100%" border="0">
+<tr>
+    <td  bgcolor= "#3498db" align="center" height="35">
+<label class="required">  <span class="style2"> العمر  </label></td>
+<tr> <td> 
+ 
+ <table><tr>
+ <td > 
+	<div class="radio-group"> <div class="radio-option">
+<input id="age_moins30" name="age" required="" type="radio" value="&lt;30"/>  
+<label for="age_moins30">  اقل من 30 عام</label>  
+
+<input id="age_31-45" name="age" required="" type="radio" value="31-45"/>  
+<label for="age_31-45">  31-45 عام</label>  
+<BR>
+ 
+<input id="age_45-60" name="age" required="" type="radio" value="45-60"/>  
+<label for="age_45-60">  45-60 عام</label>  
+
+<input id="age_plus60" name="age" required="" type="radio" value="&gt;60"/>  
+<label for="age_plus60">  اكثر من 60 عام</label> </BR> 
+</div>  
+</div> 
+  </td></TR>
+ </table>  </td>
+</tR>
+ <tr>
+    <td bgcolor= "#3498db" align="center" height="35"> <label class="required">  <span class="style2">  رخصة الثقة صالحة   
+	</label></td></tR>
+
+  <tr>
+<td  align="center">
+ <div class="radio-group">
+ <div class="radio-option">  
+<input id="permis_oui" name="permis_confiance" required="" type="radio" value="oui"/>  
+<label for="permis_oui">  إيه</label>  
+
+<input id="permis_non" name="permis_confiance" required="" type="radio" value="non"/>  
+<label for="permis_non">  لا</label>  
+</div></div>
+
+ 
+ </tD></tR> 
+ <tr>
+    <td bgcolor= "#3498db" align="center" height="35">
+<label class="required">  <span class="style2">  كارتة السائق المهني صالحة </label> </tD></tr>
+<tr><tD> 
+<div class="radio-group"><div class="radio-option">  
+<input id="carte_oui" name="carte_conducteur" required="" type="radio" value="oui"/>  
+<label for="carte_oui">  إيه</label>  
+
+<input id="carte_non" name="carte_conducteur" required="" type="radio" value="non"/>  
+<label for="carte_non">  لا</label>  
+</div>  
+  
+ </td>
+ </tR>
+ <tr>  <td bgcolor= "#3498db" align="center" height="35">  
+<label class="required">  <span class="style2">  المستوى الدراسي</label>  </TD></tr><tr >
+<TD>
+<select name="niveau_instruction" required="">  
+<option value="">  اختار...</option>  
+<option value="aucun">  ما كاينش</option>  
+<option value="primaire">  ابتدائي</option>  
+<option value="college">  إعدادي</option>  
+<option value="lycee">  ثانوي</option>  
+<option value="superieur">  جامعي</option>  
+</select> 
+</tD>
+</tR>
+<tr> <td bgcolor= "#3498db" align="center" height="35">   
+<label class="required">  <span class="style2">  الخدمة  </tD></tr><tr><tD>
+<div class="radio-group"><div class="radio-option">  
+<input id="service_libre" name="service" required="" type="radio" value="course_libre"/>  
+<label for="service_libre">  كاري حر</label>  
+
+<input id="service_ligne" name="service" required="" type="radio" value="ligne"/>  
+<label for="service_ligne">  خط</label>  
+</div>  
+</div>  
+ </tD></label></tR> 
+ <tr ><td bgcolor= "#3498db" align="center" height="35">   
+<label class="required">  <span class="style2">  عندو لكريمة  </label></tD></tr><tr><tD>
+<div class="radio-group"><div class="radio-option">  
+<input id="agrement_oui" name="detenteur_agrement" required="" type="radio" value="oui"/>  
+<label for="agrement_oui">  إيه</label>  
+
+<input id="agrement_non" name="detenteur_agrement" required="" type="radio" value="non"/>  
+<label for="agrement_non">  لا</label>  
+</div>  
+</div>  </tD></label></tR>  
+ <tr> <td bgcolor= "#3498db" align="center" height="35">    
+<label>  <span class="style2">  كونطرا ديال الاستغلال (إلا ماعندوش لكريمة)  </tD></tr><tr><tD>
+<div class="radio-group"><div class="radio-option">  
+<input id="contrat_oui" name="contrat_licence" type="radio" value="oui"/>  
+<label for="contrat_oui">  إيه</label>  
+
+<input id="contrat_non" name="contrat_licence" type="radio" value="non"/>  
+<label for="contrat_non">  لا</label>  
+</div>  
+</div>  
+</tD></label></tR>  
+
+
+ </table>
+ 
+ 
+ <table width="100%" border="0">
+   <tr>
+	  <td bgcolor= "#3498db" align="center" height="35">
+	  <label class="required">  <span class="style2">  مول الطاكسي    </label>
+	  </TD>
+	</tr>
+</table> 
+ 
+<div class="radio-group"><div class="radio-option">  
+<input id="proprietaire_oui" name="proprietaire_taxi" required="" type="radio" value="oui"/>  
+<label for="proprietaire_oui">  إيه</label>  
+
+<input id="proprietaire_non" name="proprietaire_taxi" required="" type="radio" value="non"/>  
+<label for="proprietaire_non">  لا</label>  
+</div>   </div> 
+</label> 
+
+<table width="100%" border="0">
+   <tr>
+	  <td bgcolor= "#3498db" align="center" height="35">
+	  <label class="required">  <span class="style2">  الحالة المهنية 
+	  </TD>
+	</tr>
+</table> 
+ 
+ 
+<select name="statut_professionnel" required=""> 
+<option value="">  اختار...</option>  
+<option value="independant">  شيفور حر</option>  
+<option value="salarie">  شيفور خدام عند شي حد</option>  
+<option value="autre">  آخر</option>  
+</select>  
+</label>  
+
+<table width="100%" border="0">
+   <tr>
+	  <td bgcolor= "#3498db" align="center" height="35">
+	 <label class="required">  <span class="style2">  شحال هادي وانت خدام
+	  </TD>
+	</tr>
+</table> 
+
+<select name="anciennete" required="">  
+<option value="">  اختار...</option>  
+<option value="&lt;1">  اقل من عام</option>  
+<option value="1-5">  1-5 سنين</option>  
+<option value="5-10">  5-10 سنين</option>  
+<option value="10-20">  10-20 سنين</option>  
+<option value="&gt;20">  اكثر من 20 عام</option>  
+</select>  
+</label>  
+
+<table width="100%" border="0">
+   <tr>
+	  <td bgcolor= "#3498db" align="center" height="35">
+	 <label class="required">  <span class="style2">  تكوينات مهنية دوزتي
+	  </TD>
+	</tr>
+</table> 
+<div class="checkbox-group">  
+<div class="checkbox-option">  
+<input id="formation_initiale" name="formations[]" type="checkbox" value="qualification_initiale"/>  
+<label for="formation_initiale">  تكوين أولي</label>  
+
+<input id="formation_continue" name="formations[]" type="checkbox" value="continue"/>  
+<label for="formation_continue">  تكوين مستمر</label>  
+
+<input id="formation_aucune" name="formations[]" type="checkbox" value="aucune"/>  
+<label for="formation_aucune">  ما كاينش</label>  
+</div>  
+</div>  
+</label> 
+ 
+ <table width="100%" border="0">
+   <tr>
+	  <td bgcolor= "#3498db" align="center" height="35">
+	 <label class="required">  <span class="style2">  فين خدام  
+	  </TD>
+	</tr>
+</table> 
+<div class="radio-group"> 
+<div class="radio-option">  
+<input id="lieu_urbain" name="lieu_activite" required="" type="radio" value="urbain"/>  
+<label for="lieu_urbain">  حضري</label>  
+<input id="lieu_rural" name="lieu_activite" required="" type="radio" value="rural"/>  
+<label for="lieu_rural">  قروي</label>  
+
+<input id="lieu_intercommunal" name="lieu_activite" required="" type="radio" value="intercommunal"/>  
+<label for="lieu_intercommunal">  بين الجماعات (نفس العمالة)</label>  
+
+<input id="lieu_interprovincial" name="lieu_activite" required="" type="radio" value="interprovincial"/>  
+<label for="lieu_interprovincial">  بين العمالات</label>  
+</div>  
+</div>  
+</label> 
+<table width="100%" border="0">
+   <tr>
+	  <td bgcolor= "#3498db" align="center" height="35">
+	 <label class="required">  <span class="style2">  تغطية صحية (AMO)  
+	  </TD>
+	</tr>
+</table>  
+<div class="radio-group">
+<div class="radio-option">  
+<input id="amo_oui" name="couverture_medicale" required="" type="radio" value="oui"/>  
+<label for="amo_oui">  إيه</label>  
+
+<input id="amo_non" name="couverture_medicale" required="" type="radio" value="non"/>  
+<label for="amo_non">  لا</label>  
+</div>  
+</div>  
+</label> 
+<table width="100%" border="0">
+   <tr>
+	  <td bgcolor= "#3498db" align="center" height="35">
+	 <label class="required">  <span class="style2">  مسجل فشي نظام ديال التقاعد   
+	  </TD>
+	</tr>
+</table>   
+
+<div class="radio-group"> <div class="radio-option">  
+<input id="pension_oui" name="regime_pension" required="" type="radio" value="oui"/>  
+<label for="pension_oui">  إيه</label>  
+
+<input id="pension_non" name="regime_pension" required="" type="radio" value="non"/>  
+<label for="pension_non">  لا</label>  
+</div>  
+</div>  
+</label>
+<table width="100%" border="0">
+   <tr>
+	  <td bgcolor= "#3498db" align="center" height="35">
+	<label class="required">  <span class="style2">  عندو تقاعد   
+	  </TD>
+	</tr>
+</table> 
+  
+<div class="radio-group">
+<div class="radio-option">  
+<input id="retraite_oui" name="retraite" required="" type="radio" value="oui"/>  
+<label for="retraite_oui">  إيه</label>  
+
+<input id="retraite_non" name="retraite" required="" type="radio" value="non"/>  
+<label for="retraite_non">  لا</label>  
+</div>  
+</div>  
+</label> 
+ <table width="100%" border="0">
+   <tr>
+	  <td bgcolor= "#3498db" align="center" height="35">
+	<label class="required">  <span class="style2">  عدد المناوبات فالنهار   
+	  </TD>
+	</tr>
+</table> 
+<div class="radio-group">
+<div class="radio-option">  
+<input id="shifts_1" name="shifts_par_jour" required="" type="radio" value="1"/>  
+<label for="shifts_1">  1</label>  
+
+<input id="shifts_2" name="shifts_par_jour" required="" type="radio" value="2"/>  
+<label for="shifts_2">  2</label>  
+
+<input id="shifts_plus" name="shifts_par_jour" required="" type="radio" value="plus"/>  
+<label for="shifts_plus">  Plus</label>  
+</div>  
+</div>  
+</label>  
+<table width="100%" border="0">
+   <tr>
+	  <td bgcolor= "#3498db" align="center" height="35">
+	<label class="required">  <span class="style2">  عدد الشيفورات فالطوموبيل وحدة  
+	  </TD>
+	</tr>
+</table> 
+<div class="radio-group">
+<div class="radio-option">  
+<input id="chauffeurs_1" name="nb_chauffeurs" required="" type="radio" value="1"/>  
+<label for="chauffeurs_1">  1</label>  
+
+<input id="chauffeurs_2" name="nb_chauffeurs" required="" type="radio" value="2"/>  
+<label for="chauffeurs_2">  2</label>  
+
+<input id="chauffeurs_plus" name="nb_chauffeurs" required="" type="radio" value="plus"/>  
+<label for="chauffeurs_plus">  Plus</label>  
+</div>  
+</div>  
+</label> 
+<table width="100%" border="0">
+   <tr>
+	  <td bgcolor= "#3498db" align="center" height="35">
+	<label>  <span class="style2">  تنظيم الشيفورات فنهار واحد
+	  </TD>
+	</tr>
+</table>  
+<textarea name="organisation_chauffeurs" rows="2">  </textarea>  
+</label> 
+<table width="100%" border="0">
+   <tr>
+	  <td bgcolor= "#3498db" align="center" height="35">
+	<label class="required">  <span class="style2">  مدة الخدمة فالنهار (بالساعة)
+	  </TD>
+	</tr>
+</table>   
+<input max="24" min="1" name="temps_travail" required="" type="number"/>  
+</label> 
+<table width="100%" border="0">
+   <tr>
+	  <td bgcolor= "#3498db" align="center" height="35">
+	<label class="required">  <span class="style2">  خدمة بالليل  
+	  </TD>
+	</tr>
+</table>  
+<div class="radio-group">  
+<div class="radio-option">  
+<input id="nuit_oui" name="travail_nuit" required="" type="radio" value="oui"/>  
+<label for="nuit_oui">  إيه</label>  
+<input id="nuit_non" name="travail_nuit" required="" type="radio" value="non"/>  
+<label for="nuit_non">  لا</label>  
+</div>  
+</div>  
+</label>  
+<table width="100%" border="0">
+   <tr>
+	  <td bgcolor= "#3498db" align="center" height="35">
+	<label class="required">  <span class="style2">  ايام الخدمة فالاسبوع
+	  </TD>
+	</tr>
+</table>  
+<input max="7" min="1" name="jours_travail_semaine" required="" type="number"/>  
+</label>
+<table width="100%" border="0">
+   <tr>
+	  <td bgcolor= "#3498db" align="center" height="35">
+	<label class="required">  <span class="style2">  العطلة السنوية (بالأيام)
+	  </TD>
+	</tr>
+</table>    
+<input min="0" name="conge_annuel" required="" type="number"/>  
+</label> 
+ <table width="100%" border="0">
+   <tr>
+	  <td bgcolor= "#3498db" align="center" height="35">
+	<label>  <span class="style2">  خدمة اخرى ماشي ديال الطاكسي 
+	  </TD>
+	</tr>
+</table>  
+ <div class="radio-group"> 
+<div class="radio-option">  
+<input id="autre_activite_oui" name="autre_activite" type="radio" value="oui"/>  
+<label for="autre_activite_oui">  إيه</label>  
+
+<input id="autre_activite_non" name="autre_activite" type="radio" value="non"/>  
+<label for="autre_activite_non">  لا</label>  
+</div>  
+</div>  
+</label>  
+<label id="preciser_activite_label" style="display:none;">  وضح ليا الخدمة الأخرى<input name="autre_activite_precision" type="text"/>  
+</label>  
+</fieldset>  
+
+
+<fieldset class="form-section" id="section2" style="display:none;">  
+<h2>  2. Organisation de la profession</h2>  
+<label>  كافي باركينغ فالطاكسيات  
+<div class="radio-option">  
+<input id="station_oui" name="station_suffisante" type="radio" value="oui"/>  
+<label for="station_oui">  إيه</label>  
+
+<input id="station_non" name="station_suffisante" type="radio" value="non"/>  
+<label for="station_non">  لا</label>  
+</div>  
+</div>  
+</label>  
+<label>  معروف شكون المسؤول فالطاكسيات  
+<div class="radio-option">  
+<input id="responsable_oui" name="responsable_station" type="radio" value="oui"/>  
+<label for="responsable_oui">  إيه</label>  
+
+<input id="responsable_non" name="responsable_station" type="radio" value="non"/>  
+<label for="responsable_non">  لا</label>  
+</div>  
+</div>  
+</label>  
+<label>  قوانين الدور  
+<div class="radio-option">  
+<input id="regles_oui" name="regles_priorite" type="radio" value="oui"/>  
+<label for="regles_oui">  إيه</label>  
+
+<input id="regles_non" name="regles_priorite" type="radio" value="non"/>  
+<label for="regles_non">  لا</label>  
+</div>  
+</div>  
+</label>  
+<label id="respect_regles_label" style="display:none;">  احترام القوانين<select name="respect_regles">  
+<option value="toujours">  Toujours</option>  
+<option value="parfois">  Parfois</option>  
+<option value="rarement">  Rarement</option>  
+<option value="jamais">  Jamais</option>  
+</select>  
+</label>  
+<label>  سيستام ديال التنقيط مراقب  
+<div class="radio-option">  
+<input id="pointage_oui" name="pointage_controle" type="radio" value="oui"/>  
+<label for="pointage_oui">  إيه</label>  
+
+<input id="pointage_non" name="pointage_controle" type="radio" value="non"/>  
+<label for="pointage_non">  لا</label>  
+</div>  
+</div>  
+</label>  
+<label id="autorite_controle_label" style="display:none;">  الجهة لي كاتراقب<input name="autorite_controle" type="text"/>  
+</label>  
+<label id="controle_efficace_label" style="display:none;">  مراقبة مزيانة  
+<div class="radio-option">  
+<input id="efficace_oui" name="controle_efficace" type="radio" value="oui"/>  
+<label for="efficace_oui">  إيه</label>  
+
+<input id="efficace_non" name="controle_efficace" type="radio" value="non"/>  
+<label for="efficace_non">  لا</label>  
+</div>  
+</div>  
+</label>  
+<label>  كاينين مشاكل فالطاكسيات  
+<div class="radio-option">  
+<input id="conflits_oui" name="conflits_station" type="radio" value="oui"/>  
+<label for="conflits_oui">  إيه</label>  
+
+<input id="conflits_non" name="conflits_station" type="radio" value="non"/>  
+<label for="conflits_non">  لا</label>  
+</div>  
+</div>  
+</label>  
+<label id="nature_conflits_label" style="display:none;">  نوع المشاكل<textarea name="nature_conflits" rows="2">  </textarea>  
+</label>  
+<label>  تدخل السلطة فالمشاكل  
+<div class="radio-option">  
+<input id="intervention_oui" name="intervention_autorites" type="radio" value="oui"/>  
+<label for="intervention_oui">  إيه</label>  
+
+<input id="intervention_non" name="intervention_autorites" type="radio" value="non"/>  
+<label for="intervention_non">  لا</label>  
+</div>  
+</div>  
+</label>  
+</fieldset>  
+
+
+
+
+<fieldset class="form-section" id="section3" style="display:none;">  
+<h2>  3. Aspects économiques</h2>  
+<label class="required">  <span class="style2">  طريقة خلصك  
+<div class="radio-option">  
+<input id="retribution_fixe" name="modalite_retribution" required="" type="radio" value="fixe"/>  
+<label for="retribution_fixe">  مبلغ يومي ثابت</label>  
+
+<input id="retribution_pourcentage" name="modalite_retribution" required="" type="radio" value="pourcentage"/>  
+<label for="retribution_pourcentage">  بالمية من المداخيل</label>  
+
+<input id="retribution_recette" name="modalite_retribution" required="" type="radio" value="recette"/>  
+<label for="retribution_recette">  الربح بعد ما نقصو المصاريف</label>  
+
+<input id="retribution_autre" name="modalite_retribution" required="" type="radio" value="autre"/>  
+<label for="retribution_autre">  آخر</label>  
+</div>  
+</div>  
+</label>  
+<label id="autre_retribution_label" style="display:none;">  وضح طريقة أخرى<input name="autre_modalite_retribution" type="text"/>  
+</label>  
+<label class="required">  <span class="style2">  مصاريف البنزين (درهم/نهار)<input min="0" name="depense_carburant" required="" type="number"/>  
+</label>  
+<label>  كراء الطوموبيل (درهم/نهار)<input min="0" name="depense_location" type="number"/>  
+</label>  
+<label>  صيانة/تأمين (درهم/عام)<input min="0" name="depense_entretien" type="number"/>  
+</label>  
+<label>  مصاريف أخرى (باركينغ، لافاج...) - المبلغ<input min="0" name="autres_depenses_montant" type="number"/>  
+</label>  
+<label>  مصاريف أخرى - المدة<input name="autres_depenses_periodicite" type="text"/>  
+</label>  
+<label>  واجب الكريمة (درهم/شهر)<input min="0" name="redevance_mois" type="number"/>  
+</label>  
+<label>  واجب الكريمة (درهم/10 سنين)<input min="0" name="redevance_10ans" type="number"/>  
+</label>  
+<label>  مدة أخرى للواجب<input name="autre_periodicite_redevance" type="text"/>  
+</label>  
+<label class="required">  <span class="style2">  المسافة اليومية (كلم)<input min="1" name="distance_parcourue" required="" type="number"/>  
+</label>  
+<label class="required">  <span class="style2">  عدد الكويرسات فالنهار<input min="0" name="courses_par_jour" required="" type="number"/>  
+</label>  
+<label class="required">  <span class="style2">  عدد الكليان فالنهار<input min="0" name="passagers_par_jour" required="" type="number"/>  
+</label>  
+<label>  شكون كايخلص التأمين؟  
+<div class="radio-option">  
+<input id="assurance_vous" name="prise_charge_assurance" type="radio" value="vous"/>  
+<label for="assurance_vous">  نتا</label>  
+
+<input id="assurance_proprio" name="prise_charge_assurance" type="radio" value="proprietaire"/>  
+<label for="assurance_proprio">  مول الطاكسي</label>  
+
+<input id="assurance_partage" name="prise_charge_assurance" type="radio" value="partage"/>  
+<label for="assurance_partage">  مقسم</label>  
+</div>  
+</div>  
+</label>  
+<label id="part_assurance_label" style="display:none;">  النسبة لي عليك فالتأمين (%)<input max="100" min="0" name="part_assurance" type="number"/>  
+</label>  
+<label>  شكون كايخلص الصيانة؟  
+<div class="radio-option">  
+<input id="entretien_vous" name="prise_charge_entretien" type="radio" value="vous"/>  
+<label for="entretien_vous">  نتا</label>  
+
+<input id="entretien_proprio" name="prise_charge_entretien" type="radio" value="proprietaire"/>  
+<label for="entretien_proprio">  مول الطاكسي</label>  
+
+<input id="entretien_partage" name="prise_charge_entretien" type="radio" value="partage"/>  
+<label for="entretien_partage">  مقسم</label>  
+</div>  
+</div>  
+</label>  
+<label id="part_entretien_label" style="display:none;">  النسبة لي عليك فالصيانة (%)<input max="100" min="0" name="part_entretien" type="number"/>  
+</label>  
+<label>  شكون كايخلص الريباراسيون؟  
+<div class="radio-option">  
+<input id="reparations_vous" name="prise_charge_reparations" type="radio" value="vous"/>  
+<label for="reparations_vous">  نتا</label>  
+
+<input id="reparations_proprio" name="prise_charge_reparations" type="radio" value="proprietaire"/>  
+<label for="reparations_proprio">  مول الطاكسي</label>  
+
+<input id="reparations_partage" name="prise_charge_reparations" type="radio" value="partage"/>  
+<label for="reparations_partage">  مقسم</label>  
+</div>  
+</div>  
+</label>  
+<label id="part_reparations_label" style="display:none;">  النسبة لي عليك فالريباراسيون (%)<input max="100" min="0" name="part_reparations" type="number"/>  
+</label>  
+<label class="required">  <span class="style2">  المدخول الخام فالنهار (درهم)<input min="0" name="revenu_brut" required="" type="number"/>  
+</label>  
+<label class="required">  <span class="style2">  المدخول الصافي فالنهار (درهم)<input min="0" name="revenu_net" required="" type="number"/>  
+</label>  
+<label>  واش كاتستعمل شي وسيلة باش تراقب المداخيل  
+<div class="radio-option">  
+<input id="suivi_cahier" name="outil_suivi" type="radio" value="cahier"/>  
+<label for="suivi_cahier">  كناش</label>  
+
+<input id="suivi_app" name="outil_suivi" type="radio" value="application"/>  
+<label for="suivi_app">  تطبيق</label>  
+
+<input id="suivi_aucun" name="outil_suivi" type="radio" value="aucun"/>  
+<label for="suivi_aucun">  ما كاينش</label>  
+</div>  
+</div>  
+</label>  
+<label>  مدخول آخر  
+<div class="radio-option">  
+<input id="autre_revenu_oui" name="autre_revenu" type="radio" value="oui"/>  
+<label for="autre_revenu_oui">  إيه</label>  
+
+<input id="autre_revenu_non" name="autre_revenu" type="radio" value="non"/>  
+<label for="autre_revenu_non">  لا</label>  
+</div>  
+</div>  
+</label>  
+<label id="preciser_revenu_label" style="display:none;">  وضح ليا المدخول الآخر<input name="autre_revenu_precision" type="text"/>  
+</label>  
+</fieldset>  
+
+<fieldset class="form-section" id="section4" style="display:none;">  
+<h2>  4. Perception du métier</h2>  
+<label class="required">  <span class="style2">  تطور الطلب (فـ3 سنين لي فاتت)<select name="evolution_demande" required="">  
+<option value="">  اختار...</option>  
+<option value="forte_baisse">  نقص كبير</option>  
+<option value="legere_baisse">  نقص بسيط</option>  
+<option value="stable">  مستقر</option>  
+<option value="hausse">  زايد</option>  
+</select>  
+</label>  
+<label>  المنافسة الكبيرة<div class="checkbox-group">  
+<div class="checkbox-option">  
+<input id="concurrence_plateformes" name="concurrence[]" type="checkbox" value="plateformes"/>  
+<label for="concurrence_plateformes">  منصات ف الانترنت</label>  
+</div>  
+<div class="checkbox-option">  
+<input id="concurrence_informel" name="concurrence[]" type="checkbox" value="informel"/>  
+<label for="concurrence_informel">  طروطوار/طاكسيات بلا قانون</label>  
+</div>  
+<div class="checkbox-option">  
+<input id="concurrence_bus" name="concurrence[]" type="checkbox" value="bus"/>  
+<label for="concurrence_bus">  طوبيسات</label>  
+</div>  
+<div class="checkbox-option">  
+<input id="concurrence_taxis" name="concurrence[]" type="checkbox" value="taxis"/>  
+<label for="concurrence_taxis">  طاكسيات أخرى</label>  
+</div>  
+<div class="checkbox-option">  
+<input id="concurrence_aucun" name="concurrence[]" type="checkbox" value="aucun"/>  
+<label for="concurrence_aucun">  ما كاينش</label>  
+</div>  
+</div>  
+</label>  
+<label class="required">  <span class="style2">  واش عندك تليفون نيت؟  
+<div class="radio-option">  
+<input id="smartphone_oui" name="smartphone" required="" type="radio" value="oui"/>  
+<label for="smartphone_oui">  إيه</label>  
+
+<input id="smartphone_non" name="smartphone" required="" type="radio" value="non"/>  
+<label for="smartphone_non">  لا</label>  
+</div>  
+</div>  
+</label>  
+<label>  واش كاتستعمل تطبيق باش تجيب الكليان؟  
+<div class="radio-option">  
+<input id="app_oui" name="app_reservation" type="radio" value="oui"/>  
+<label for="app_oui">  إيه</label>  
+
+<input id="app_non" name="app_reservation" type="radio" value="non"/>  
+<label for="app_non">  لا</label>  
+</div>  
+</div>  
+</label>  
+<label>  منتمي لشي سنترال ديال التليفون؟  
+<div class="radio-option">  
+<input id="centrale_oui" name="centrale_telephonique" type="radio" value="oui"/>  
+<label for="centrale_oui">  إيه</label>  
+
+<input id="centrale_non" name="centrale_telephonique" type="radio" value="non"/>  
+<label for="centrale_non">  لا</label>  
+</div>  
+</div>  
+</label>  
+<label>  واش واجد تزود طاكسي ديالك ب:<div class="checkbox-group">  
+<div class="checkbox-option">  
+<input id="equipement_gps" name="equipements[]" type="checkbox" value="gps"/>  
+<label for="equipement_gps">  جي بي إس</label>  
+
+<input id="equipement_app" name="equipements[]" type="checkbox" value="application"/>  
+<label for="equipement_app">  تطبيق مهني</label>  
+
+<input id="equipement_paiement" name="equipements[]" type="checkbox" value="paiement"/>  
+<label for="equipement_paiement">  تيرمينال ديال الخلاص</label>  
+</div>  
+</div>  
+</label>  
+<label>  واش واجد تدخل ل:<div class="checkbox-group">  
+<div class="checkbox-option">  
+<input id="integration_coop" name="integrations[]" type="checkbox" value="cooperative"/>  
+<label for="integration_coop">  تعاونية</label>  
+
+<input id="integration_plateforme" name="integrations[]" type="checkbox" value="plateforme"/>  
+<label for="integration_plateforme">  منصة إلكترونية</label>  
+
+<input id="integration_societe" name="integrations[]" type="checkbox" value="societe"/>  
+<label for="integration_societe">  شركة ديال التسيير</label>  
+
+<input id="integration_centrale" name="integrations[]" type="checkbox" value="centrale"/>  
+<label for="integration_centrale">  سنترال ديال التليفون</label>  
+
+<input id="integration_aucun" name="integrations[]" type="checkbox" value="aucun"/>  
+<label for="integration_aucun">  Aucune</label>  
+</div>  
+</div>  
+</label>  
+</fieldset>  
+
+
+
+<fieldset class="form-section" id="section5" style="display:none;">  
+<h2>  5. Représentations et suggestions</h2>  
+<label class="required">  <span class="style2">  كيفاش كيبان ليك هاد الخدمة دابا:  
+<div class="radio-option">  
+<input id="valorise_oui" name="valorisation_metier" required="" type="radio" value="valorise"/>  
+<label for="valorise_oui">  معتبر</label>  
+
+<input id="valorise_non" name="valorisation_metier" required="" type="radio" value="devalorise"/>  
+<label for="valorise_non">  محكور</label>  
+</div>  
+</div>  
+</label>  
+<label class="required">  <span class="style2">  كيفاش كيبان ليك هاد الخدمة دابا:  
+<div class="radio-option">  
+<input id="stable_oui" name="stabilite_metier" required="" type="radio" value="stable"/>  
+<label for="stable_oui">  مستقر</label>  
+
+<input id="stable_non" name="stabilite_metier" required="" type="radio" value="declinant"/>  
+<label for="stable_non">  ناقص</label>  
+</div>  
+</div>  
+</label>  
+<label class="required">  <span class="style2">  بغيتي تبقى فهاد الخدمة؟  
+<div class="radio-option">  
+<input id="continuer_oui" name="continuer_metier" required="" type="radio" value="oui"/>  
+<label for="continuer_oui">  إيه</label>  
+
+<input id="continuer_non" name="continuer_metier" required="" type="radio" value="non"/>  
+<label for="continuer_non">  لا</label>  
+</div>  
+</div>  
+</label>  
+<label class="required">  <span class="style2">  بغيتي تدوز تكوينات مهنية؟  
+<div class="radio-option">  
+<input id="formation_oui" name="formation_professionnelle" required="" type="radio" value="oui"/>  
+<label for="formation_oui">  إيه</label>  
+
+<input id="formation_non" name="formation_professionnelle" required="" type="radio" value="non"/>  
+<label for="formation_non">  لا</label>  
+</div>  
+</div>  
+</label>  
+<label class="required">  <span class="style2">شنو هما أكبر 3 مشاكل فهاد القطاع؟<div style="margin-bottom: 10px;">
+<input name="probleme1" placeholder="Problème 1" required="" type="text"/>
+</div>
+<div style="margin-bottom: 10px;">
+<input name="probleme2" placeholder="Problème 2" required="" type="text"/>
+</div>
+<div>
+<input name="probleme3" placeholder="Problème 3" required="" type="text"/>
+</div>
+</label>
+<label>اقتراحات للتحسين (الراحة، السلامة...)<textarea name="propositions" rows="4"></textarea>
+</label>
+</fieldset>
+<div class="section-nav" id="navButtons0">
+<button disabled="" type="button">السابق</button>
+<button id="nextBtn0" onClick="nextSection(0)" type="button">الموالي</button>
+</div>
+<div class="section-nav" id="navButtons1" style="display:none;">
+<button id="prevBtn1" onClick="prevSection(1)" type="button">السابق</button>
+<button id="nextBtn1" onClick="nextSection(1)" type="button">الموالي</button>
+</div>
+<div class="section-nav" id="navButtons2" style="display:none;">
+<button id="prevBtn2" onClick="prevSection(2)" type="button">السابق</button>
+<button id="nextBtn2" onClick="nextSection(2)" type="button">الموالي</button>
+</div>
+<div class="section-nav" id="navButtons3" style="display:none;">
+<button id="prevBtn3" onClick="prevSection(3)" type="button">السابق</button>
+<button id="nextBtn3" onClick="nextSection(3)" type="button">الموالي</button>
+</div>
+<div class="section-nav" id="navButtons4" style="display:none;">
+<button id="prevBtn4" onClick="prevSection(4)" type="button">السابق</button>
+<button id="nextBtn4" onClick="nextSection(4)" type="button">الموالي</button>
+</div>
+<button id="submitBtn" style="display:none;" type="submit">صيفط الاستمارة</button>
+</form>
+<script>
+// Variables globales
+let currentSection = 0;
+const totalSections = 5;
+
+// Afficher la première section au chargement
+document.getElementById('section0').style.display = 'block';
+updateProgressBar();
+
+// Gestion des champs conditionnels
+document.querySelectorAll('input[name="autre_activite"]').forEach(radio => {
+  radio.addEventListener('change', function() {
+    document.getElementById('preciser_activite_label').style.display = 
+      this.value === 'oui' ? 'block' : 'none';
+  });
+});
+
+// ... (le reste des gestionnaires de champs conditionnels)
+
+// Navigation entre sections
+function nextSection(sectionNum) {
+  if (!validateSection(sectionNum)) return;
+  
+  document.getElementById(`section${sectionNum}`).style.display = 'none';
+  document.getElementById(`navButtons${sectionNum}`).style.display = 'none';
+  
+  currentSection = sectionNum + 1;
+  document.getElementById(`section${currentSection}`).style.display = 'block';
+  
+  if (currentSection < totalSections) {
+    document.getElementById(`navButtons${currentSection}`).style.display = 'flex';
+  } else {
+    document.getElementById('submitBtn').style.display = 'block';
+  }
+  
+  updateProgressBar();
+  window.scrollTo(0, 0);
+}
+
+function prevSection(sectionNum) {
+  document.getElementById(`section${sectionNum}`).style.display = 'none';
+  document.getElementById(`navButtons${sectionNum}`).style.display = 'none';
+  
+  currentSection = sectionNum - 1;
+  document.getElementById(`section${currentSection}`).style.display = 'block';
+  
+  if (currentSection < totalSections) {
+    document.getElementById(`navButtons${currentSection}`).style.display = 'flex';
+    document.getElementById('submitBtn').style.display = 'none';
+  }
+  
+  updateProgressBar();
+  window.scrollTo(0, 0);
+}
+
+// Validation des champs obligatoires par section
+function validateSection(sectionNum) {
+  let isValid = true;
+  const section = document.getElementById(`section${sectionNum}`);
+  const requiredInputs = section.querySelectorAll('[required]');
+  
+  requiredInputs.forEach(input => {
+    if (input.type === 'checkbox' || input.type === 'radio') {
+      const name = input.name;
+      const checked = section.querySelector(`input[name="${name}"]:checked`);
+      if (!checked) {
+        isValid = false;
+        // Mettre en évidence le groupe de boutons radio
+        const group = input.closest('.radio-group') || input.closest('.checkbox-group');
+        if (group) group.style.border = '1px solid red';
+      }
+    } else if (!input.value) {
+      input.classList.add('error');
+      isValid = false;
+    } else {
+      input.classList.remove('error');
+    }
+  });
+  
+  if (!isValid) {
+    alert('يرجى ملء جميع الحقول الإلزامية المشار إليها بعلامة النجمة (*)');
+    const firstError = section.querySelector('.error') || 
+                      section.querySelector('input[required]:not(:checked)');
+    if (firstError) {
+      firstError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      if (firstError.type !== 'radio' && firstError.type !== 'checkbox') {
+        firstError.focus();
+      }
+    }
+  }
+  
+  return isValid;
+}
+
+// Mise à jour de la barre de progression
+function updateProgressBar() {
+  const progress = (currentSection / totalSections) * 100;
+  document.getElementById('progressBar').style.width = `${progress}%`;
+}
+
+// Gestion de la soumission du formulaire
+document.getElementById('taxiForm').addEventListener('submit', function(e) {
+  // Netlify gère automatiquement la soumission
+  // Nous ajoutons juste un feedback visuel
+  const submitBtn = document.getElementById('submitBtn');
+  submitBtn.disabled = true;
+  submitBtn.textContent = 'جاري الإرسال...';
+  
+  // Vérifier si c'est un bot (honeypot field rempli)
+  const honeypot = document.querySelector('input[name="bot-field"]');
+  if (honeypot && honeypot.value) {
+    e.preventDefault();
+    document.getElementById('alert-error').style.display = 'block';
+    submitBtn.disabled = false;
+    submitBtn.textContent = 'صيفط الاستمارة';
+    return false;
+  }
+  
+  // Réinitialiser après 5 secondes (au cas où la redirection ne fonctionne pas)
+  setTimeout(() => {
+    submitBtn.disabled = false;
+    submitBtn.textContent = 'صيفط الاستمارة';
+  }, 5000);
+});
+
+// Vérifier les paramètres d'URL pour afficher les messages de confirmation
+window.addEventListener('load', function() {
+  const urlParams = new URLSearchParams(window.location.search);
+  if (urlParams.get('success')) {
+    document.getElementById('alert-success').style.display = 'block';
+    // Faire défiler jusqu'au message de succès
+    setTimeout(() => {
+      document.getElementById('alert-success').scrollIntoView({ behavior: 'smooth' });
+    }, 500);
+  } else if (urlParams.get('error')) {
+    document.getElementById('alert-error').style.display = 'block';
+  }
+});
+</script>
+<script>
+  const scriptURL = "https://script.google.com/macros/s/AKfycbzXidxVAl8Za2FkMggqDa-1LX6Eh-J3mGyJZDol0djEF21HFCN4UOpzxbIJygP_CySn/exec"; // colle l'URL de ton script Google Apps Script
+
+  document.getElementById("taxiForm").addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const formData = new FormData(e.target);
+    const data = Object.fromEntries(formData);
+    
+    try {
+      let response = await fetch(scriptURL, {
+        method: "POST",
+        body: JSON.stringify(data)
+      });
+      document.getElementById("alert-success").style.display = "block";
+      e.target.reset();
+    } catch (error) {
+      document.getElementById("alert-error").style.display = "block";
+    }
+  });
+</script>
+</body>
+</html>
