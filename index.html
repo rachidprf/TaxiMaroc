@@ -251,7 +251,7 @@
 </div>  
 
 <!-- Modification du formulaire pour l'intégration Netlify + Google Sheets -->
-<form id="taxiForm" method="POST" name="taxiForm" action="https://script.google.com/macros/s/AKfycbwyhZZWaoNTisxNidDUKSPm2uuP2-RMpQbFTMb0SfZMJayaTW4eJSgbJC5fHOHw2tgo/exec">
+<form id="taxiForm" method="POST" name="taxiForm" action="https://script.google.com/macros/s/AKfycbxcuBjbEjQCsrqh30PKOnlHX7AqQrTrD_xxP8mAuW84fhBaImkDAtTWrkYJuCS5x_UE/exec">
   <input name="form-name" type="hidden" value="taxiForm"/>  
   
   <!-- Champ honeypot pour la protection anti-spam -->
@@ -1231,6 +1231,8 @@ function validateSection(sectionNum) {
   }
   
   return isValid;
+   window.location.href = "SUCCES.html";
+
 }
 
 // Mise à jour de la barre de progression
@@ -1246,12 +1248,16 @@ document.getElementById('taxiForm').addEventListener('submit', function(e) {
   const submitBtn = document.getElementById('submitBtn');
   submitBtn.disabled = true;
   submitBtn.textContent = 'Envoi en cours...';
+   window.location.href = "SUCCES.html";
   
   // Réinitialiser après 5 secondes (au cas où la redirection ne fonctionne pas)
   setTimeout(() => {
     submitBtn.disabled = false;
     submitBtn.textContent = 'Soumettre le questionnaire';
-  }, 5000);
-});</script>
+  }
+ , 5000);
+});
+
+</script>
 </body>
 </html>
