@@ -1231,7 +1231,6 @@ function validateSection(sectionNum) {
   }
   
   return isValid;
-   //window.location.href = "SUCCES.html";
 
 }
 
@@ -1248,7 +1247,7 @@ document.getElementById('taxiForm').addEventListener('submit', function(e) {
   const submitBtn = document.getElementById('submitBtn');
   submitBtn.disabled = true;
   submitBtn.textContent = 'Envoi en cours...';
-   window.location.href = "SUCCES.html";
+  // window.location.href = "SUCCES.html";
   
   // Réinitialiser après 5 secondes (au cas où la redirection ne fonctionne pas)
   setTimeout(() => {
