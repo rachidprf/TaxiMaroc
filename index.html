@@ -9,91 +9,338 @@
 <style>
 :root {
   --primary: #2c3e50;
-  --secondary: #3498db;
-  --light: #f5f7fa;
-  --danger: #e74c3c;
+  --secondary: #e74c3c;
+  --accent: #f39c12;
+  --light: #ecf0f1;
+  --dark: #2c3e50;
+  --success: #27ae60;
 }
-*{box-sizing:border-box}
-body{
-  margin:0;
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
   font-family: 'Noto Naskh Arabic', serif;
-  background:var(--light);
-  color:#222;
-  direction:rtl;
-  -webkit-font-smoothing:antialiased;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  color: #333;
+  direction: rtl;
+  line-height: 1.6;
+  padding: 0;
+  margin: 0;
 }
-header{position:relative;width:100%;overflow:hidden}
-header img{width:100%;height:auto;display:block;object-fit:cover}
-.header-title{
-  position:absolute;
-  inset:0;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  pointer-events:none;
+
+.header-container {
+  background: var(--dark);
+  padding: 1rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
-.header-title h1{
-  margin:0;
-  background:rgba(0,0,0,0.55);
-  color:#fff;
-  padding:12px 18px;
-  border-radius:10px;
-  font-size:clamp(18px,3.2vw,28px);
-  pointer-events:auto;
-  text-align:center;
+
+.header-title {
+  text-align: center;
+  color: white;
+  font-size: 1.8rem;
+  padding: 1rem 0;
 }
-.container{max-width:920px;margin:14px auto;padding:12px}
-.progress-container{width:100%;background:#ddd;border-radius:8px;height:10px;overflow:hidden;margin:12px 0}
-.progress-bar{height:100%;background:var(--secondary);width:0;transition:width .25s}
-form{margin-top:6px}
-fieldset{
-  background:#fff;border:1px solid #e3e6ea;border-radius:12px;
-  padding:14px;margin:18px 0;box-shadow:0 6px 18px rgba(20,30,40,0.04)
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px;
 }
-legend{font-weight:700;color:var(--primary);padding:0 8px}
-label{display:block;margin:8px 0;font-size:0.98rem}
-input[type="text"], input[type="number"], input[type="date"], input[type="time"], select, textarea{
-  width:100%;padding:10px;border-radius:8px;border:1px solid #d1d7dd;font-size:1rem;background:#fff;
+
+.welcome-text {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+  text-align: center;
+  font-size: 1.1rem;
+  border-right: 4px solid var(--secondary);
 }
-textarea{min-height:80px;resize:vertical}
-.radio-group, .checkbox-group{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:8px;margin-top:6px}
-.radio-option, .checkbox-option{display:flex;align-items:center;gap:8px}
-.inline{display:flex;gap:12px;flex-wrap:wrap}
-.small{font-size:0.9rem;color:#555}
-.badge{display:inline-block;background:var(--secondary);color:#fff;padding:4px 8px;border-radius:999px;font-size:0.8rem;margin-inline-start:8px}
-.nav-buttons{display:flex;gap:10px;margin:10px 0}
-.nav-buttons button{flex:1;padding:12px;border-radius:10px;border:0;font-weight:700;cursor:pointer}
-.btn-primary{background:var(--secondary);color:#fff}
-.btn-secondary{background:#fff;border:1px solid #cbd5df;color:var(--primary)}
-.btn-disabled{background:#9aa7b2;color:#fff;cursor:not-allowed}
-.required::after{content:" *";color:var(--danger)}
-.error{border-color:var(--danger) !important;box-shadow:0 0 0 3px rgba(231,76,60,0.06)}
-footer{margin:18px 0;text-align:center;color:#666;font-size:0.95rem}
-@media (max-width:520px){
-  .header-title h1{font-size:18px;padding:8px 12px}
-  fieldset{padding:12px;margin:12px 0}
+
+.progress-container {
+  width: 100%;
+  background: #ddd;
+  border-radius: 20px;
+  height: 15px;
+  overflow: hidden;
+  margin: 20px 0;
+  box-shadow: inset 0 1px 3px rgba(0,0,0,0.2);
+}
+
+.progress-bar {
+  height: 100%;
+  background: linear-gradient(90deg, var(--secondary), var(--accent));
+  width: 0;
+  transition: width 0.5s ease;
+  border-radius: 20px;
+}
+
+form {
+  margin-top: 20px;
+}
+
+fieldset {
+  background: white;
+  border: none;
+  border-radius: 15px;
+  padding: 25px;
+  margin: 25px 0;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+  position: relative;
+  overflow: hidden;
+}
+
+fieldset::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 5px;
+  height: 100%;
+  background: var(--secondary);
+}
+
+legend {
+  font-weight: 700;
+  color: var(--dark);
+  padding: 0 15px;
+  font-size: 1.3rem;
+  margin-bottom: 15px;
+  background: var(--light);
+  border-radius: 30px;
+  padding: 10px 20px;
+  display: inline-block;
+}
+
+label {
+  display: block;
+  margin: 15px 0 8px;
+  font-size: 1rem;
+  color: #444;
+  font-weight: 500;
+}
+
+input[type="text"], 
+input[type="number"], 
+input[type="date"], 
+input[type="time"], 
+select, 
+textarea {
+  width: 100%;
+  padding: 14px;
+  border-radius: 8px;
+  border: 2px solid #ddd;
+  font-size: 1rem;
+  background: #f9f9f9;
+  transition: all 0.3s ease;
+}
+
+input[type="text"]:focus, 
+input[type="number"]:focus, 
+input[type="date"]:focus, 
+input[type="time"]:focus, 
+select:focus, 
+textarea:focus {
+  border-color: var(--secondary);
+  box-shadow: 0 0 0 3px rgba(231, 76, 60, 0.2);
+  outline: none;
+  background: white;
+}
+
+textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+.radio-group, 
+.checkbox-group {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 12px;
+  margin-top: 10px;
+}
+
+.radio-option, 
+.checkbox-option {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px;
+  background: #f5f5f5;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+}
+
+.radio-option:hover, 
+.checkbox-option:hover {
+  background: #e9e9e9;
+  transform: translateY(-2px);
+}
+
+.inline {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.inline > * {
+  flex: 1;
+  min-width: 200px;
+}
+
+.small {
+  font-size: 0.9rem;
+  color: #666;
+  margin-top: 5px;
+  font-style: italic;
+}
+
+.badge {
+  display: inline-block;
+  background: var(--accent);
+  color: white;
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  margin-inline-start: 10px;
+  font-weight: bold;
+}
+
+.nav-buttons {
+  display: flex;
+  gap: 15px;
+  margin: 25px 0;
+  justify-content: center;
+}
+
+.nav-buttons button {
+  flex: 1;
+  max-width: 200px;
+  padding: 16px;
+  border-radius: 50px;
+  border: none;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 1rem;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.btn-primary {
+  background: linear-gradient(45deg, var(--secondary), var(--accent));
+  color: white;
+}
+
+.btn-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}
+
+.btn-secondary {
+  background: white;
+  border: 2px solid var(--dark);
+  color: var(--dark);
+}
+
+.btn-secondary:hover {
+  background: var(--dark);
+  color: white;
+}
+
+.btn-disabled {
+  background: #bdc3c7;
+  color: #7f8c8d;
+  cursor: not-allowed;
+}
+
+.required::after {
+  content: " *";
+  color: var(--secondary);
+  font-weight: bold;
+}
+
+.error {
+  border-color: var(--secondary) !important;
+  box-shadow: 0 0 0 3px rgba(231, 76, 60, 0.2) !important;
+}
+
+footer {
+  margin: 30px 0;
+  text-align: center;
+  color: #7f8c8d;
+  font-size: 0.9rem;
+  padding: 20px;
+  border-top: 1px solid #ddd;
+}
+
+.section-header {
+  background: var(--secondary);
+  color: white;
+  padding: 12px;
+  text-align: center;
+  border-radius: 5px;
+  margin: 15px 0;
+  font-weight: bold;
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 15px;
+  }
+  
+  .inline {
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .inline > * {
+    min-width: 100%;
+  }
+  
+  .radio-group, 
+  .checkbox-group {
+    grid-template-columns: 1fr;
+  }
+  
+  .nav-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .nav-buttons button {
+    max-width: 100%;
+  }
+  
+  fieldset {
+    padding: 20px 15px;
+  }
 }
 </style>
 </head>
 <body>
 
-<header>
-  <img src="1.png" alt="Banner">
-  <div class="header-title"><h1>استمارة لمهنيين ديال الطاكسيات</h1></div>
-</header>
+<div class="header-container">
+  <div class="header-title">
+    <h1>استمارة لمهنيين ديال الطاكسيات</h1>
+  </div>
+</div>
 
 <div class="container">
-  <div class="small">السلام عليكم — شكراً لمشاركتك. الهدف من هاد الاستمارة هو جمع معلومات ميدانية على وضعيات مهنيي الطاكسيات.</div>
-  <div class="progress-container"><div id="progressBar" class="progress-bar"></div></div>
+  <div class="welcome-text">
+    السلام عليكم — شكراً لمشاركتك. الهدف من هاد الاستمارة هو جمع معلومات ميدانية على وضعيات مهنيي الطاكسيات.
+  </div>
+  
+  <div class="progress-container">
+    <div id="progressBar" class="progress-bar"></div>
+  </div>
 
-  <!-- Form: change action to your Apps Script or desired endpoint -->
- <form id="taxiForm" method="POST" action="https://script.google.com/macros/s/AKfycbzpUcgmcOVBTcU-l7ReWAivqYGGRumj5spQq51sQ2TreztUpdODKVohP_IQ4QqkpIpU/exec" onSubmit="return checkConsent();">
+  <form id="taxiForm" method="POST" action="https://script.google.com/macros/s/AKfycbxbg9txC5HcTLuFgaJZ36PGKoP_FhmQVqp6Awya0TM9nhmM_IpIylyO9YhiCRwUU5_q/exec" onSubmit="return checkConsent();">
     <input type="hidden" name="form-name" value="taxiForm">
-	
-	
-
-	
-	
     <p style="display:none"><label>لا تملأ هذا الحقل: <input name="bot-field"></label></p>
 
     <!-- SECTION 0: بيانات الباحث -->
@@ -112,15 +359,22 @@ footer{margin:18px 0;text-align:center;color:#666;font-size:0.95rem}
     <!-- SECTION 1: الملف الشخصي والحالة المهنية -->
     <fieldset id="section1" style="display:none">
       <legend>1) الملف الشخصي والحالة المهنية</legend>
-
-      <label class="required">نوع الطاكسي
+	  
+      <div class="section-header">نوع الطاكسي</div>
+      <label class="required">
         <div class="radio-group">
           <label class="radio-option"><input type="radio" name="type_taxi" value="طاكسي صغير" > طاكسي صغير</label>
           <label class="radio-option"><input type="radio" name="type_taxi" value="طاكسي كبير" > طاكسي كبير</label>
         </div>
       </label>
 
-      <label class="required">الفئة العمرية
+      <table width="100%" border="0">
+   <tr>
+	  <td bgcolor= "#3498db" align="center" height="35" >
+	  <label class="">  <span class="style2">  الفئة العمرية</span>  
+	  </TD>
+	</tr>
+</table> 
         <div class="radio-group">
           <label class="radio-option"><input type="radio" name="age" value="أقل من 30" > أقل من 30 عام</label>
           <label class="radio-option"><input type="radio" name="age" value="31-45" > من 31 حتى 45 عام</label>
@@ -156,11 +410,11 @@ footer{margin:18px 0;text-align:center;color:#666;font-size:0.95rem}
 
       <label>اللغات
         <div class="checkbox-group">
-          <label class="checkbox-option"><input type="checkbox" name="langues[]" value="الفرنسية"> الفرنسية</label>
-          <label class="checkbox-option"><input type="checkbox" name="langues[]" value="الإنجليزية"> الإنجليزية</label>
-          <label class="checkbox-option"><input type="checkbox" name="langues[]" value="الإسبانية"> الإسبانية</label>
-          <label class="checkbox-option"><input type="checkbox" name="langues[]" value="الإيطالية"> الإيطالية</label>
-          <label class="checkbox-option"><input type="checkbox" name="langues[]" value="الألمانية"> الألمانية</label>
+          <label class="checkbox-option"><input type="checkbox" name="langues" value="الفرنسية"> الفرنسية</label>
+          <label class="checkbox-option"><input type="checkbox" name="langues" value="الإنجليزية"> الإنجليزية</label>
+          <label class="checkbox-option"><input type="checkbox" name="langues" value="الإسبانية"> الإسبانية</label>
+          <label class="checkbox-option"><input type="checkbox" name="langues" value="الإيطالية"> الإيطالية</label>
+          <label class="checkbox-option"><input type="checkbox" name="langues" value="الألمانية"> الألمانية</label>
           <label class="checkbox-option"><input type="text" name="langue_autre" placeholder="أخرى..."></label>
         </div>
       </label>
@@ -223,9 +477,9 @@ footer{margin:18px 0;text-align:center;color:#666;font-size:0.95rem}
 
       <label class="required">تكوينات مهنية
         <div class="checkbox-group">
-          <label class="checkbox-option"><input type="checkbox" name="formations[]" value="تكوين أولي"> تكوين أولي</label>
-          <label class="checkbox-option"><input type="checkbox" name="formations[]" value="تكوين مستمر"> تكوين مستمر</label>
-          <label class="checkbox-option"><input type="checkbox" name="formations[]" value="ما درتش"> ما درتش</label>
+          <label class="checkbox-option"><input type="checkbox" name="formations" value="تكوين أولي"> تكوين أولي</label>
+          <label class="checkbox-option"><input type="checkbox" name="formations" value="تكوين مستمر"> تكوين مستمر</label>
+          <label class="checkbox-option"><input type="checkbox" name="formations" value="ما درتش"> ما درتش</label>
         </div>
       </label>
 
@@ -383,9 +637,9 @@ footer{margin:18px 0;text-align:center;color:#666;font-size:0.95rem}
 
       <label class="required">آش من سرفيس كتدير؟
         <div class="checkbox-group">
-          <label class="checkbox-option"><input type="checkbox" name="service_mode[]" value="جماعي خط ثابت"> جماعي - خط ثابت</label>
-          <label class="checkbox-option"><input type="checkbox" name="service_mode[]" value="جماعي حسب الطلب"> جماعي - حسب الطلب</label>
-          <label class="checkbox-option"><input type="checkbox" name="service_mode[]" value="الكورصا"> بالكورصا (واحد فكل مرة)</label>
+          <label class="checkbox-option"><input type="checkbox" name="service_mode" value="جماعي خط ثابت"> جماعي - خط ثابت</label>
+          <label class="checkbox-option"><input type="checkbox" name="service_mode" value="جماعي حسب الطلب"> جماعي - حسب الطلب</label>
+          <label class="checkbox-option"><input type="checkbox" name="service_mode" value="الكورصا"> بالكورصا (واحد فكل مرة)</label>
         </div>
       </label>
 
@@ -421,19 +675,19 @@ footer{margin:18px 0;text-align:center;color:#666;font-size:0.95rem}
 
         <label>واش كاين تنظيم لهذا الخط؟ من طرف من؟
           <div class="checkbox-group">
-            <label class="checkbox-option"><input type="checkbox" name="organisation_ligne[]" value="مسؤول المحطة"> مسؤول المحطة</label>
-            <label class="checkbox-option"><input type="checkbox" name="organisation_ligne[]" value="السلطات المحلية"> السلطات المحلية</label>
-            <label class="checkbox-option"><input type="checkbox" name="organisation_ligne[]" value="نقابة/جمعية"> نقابة/جمعية</label>
-            <label class="checkbox-option"><input type="checkbox" name="organisation_ligne[]" value="لا"> لا</label>
+            <label class="checkbox-option"><input type="checkbox" name="organisation_ligne" value="مسؤول المحطة"> مسؤول المحطة</label>
+            <label class="checkbox-option"><input type="checkbox" name="organisation_ligne" value="السلطات المحلية"> السلطات المحلية</label>
+            <label class="checkbox-option"><input type="checkbox" name="organisation_ligne" value="نقابة/جمعية"> نقابة/جمعية</label>
+            <label class="checkbox-option"><input type="checkbox" name="organisation_ligne" value="لا"> لا</label>
           </div>
         </label>
 
         <label>كيفاش الكليان كيعرف الخط ديالك؟
           <div class="checkbox-group">
-            <label class="checkbox-option"><input type="checkbox" name="info_ligne[]" value="مكتوبة فالمحطة"> مكتوبة فالمحطة</label>
-            <label class="checkbox-option"><input type="checkbox" name="info_ligne[]" value="مكتوبة فالسيارة"> مكتوبة فالسيارة</label>
-            <label class="checkbox-option"><input type="checkbox" name="info_ligne[]" value="شفويا"> شفويا</label>
-            <label class="checkbox-option"><input type="checkbox" name="info_ligne[]" value="تطبيق"> عبر تطبيق</label>
+            <label class="checkbox-option"><input type="checkbox" name="info_ligne" value="مكتوبة فالمحطة"> مكتوبة فالمحطة</label>
+            <label class="checkbox-option"><input type="checkbox" name="info_ligne" value="مكتوبة فالسيارة"> مكتوبة فالسيارة</label>
+            <label class="checkbox-option"><input type="checkbox" name="info_ligne" value="شفويا"> شفويا</label>
+            <label class="checkbox-option"><input type="checkbox" name="info_ligne" value="تطبيق"> عبر تطبيق</label>
             <label class="checkbox-option"><input type="text" name="info_ligne_autre" placeholder="أخرى..."></label>
           </div>
         </label>
@@ -458,19 +712,19 @@ footer{margin:18px 0;text-align:center;color:#666;font-size:0.95rem}
 
         <label>كيفاش كيتحدد الاختيار؟
           <div class="checkbox-group">
-            <label class="checkbox-option"><input type="checkbox" name="criteres_zones[]" value="الطلب"> حسب الطلب</label>
-            <label class="checkbox-option"><input type="checkbox" name="criteres_zones[]" value="قريبة من الدار"> قريبة من الدار</label>
-            <label class="checkbox-option"><input type="checkbox" name="criteres_zones[]" value="مربحة"> مربحة</label>
+            <label class="checkbox-option"><input type="checkbox" name="criteres_zones" value="الطلب"> حسب الطلب</label>
+            <label class="checkbox-option"><input type="checkbox" name="criteres_zones" value="قريبة من الدار"> قريبة من الدار</label>
+            <label class="checkbox-option"><input type="checkbox" name="criteres_zones" value="مربحة"> مربحة</label>
             <label class="checkbox-option"><input type="text" name="criteres_zones_autre" placeholder="أخرى..."></label>
           </div>
         </label>
 
         <label>واش كاين تنظيم لهد الرحلات؟ من طرف من؟
           <div class="checkbox-group">
-            <label class="checkbox-option"><input type="checkbox" name="organisation_demande[]" value="المحطة"> المحطة</label>
-            <label class="checkbox-option"><input type="checkbox" name="organisation_demande[]" value="السلطات المحلية"> السلطات المحلية</label>
-            <label class="checkbox-option"><input type="checkbox" name="organisation_demande[]" value="نقابة/جمعية"> نقابة/جمعية</label>
-            <label class="checkbox-option"><input type="checkbox" name="organisation_demande[]" value="لا"> لا</label>
+            <label class="checkbox-option"><input type="checkbox" name="organisation_demande" value="المحطة"> المحطة</label>
+            <label class="checkbox-option"><input type="checkbox" name="organisation_demande" value="السلطات المحلية"> السلطات المحلية</label>
+            <label class="checkbox-option"><input type="checkbox" name="organisation_demande" value="نقابة/جمعية"> نقابة/جمعية</label>
+            <label class="checkbox-option"><input type="checkbox" name="organisation_demande" value="لا"> لا</label>
           </div>
         </label>
       </div>
@@ -603,11 +857,11 @@ footer{margin:18px 0;text-align:center;color:#666;font-size:0.95rem}
 
       <label>المنافسة الرئيسية
         <div class="checkbox-group">
-          <label class="checkbox-option"><input type="checkbox" name="concurrence[]" value="تطبيقات الحجز"> تطبيقات الحجز</label>
-          <label class="checkbox-option"><input type="checkbox" name="concurrence[]" value="النقل العشوائي"> النقل العشوائي</label>
-          <label class="checkbox-option"><input type="checkbox" name="concurrence[]" value="الطوبيس"> الطوبيس</label>
-          <label class="checkbox-option"><input type="checkbox" name="concurrence[]" value="طاكسيات أخرى"> طاكسيات أخرى</label>
-          <label class="checkbox-option"><input type="checkbox" name="concurrence[]" value="غير ذلك"> أخرى</label>
+          <label class="checkbox-option"><input type="checkbox" name="concurrence" value="تطبيقات الحجز"> تطبيقات الحجز</label>
+          <label class="checkbox-option"><input type="checkbox" name="concurrence" value="النقل العشوائي"> النقل العشوائي</label>
+          <label class="checkbox-option"><input type="checkbox" name="concurrence" value="الطوبيس"> الطوبيس</label>
+          <label class="checkbox-option"><input type="checkbox" name="concurrence" value="طاكسيات أخرى"> طاكسيات أخرى</label>
+          <label class="checkbox-option"><input type="checkbox" name="concurrence" value="غير ذلك"> أخرى</label>
         </div>
       </label>
 
@@ -636,26 +890,26 @@ footer{margin:18px 0;text-align:center;color:#666;font-size:0.95rem}
 
       <label>مستعد تركب في الطاكسي ديالك:
         <div class="checkbox-group">
-          <label class="checkbox-option"><input type="checkbox" name="equipements[]" value="GPS"> GPS</label>
-          <label class="checkbox-option"><input type="checkbox" name="equipements[]" value="تطبيق"> تطبيق</label>
-          <label class="checkbox-option"><input type="checkbox" name="equipements[]" value="دفع الكتروني"> جهاز دفع بالبطاقة</label>
+          <label class="checkbox-option"><input type="checkbox" name="equipements" value="GPS"> GPS</label>
+          <label class="checkbox-option"><input type="checkbox" name="equipements" value="تطبيق"> تطبيق</label>
+          <label class="checkbox-option"><input type="checkbox" name="equipements" value="دفع الكتروني"> جهاز دفع بالبطاقة</label>
         </div>
       </label>
 
       <label>موافق تدخل مع:
         <div class="checkbox-group">
-          <label class="checkbox-option"><input type="checkbox" name="integrations[]" value="تعاونية"> تعاونية</label>
-          <label class="checkbox-option"><input type="checkbox" name="integrations[]" value="منصة الكترونية"> منصة إلكترونية</label>
-          <label class="checkbox-option"><input type="checkbox" name="integrations[]" value="شركة تسيير"> شركة تسيير</label>
-          <label class="checkbox-option"><input type="checkbox" name="integrations[]" value="لا"> لا</label>
+          <label class="checkbox-option"><input type="checkbox" name="integrations" value="تعاونية"> تعاونية</label>
+          <label class="checkbox-option"><input type="checkbox" name="integrations" value="منصة الكترونية"> منصة إلكترونية</label>
+          <label class="checkbox-option"><input type="checkbox" name="integrations" value="شركة تسيير"> شركة تسيير</label>
+          <label class="checkbox-option"><input type="checkbox" name="integrations" value="لا"> لا</label>
         </div>
       </label>
 
       <label>شنو المخاطر الكبيرة؟
         <div class="checkbox-group">
-          <label class="checkbox-option"><input type="checkbox" name="risques[]" value="انعدام السلامة"> انعدام السلامة</label>
-          <label class="checkbox-option"><input type="checkbox" name="risques[]" value="الحوادث"> الحوادث</label>
-          <label class="checkbox-option"><input type="checkbox" name="risques[]" value="المرض"> المرض</label>
+          <label class="checkbox-option"><input type="checkbox" name="risques" value="انعدام السلامة"> انعدام السلامة</label>
+          <label class="checkbox-option"><input type="checkbox" name="risques" value="الحوادث"> الحوادث</label>
+          <label class="checkbox-option"><input type="checkbox" name="risques" value="المرض"> المرض</label>
           <label class="checkbox-option"><input type="text" name="risques_autre" placeholder="أخرى..."></label>
         </div>
       </label>
@@ -814,10 +1068,10 @@ document.querySelectorAll('input[name="pointage_systeme"]').forEach(r=>{
 
 /* service collectif -> partage */
 function updateCollectif(){
-  const checked = Array.from(document.querySelectorAll('input[name="service_mode[]"]')).some(c=>c.checked && c.value.includes('جماعي'));
+  const checked = Array.from(document.querySelectorAll('input[name="service_mode"]')).some(c=>c.checked && c.value.includes('جماعي'));
   toggle('bloc_collectif', checked);
 }
-document.querySelectorAll('input[name="service_mode[]"]').forEach(c=>c.addEventListener('change', updateCollectif));
+document.querySelectorAll('input[name="service_mode"]').forEach(c=>c.addEventListener('change', updateCollectif));
 
 /* type service: ligne vs demande */
 document.querySelectorAll('input[name="type_service"]').forEach(r=>{
