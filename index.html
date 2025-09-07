@@ -1,1262 +1,850 @@
-<!DOCTYPE html>  
-<html dir="rtl" lang="ar">  
-<head>  
-<meta charset="utf-8"/>  
-<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport"/>  
-<title>استمارة لمهنيين ديال الطاكسيات</title>  
-<style>  
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
+<title>??????? ??????? ???? ?????????</title>
+<link rel="icon" type="image/png" href="1.png"/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Naskh+Arabic&display=swap" rel="stylesheet"/>
+<style>
 :root {
-      --primary: #2c3e50;
-      --secondary: #3498db;
-      --light: #ecf0f1;
-      --danger: #e74c3c;
-    }
-    
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-    
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      line-height: 1.6;
-      color: #333;
-      background-color: #f5f5f5;
-      padding: 15px;
-      max-width: 100%;
-      overflow-x: hidden;
-    }
-    
-    h1, h2 {
-      color: var(--primary);
-      text-align: center;
-      margin: 15px 0;
-      font-size: 1.5rem;
-    }
-    
-    h2 {
-      font-size: 1.3rem;
-      text-align: left;
-      margin-top: 25px;
-      border-bottom: 2px solid var(--secondary);
-      padding-bottom: 5px;
-    }
-    
-    .progress-container {
-      width: 100%;
-      background-color: #ddd;
-      border-radius: 5px;
-      margin: 20px 0;
-    }
-    
-    .progress-bar {
-      height: 8px;
-      background-color: var(--secondary);
-      border-radius: 5px;
-      width: 0%;
-      transition: width 0.3s;
-    }
-    
-    fieldset {
-      border: 1px solid #ddd;
-      border-radius: 8px;
-      padding: 15px;
-      margin-bottom: 20px;
-      background: white;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    }
-    
-    legend {
-      padding: 0 10px;
-      font-weight: bold;
-      color: var(--primary);
-      font-size: 1.1rem;
-    }
-    
-    label {
-     /*display: block;*/
-      margin: 15px 0 5px;
-      font-size: 0.95rem;
-      color: #222;
-    }
-    
-    input[type="text"],
-    input[type="number"],
-    input[type="date"],
-    input[type="time"],
-    select,
-    textarea {
-      width: 100%;
-      padding: 12px;
-      border: 1px solid #ddd;
-      border-radius: 6px;
-      font-size: 1rem;
-      margin-top: 5px;
-      background-color: white;
-    }
-    
-    input:focus,
-    select:focus,
-    textarea:focus {
-      border-color: var(--secondary);
-      outline: none;
-      box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
-    }
-    
-    .radio-group, .checkbox-group {
-      margin: 10px 0;
-    }
-    
-    .radio-option, .checkbox-option {
-      display: flex;
-      align-items: center;
-      margin: 8px 0;
-    }
-    
-    .radio-option input, .checkbox-option input {
-      width: auto;
-      margin-right: 10px;
-    }
-    
-    button {
-      background-color: var(--secondary);
-      color: white;
-      border: none;
-      padding: 15px 20px;
-      font-size: 1.1rem;
-      border-radius: 6px;
-      cursor: pointer;
-      width: 100%;
-      margin: 20px 0;
-      font-weight: bold;
-      transition: background-color 0.3s;
-    }
-    
-    button:hover {
-      background-color: #2980b9;
-    }
-    
-    button:disabled {
-      background-color: #95a5a6;
-      cursor: not-allowed;
-    }
-    
-    .required::after {
-      content: " *";
-      color: var(--danger);
-    }
-    
-    .error {
-      border-color: var(--danger) !important;
-    }
-    
-    .error-message {
-      color: var(--danger);
-      font-size: 0.8rem;
-      margin-top: 5px;
-      display: none;
-    }
-    
-    .section-nav {
-      display: flex;
-      justify-content: space-between;
-      margin: 20px 0;
-    }
-    
-    .section-nav button {
-      width: 48%;
-    }
-    
-    .form-intro {
-      background-color: white;
-      padding: 15px;
-      border-radius: 8px;
-      margin-bottom: 20px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    }
-    
-    @media (max-width: 480px) {
-      h1 {
-        font-size: 1.3rem;
-      }
-      
-      h2 {
-        font-size: 1.1rem;
-      }
-      
-      input, select, textarea {
-        padding: 10px;
-      }
-    }
-    
-    body {
-      direction: rtl;
-      font-family: 'Noto Naskh Arabic', serif;
-    }
+  --primary: #2c3e50;
+  --secondary: #3498db;
+  --light: #f5f7fa;
+  --danger: #e74c3c;
+}
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family: 'Noto Naskh Arabic', serif;
+  background:var(--light);
+  color:#222;
+  direction:rtl;
+  -webkit-font-smoothing:antialiased;
+}
+header{position:relative;width:100%;overflow:hidden}
+header img{width:100%;height:auto;display:block;object-fit:cover}
+.header-title{
+  position:absolute;
+  inset:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  pointer-events:none;
+}
+.header-title h1{
+  margin:0;
+  background:rgba(0,0,0,0.55);
+  color:#fff;
+  padding:12px 18px;
+  border-radius:10px;
+  font-size:clamp(18px,3.2vw,28px);
+  pointer-events:auto;
+  text-align:center;
+}
+.container{max-width:920px;margin:14px auto;padding:12px}
+.progress-container{width:100%;background:#ddd;border-radius:8px;height:10px;overflow:hidden;margin:12px 0}
+.progress-bar{height:100%;background:var(--secondary);width:0;transition:width .25s}
+form{margin-top:6px}
+fieldset{
+  background:#fff;border:1px solid #e3e6ea;border-radius:12px;
+  padding:14px;margin:18px 0;box-shadow:0 6px 18px rgba(20,30,40,0.04)
+}
+legend{font-weight:700;color:var(--primary);padding:0 8px}
+label{display:block;margin:8px 0;font-size:0.98rem}
+input[type="text"], input[type="number"], input[type="date"], input[type="time"], select, textarea{
+  width:100%;padding:10px;border-radius:8px;border:1px solid #d1d7dd;font-size:1rem;background:#fff;
+}
+textarea{min-height:80px;resize:vertical}
+.radio-group, .checkbox-group{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:8px;margin-top:6px}
+.radio-option, .checkbox-option{display:flex;align-items:center;gap:8px}
+.inline{display:flex;gap:12px;flex-wrap:wrap}
+.small{font-size:0.9rem;color:#555}
+.badge{display:inline-block;background:var(--secondary);color:#fff;padding:4px 8px;border-radius:999px;font-size:0.8rem;margin-inline-start:8px}
+.nav-buttons{display:flex;gap:10px;margin:10px 0}
+.nav-buttons button{flex:1;padding:12px;border-radius:10px;border:0;font-weight:700;cursor:pointer}
+.btn-primary{background:var(--secondary);color:#fff}
+.btn-secondary{background:#fff;border:1px solid #cbd5df;color:var(--primary)}
+.btn-disabled{background:#9aa7b2;color:#fff;cursor:not-allowed}
+.required::after{content:" *";color:var(--danger)}
+.error{border-color:var(--danger) !important;box-shadow:0 0 0 3px rgba(231,76,60,0.06)}
+footer{margin:18px 0;text-align:center;color:#666;font-size:0.95rem}
+@media (max-width:520px){
+  .header-title h1{font-size:18px;padding:8px 12px}
+  fieldset{padding:12px;margin:12px 0}
+}
+</style>
+</head>
+<body>
 
+<header>
+  <img src="1.png" alt="Banner">
+  <div class="header-title"><h1>??????? ??????? ???? ?????????</h1></div>
+</header>
 
-    
-    label, legend, h1, h2, button, input, select, textarea {
-      text-align: right;
-    }
-    
-    .alert {
-      padding: 15px;
-      border-radius: 6px;
-      margin-bottom: 20px;
-      display: none;
-    }
-    
-    .alert-success {
-      background-color: #d4edda;
-      color: #155724;
-      border: 1px solid #c3e6cb;
-    }
-    
-    .alert-error {
-      background-color: #f8d7da;
-      color: #721c24;
-      border: 1px solid #f5c6cb;
-    }
-    
-    .style1 {color: #3333FF}
-    .style2 {
-      color: #FFFFFF;
-      font-weight: bold;
-    }
-    .style4 {color: #FFFFFF}
-</style>  
-<link href="https://fonts.googleapis.com/css2?family=Noto+Naskh+Arabic&amp;display=swap" rel="stylesheet"/>  
-</head>  
-<body>  
+<div class="container">
+  <div class="small">?????? ????? � ????? ????????. ????? ?? ??? ????????? ?? ??? ??????? ??????? ??? ?????? ????? ?????????.</div>
+  <div class="progress-container"><div id="progressBar" class="progress-bar"></div></div>
 
-<!-- Ajout des messages d'alerte -->
-<div id="alert-success" class="alert alert-success">
-  شكراً لك! تم إرسال الاستمارة بنجاح.
+  <!-- Form: change action to your Apps Script or desired endpoint -->
+  <form id="taxiForm" method="POST" action="https://script.google.com/macros/s/AKfycbxcuBjbEjQCsrqh30PKOnlHX7AqQrTrD_xxP8mAuW84fhBaImkDAtTWrkYJuCS5x_UE/exec" onsubmit="return checkConsent();">
+    <input type="hidden" name="form-name" value="taxiForm">
+    <p style="display:none"><label>?? ???? ??? ?????: <input name="bot-field"></label></p>
+
+    <!-- SECTION 0: ?????? ?????? -->
+    <fieldset id="section0">
+      <legend>??? ??????</legend>
+      <label class="required">??? ??????<input type="text" name="identifiant_enqueteur" required></label>
+      <label class="required">??????? / ???????<input type="text" name="ville" required></label>
+      <label>????? ??????<input type="text" name="lieu_entretien"></label>
+      <div class="inline">
+        <label>???????<input type="date" name="date_enquete"></label>
+        <label>?????<input type="time" name="heure_enquete"></label>
+      </div>
+      <div class="small">????? ???? ??? ??????? ??? ???? ???? ????? ???????.</div>
+    </fieldset>
+
+    <!-- SECTION 1: ????? ?????? ??????? ??????? -->
+    <fieldset id="section1" style="display:none">
+      <legend>1) ????? ?????? ??????? ???????</legend>
+
+      <label class="required">??? ???????
+        <div class="radio-group">
+          <label class="radio-option"><input type="radio" name="type_taxi" value="????? ????" required> ????? ????</label>
+          <label class="radio-option"><input type="radio" name="type_taxi" value="????? ????" required> ????? ????</label>
+        </div>
+      </label>
+
+      <label class="required">????? ???????
+        <div class="radio-group">
+          <label class="radio-option"><input type="radio" name="age" value="??? ?? 30" required> ??? ?? 30 ???</label>
+          <label class="radio-option"><input type="radio" name="age" value="31-45" required> ?? 31 ??? 45 ???</label>
+          <label class="radio-option"><input type="radio" name="age" value="45-60" required> ?? 45 ??? 60 ???</label>
+          <label class="radio-option"><input type="radio" name="age" value="???? ?? 60" required> ???? ?? 60 ???</label>
+        </div>
+      </label>
+
+      <label class="required">???? ????? ?????
+        <div class="radio-group">
+          <label class="radio-option"><input type="radio" name="permis_confiance" value="???" required> ???</label>
+          <label class="radio-option"><input type="radio" name="permis_confiance" value="??" required> ??</label>
+        </div>
+      </label>
+
+      <label class="required">???? ?????? ?????? ?????
+        <div class="radio-group">
+          <label class="radio-option"><input type="radio" name="carte_conducteur" value="???" required> ???</label>
+          <label class="radio-option"><input type="radio" name="carte_conducteur" value="??" required> ??</label>
+        </div>
+      </label>
+
+      <label class="required">??????? ???????
+        <select name="niveau_instruction" required>
+          <option value="">?????...</option>
+          <option value="?? ?????">?? ?????</option>
+          <option value="???????">???????</option>
+          <option value="??????">??????</option>
+          <option value="?????">?????</option>
+          <option value="????? ????">????? ????</option>
+        </select>
+      </label>
+
+      <label>??????
+        <div class="checkbox-group">
+          <label class="checkbox-option"><input type="checkbox" name="langues[]" value="????????"> ????????</label>
+          <label class="checkbox-option"><input type="checkbox" name="langues[]" value="??????????"> ??????????</label>
+          <label class="checkbox-option"><input type="checkbox" name="langues[]" value="?????????"> ?????????</label>
+          <label class="checkbox-option"><input type="checkbox" name="langues[]" value="?????????"> ?????????</label>
+          <label class="checkbox-option"><input type="checkbox" name="langues[]" value="?????????"> ?????????</label>
+          <label class="checkbox-option"><input type="text" name="langue_autre" placeholder="????..."></label>
+        </div>
+      </label>
+
+      <hr>
+
+      <label class="required">?? ??? ???? ??????? 
+        <div class="radio-group">
+          <label class="radio-option"><input type="radio" name="detenteur_agrement" value="???" required> ???</label>
+          <label class="radio-option"><input type="radio" name="detenteur_agrement" value="??" required> ??</label>
+        </div>
+      </label>
+
+      <div id="bloc_contrat" style="display:none">
+        <label class="required">??? ??: ?? ???? ??? ??????? ?? ??? ?????????
+          <div class="radio-group">
+            <label class="radio-option"><input type="radio" name="contrat_licence" value="???"> ???</label>
+            <label class="radio-option"><input type="radio" name="contrat_licence" value="??"> ??</label>
+          </div>
+        </label>
+
+        <div id="bloc_type_contrat" style="display:none">
+          <label>??? ?????
+            <div class="radio-group">
+              <label class="radio-option"><input type="radio" name="type_contrat" value="?????"> ?????</label>
+              <label class="radio-option"><input type="radio" name="type_contrat" value="????"> ????</label>
+              <label class="radio-option"><input type="radio" name="type_contrat" value="????"> ????</label>
+              <input type="text" name="type_contrat_autre" placeholder="???...">
+            </div>
+          </label>
+        </div>
+      </div>
+
+      <label class="required">?? ??? ???? ????????
+        <div class="radio-group">
+          <label class="radio-option"><input type="radio" name="proprietaire_taxi" value="???" required> ???</label>
+          <label class="radio-option"><input type="radio" name="proprietaire_taxi" value="??" required> ??</label>
+        </div>
+      </label>
+
+      <label class="required">?????? ???????
+        <select name="statut_professionnel" required>
+          <option value="">?????...</option>
+          <option value="??">??</option>
+          <option value="????">????</option>
+          <option value="????">????</option>
+        </select>
+      </label>
+
+      <label class="required">???????? ?? ???????
+        <select name="anciennete" required>
+          <option value="">?????...</option>
+          <option value="??? ?? ???">??? ?? ???</option>
+          <option value="1-5">?? 1 ??? 5 ????</option>
+          <option value="5-10">?? 5 ??? 10 ????</option>
+          <option value="10-20">?? 10 ??? 20 ???</option>
+          <option value="???? ?? 20">???? ?? 20 ???</option>
+        </select>
+      </label>
+
+      <label class="required">??????? ?????
+        <div class="checkbox-group">
+          <label class="checkbox-option"><input type="checkbox" name="formations[]" value="????? ????"> ????? ????</label>
+          <label class="checkbox-option"><input type="checkbox" name="formations[]" value="????? ?????"> ????? ?????</label>
+          <label class="checkbox-option"><input type="checkbox" name="formations[]" value="?? ????"> ?? ????</label>
+        </div>
+      </label>
+
+      <label class="required">???? ??????
+        <div class="radio-group">
+          <label class="radio-option"><input type="radio" name="lieu_activite" value="????" required> ????</label>
+          <label class="radio-option"><input type="radio" name="lieu_activite" value="????" required> ????</label>
+          <label class="radio-option"><input type="radio" name="lieu_activite" value="?? ??? ????????" required> ?? ??? ????????</label>
+          <label class="radio-option"><input type="radio" name="lieu_activite" value="?? ??? ????????" required> ?? ??? ????????</label>
+        </div>
+      </label>
+
+      <div class="inline">
+        <label class="required">????? ???? (AMO)
+          <div class="radio-group">
+            <label class="radio-option"><input type="radio" name="couverture_medicale" value="???" required> ???</label>
+            <label class="radio-option"><input type="radio" name="couverture_medicale" value="??" required> ??</label>
+          </div>
+        </label>
+
+        <label class="required">???? ?? ???? ???????
+          <div class="radio-group">
+            <label class="radio-option"><input type="radio" name="regime_pension" value="???" required> ???</label>
+            <label class="radio-option"><input type="radio" name="regime_pension" value="??" required> ??</label>
+          </div>
+        </label>
+
+        <label class="required">??????? ?? ???????
+          <div class="radio-group">
+            <label class="radio-option"><input type="radio" name="retraite" value="???" required> ???</label>
+            <label class="radio-option"><input type="radio" name="retraite" value="??" required> ??</label>
+          </div>
+        </label>
+      </div>
+
+      <div class="inline">
+        <label class="required">???? ?? ????? ???????
+          <div class="radio-group">
+            <label class="radio-option"><input type="radio" name="shifts_par_jour" value="1" required> 1</label>
+            <label class="radio-option"><input type="radio" name="shifts_par_jour" value="2" required> 2</label>
+            <label class="radio-option"><input type="radio" name="shifts_par_jour" value="????" required> ????</label>
+          </div>
+        </label>
+
+        <label class="required">???? ?? ????? ????? ??? ???????
+          <div class="radio-group">
+            <label class="radio-option"><input type="radio" name="nb_chauffeurs" value="1" required> 1</label>
+            <label class="radio-option"><input type="radio" name="nb_chauffeurs" value="2" required> 2</label>
+            <label class="radio-option"><input type="radio" name="nb_chauffeurs" value="????" required> ????</label>
+          </div>
+        </label>
+      </div>
+
+      <label>????? ??????? ??????? ???????<textarea name="organisation_chauffeurs" rows="2"></textarea></label>
+
+      <div class="inline">
+        <label class="required">??? ?????? ??????? (???????)<input type="number" name="temps_travail" min="1" max="24" required></label>
+        <label class="required">???? ??????
+          <div class="radio-group">
+            <label class="radio-option"><input type="radio" name="travail_nuit" value="???" required> ???</label>
+            <label class="radio-option"><input type="radio" name="travail_nuit" value="??" required> ??</label>
+          </div>
+        </label>
+      </div>
+
+      <div class="inline">
+        <label class="required">??? ???? ?????? ????????<input type="number" name="jours_travail_semaine" min="1" max="7" required></label>
+        <label class="required">?????? ??????? (????)<input type="number" name="conge_annuel" min="0" required></label>
+      </div>
+
+      <label>????? ??? ???? ???? ?? ??? ????????
+        <div class="radio-group">
+          <label class="radio-option"><input type="radio" name="autre_activite" value="???"> ???</label>
+          <label class="radio-option"><input type="radio" name="autre_activite" value="??"> ??</label>
+        </div>
+      </label>
+      <label id="preciser_activite_label" style="display:none;">??? ?????? ??????<input type="text" name="autre_activite_precision"></label>
+
+    </fieldset>
+
+    <!-- SECTION 2: ????? ?????? ??????? -->
+    <fieldset id="section2" style="display:none">
+      <legend>2) ????? ?????? ??????? ???????</legend>
+      <p class="small">???? ??? ?????? ???????? ??? ????? ???? ?????.</p>
+
+      <label class="required">??? ??????? ??????? ???????
+        <div class="radio-group">
+          <label class="radio-option"><input type="radio" name="station_suffisante" value="???" required> ???</label>
+          <label class="radio-option"><input type="radio" name="station_suffisante" value="??" required> ??</label>
+        </div>
+      </label>
+
+      <label class="required">??? ???? ?????/???? ????????
+        <div class="radio-group">
+          <label class="radio-option"><input type="radio" name="responsable_station" value="???" required> ???</label>
+          <label class="radio-option"><input type="radio" name="responsable_station" value="??" required> ??</label>
+        </div>
+      </label>
+
+      <label class="required">??? ?????? ????? ??????/??????
+        <div class="radio-group">
+          <label class="radio-option"><input type="radio" name="regles_priorite" value="???" required> ???</label>
+          <label class="radio-option"><input type="radio" name="regles_priorite" value="??" required> ??</label>
+        </div>
+      </label>
+      <div id="respect_regles_label" style="display:none">
+        <label>??? ????? ??? ?????????
+          <select name="respect_regles">
+            <option value="????">????</option>
+            <option value="???????">???????</option>
+            <option value="??????">??????</option>
+            <option value="????">????</option>
+          </select>
+        </label>
+      </div>
+
+      <label class="required">??? ?????? ??????? ?? ?????
+        <div class="radio-group">
+          <label class="radio-option"><input type="radio" name="pointage_controle" value="???" required> ???</label>
+          <label class="radio-option"><input type="radio" name="pointage_controle" value="??" required> ??</label>
+        </div>
+      </label>
+
+      <div id="bloc_controle" style="display:none">
+        <label>???? ??????? <input type="text" name="autorite_controle" placeholder="?????/??????"></label>
+        <label>??? ???????? ??????
+          <div class="radio-group">
+            <label class="radio-option"><input type="radio" name="controle_efficace" value="???"> ???</label>
+            <label class="radio-option"><input type="radio" name="controle_efficace" value="??"> ??</label>
+          </div>
+        </label>
+
+        <label>?????? ????? ??????????
+          <div class="radio-group">
+            <label class="radio-option"><input type="radio" name="pointage_systeme" value="???"> ???</label>
+            <label class="radio-option"><input type="radio" name="pointage_systeme" value="??"> ??</label>
+          </div>
+        </label>
+
+        <div id="bloc_pointage" style="display:none">
+          <label>????? ?????????
+            <div class="radio-group">
+              <label class="radio-option"><input type="radio" name="frequence_pointage" value="????"> ????</label>
+              <label class="radio-option"><input type="radio" name="frequence_pointage" value="??????"> ??????</label>
+              <label class="radio-option"><input type="radio" name="frequence_pointage" value="?? ??? ???????"> ?? ??? ???????</label>
+              <label class="radio-option"><input type="radio" name="frequence_pointage" value="????"> ????</label>
+              <input type="text" name="frequence_pointage_autre" placeholder="???...">
+            </div>
+          </label>
+          <label>???? ?????? ??????????<input type="text" name="responsable_pointage"></label>
+        </div>
+      </div>
+
+      <hr>
+
+      <label class="required">?? ?? ????? ??????
+        <div class="checkbox-group">
+          <label class="checkbox-option"><input type="checkbox" name="service_mode[]" value="????? ?? ????"> ????? - ?? ????</label>
+          <label class="checkbox-option"><input type="checkbox" name="service_mode[]" value="????? ??? ?????"> ????? - ??? ?????</label>
+          <label class="checkbox-option"><input type="checkbox" name="service_mode[]" value="???????"> ???????? (???? ??? ???)</label>
+        </div>
+      </label>
+
+      <div id="bloc_collectif" style="display:none">
+        <label>????? ???? ????? ???????
+          <div class="radio-group">
+            <label class="radio-option"><input type="radio" name="partage_paiement" value="??? ??? ???????"> ??? ??? ???????</label>
+            <label class="radio-option"><input type="radio" name="partage_paiement" value="????????"> ????????</label>
+            <label class="radio-option"><input type="radio" name="partage_paiement" value="????"> ????</label>
+            <input type="text" name="partage_paiement_autre" placeholder="???...">
+          </div>
+        </label>
+      </div>
+
+      <label class="required">?????:
+        <div class="radio-group">
+          <label class="radio-option"><input type="radio" name="type_service" value="????" required> ????? (???? ????)</label>
+          <label class="radio-option"><input type="radio" name="type_service" value="??? ??? ?????" required> ??? ??? ?????</label>
+        </div>
+      </label>
+
+      <!-- bloc ligne -->
+      <div id="bloc_ligne" style="display:none">
+        <label>??? ?? ???? ?????? ?????
+          <div class="radio-group">
+            <label class="radio-option"><input type="radio" name="choix_ligne" value="?????"> ???????</label>
+            <label class="radio-option"><input type="radio" name="choix_ligne" value="?????? ????"> ?????? ????</label>
+            <label class="radio-option"><input type="radio" name="choix_ligne" value="??? ?????"> ??? ?????</label>
+            <label class="radio-option"><input type="radio" name="choix_ligne" value="????"> ????</label>
+            <input type="text" name="choix_ligne_autre" placeholder="???...">
+          </div>
+        </label>
+
+        <label>??? ???? ????? ???? ????? ?? ??? ???
+          <div class="checkbox-group">
+            <label class="checkbox-option"><input type="checkbox" name="organisation_ligne[]" value="????? ??????"> ????? ??????</label>
+            <label class="checkbox-option"><input type="checkbox" name="organisation_ligne[]" value="??????? ???????"> ??????? ???????</label>
+            <label class="checkbox-option"><input type="checkbox" name="organisation_ligne[]" value="?????/?????"> ?????/?????</label>
+            <label class="checkbox-option"><input type="checkbox" name="organisation_ligne[]" value="??"> ??</label>
+          </div>
+        </label>
+
+        <label>????? ??????? ????? ???? ??????
+          <div class="checkbox-group">
+            <label class="checkbox-option"><input type="checkbox" name="info_ligne[]" value="?????? ???????"> ?????? ???????</label>
+            <label class="checkbox-option"><input type="checkbox" name="info_ligne[]" value="?????? ????????"> ?????? ????????</label>
+            <label class="checkbox-option"><input type="checkbox" name="info_ligne[]" value="?????"> ?????</label>
+            <label class="checkbox-option"><input type="checkbox" name="info_ligne[]" value="?????"> ??? ?????</label>
+            <label class="checkbox-option"><input type="text" name="info_ligne_autre" placeholder="????..."></label>
+          </div>
+        </label>
+      </div>
+
+      <!-- bloc demande -->
+      <div id="bloc_demande" style="display:none">
+        <label>??? ???? ????? ????? ????????/???????
+          <div class="radio-group">
+            <label class="radio-option"><input type="radio" name="zones_preferees" value="???"> ???</label>
+            <label class="radio-option"><input type="radio" name="zones_preferees" value="??"> ??</label>
+          </div>
+        </label>
+
+        <label>???? ??????? ??? ????????
+          <div class="radio-group">
+            <label class="radio-option"><input type="radio" name="choix_zones" value="???????"> ???????</label>
+            <label class="radio-option"><input type="radio" name="choix_zones" value="???????"> ???????</label>
+            <label class="radio-option"><input type="radio" name="choix_zones" value="??? ??????"> ??? ???????</label>
+          </div>
+        </label>
+
+        <label>????? ?????? ?????????
+          <div class="checkbox-group">
+            <label class="checkbox-option"><input type="checkbox" name="criteres_zones[]" value="?????"> ??? ?????</label>
+            <label class="checkbox-option"><input type="checkbox" name="criteres_zones[]" value="????? ?? ?????"> ????? ?? ?????</label>
+            <label class="checkbox-option"><input type="checkbox" name="criteres_zones[]" value="?????"> ?????</label>
+            <label class="checkbox-option"><input type="text" name="criteres_zones_autre" placeholder="????..."></label>
+          </div>
+        </label>
+
+        <label>??? ???? ????? ??? ???????? ?? ??? ???
+          <div class="checkbox-group">
+            <label class="checkbox-option"><input type="checkbox" name="organisation_demande[]" value="??????"> ??????</label>
+            <label class="checkbox-option"><input type="checkbox" name="organisation_demande[]" value="??????? ???????"> ??????? ???????</label>
+            <label class="checkbox-option"><input type="checkbox" name="organisation_demande[]" value="?????/?????"> ?????/?????</label>
+            <label class="checkbox-option"><input type="checkbox" name="organisation_demande[]" value="??"> ??</label>
+          </div>
+        </label>
+      </div>
+
+      <hr>
+
+      <label class="required">??? ?????? ????? ????????
+        <div class="radio-group">
+          <label class="radio-option"><input type="radio" name="conflits_station" value="???" required> ???</label>
+          <label class="radio-option"><input type="radio" name="conflits_station" value="??" required> ??</label>
+        </div>
+      </label>
+      <label id="nature_conflits_label" style="display:none">?????/????????<textarea name="nature_conflits" rows="2"></textarea></label>
+
+      <label class="required">??? ??????? ?????? ??? ??? ?????
+        <div class="radio-group">
+          <label class="radio-option"><input type="radio" name="intervention_autorites" value="???" required> ???</label>
+          <label class="radio-option"><input type="radio" name="intervention_autorites" value="??" required> ??</label>
+        </div>
+      </label>
+    </fieldset>
+
+    <!-- SECTION 3: ??????? ?????????? -->
+    <fieldset id="section3" style="display:none">
+      <legend>3) ??????? ?????????? ??????? ??????</legend>
+
+      <label class="required">????? ??????
+        <div class="radio-group">
+          <label class="radio-option"><input type="radio" name="modalite_retribution" value="????? ?????" required> ????? ?????</label>
+          <label class="radio-option"><input type="radio" name="modalite_retribution" value="???? ?? ????????" required> ???? ?? ????????</label>
+          <label class="radio-option"><input type="radio" name="modalite_retribution" value="??? ????????" required> ??? ????????</label>
+          <label class="radio-option"><input type="radio" name="modalite_retribution" value="????" required> ????</label>
+        </div>
+      </label>
+      <label id="autre_retribution_label" style="display:none">???<input type="text" name="autre_modalite_retribution"></label>
+
+      <div class="inline">
+        <label class="required">???????? (????/?????)<input type="number" name="depense_carburant" min="0" required></label>
+        <label>???? ??????? (????/?????)<input type="number" name="depense_location" min="0"></label>
+      </div>
+
+      <div class="inline">
+        <label>???????/???????/????? ?????? (????/?????)<input type="number" name="depense_entretien" min="0"></label>
+        <label>???? � ??????<input type="number" name="autres_depenses_montant" min="0"></label>
+      </div>
+      <label>???? � ????? <input type="text" name="autres_depenses_periodicite" placeholder="?? ?????/???/..."></label>
+
+      <div class="inline">
+        <label>???? ???? ??????? (????/?????)<input type="number" name="redevance_mois" min="0"></label>
+        <label>???? ??????? ??? ????? ????????<input type="number" name="redevance_signature" min="0"></label>
+      </div>
+
+      <label>????? ???????
+        <div class="radio-group">
+          <label class="radio-option"><input type="radio" name="periodicite_redevance" value="10 ????"> 10 ????</label>
+          <label class="radio-option"><input type="radio" name="periodicite_redevance" value="12 ???"> 12 ???</label>
+          <label class="radio-option"><input type="radio" name="periodicite_redevance" value="????"> ????</label>
+          <input type="text" name="autre_periodicite_redevance" placeholder="???...">
+        </div>
+      </label>
+
+      <div class="inline">
+        <label class="required">??????? ??????? (??)<input type="number" name="distance_parcourue" min="1" required></label>
+        <label class="required">??? ???????? ???????<input type="number" name="courses_par_jour" min="0" required></label>
+        <label class="required">??? ?????? ???????<input type="number" name="passagers_par_jour" min="0" required></label>
+      </div>
+
+      <label>???? ?????? ?????????
+        <div class="radio-group">
+          <label class="radio-option"><input type="radio" name="prise_charge_assurance" value="????"> ????</label>
+          <label class="radio-option"><input type="radio" name="prise_charge_assurance" value="??????"> ??????</label>
+          <label class="radio-option"><input type="radio" name="prise_charge_assurance" value="??????"> ??????</label>
+        </div>
+      </label>
+      <label id="part_assurance_label" style="display:none">???? ??????? (%)<input type="number" name="part_assurance" min="0" max="100"></label>
+
+      <label>???? ?????? ?????????
+        <div class="radio-group">
+          <label class="radio-option"><input type="radio" name="prise_charge_entretien" value="????"> ????</label>
+          <label class="radio-option"><input type="radio" name="prise_charge_entretien" value="??????"> ??????</label>
+          <label class="radio-option"><input type="radio" name="prise_charge_entretien" value="??????"> ??????</label>
+        </div>
+      </label>
+      <label id="part_entretien_label" style="display:none">???? ??????? (%)<input type="number" name="part_entretien" min="0" max="100"></label>
+
+      <label>???? ?????? ???????????
+        <div class="radio-group">
+          <label class="radio-option"><input type="radio" name="prise_charge_reparations" value="????"> ????</label>
+          <label class="radio-option"><input type="radio" name="prise_charge_reparations" value="??????"> ??????</label>
+          <label class="radio-option"><input type="radio" name="prise_charge_reparations" value="??????"> ??????</label>
+        </div>
+      </label>
+      <label id="part_reparations_label" style="display:none">???? ??????? (%)<input type="number" name="part_reparations" min="0" max="100"></label>
+
+      <div class="inline">
+        <label class="required">???????? ??? ????????/????? (????)<input type="number" name="revenu_brut" min="0" required></label>
+        <label class="required">???????? ???????/????? (????)<input type="number" name="revenu_net" min="0" required></label>
+      </div>
+
+      <label>??????? ?? ????? ??????? ?????????
+        <div class="radio-group">
+          <label class="radio-option"><input type="radio" name="outil_suivi" value="????"> ????</label>
+          <label class="radio-option"><input type="radio" name="outil_suivi" value="?????"> ?????</label>
+          <label class="radio-option"><input type="radio" name="outil_suivi" value="?? ???"> ?? ???</label>
+        </div>
+      </label>
+
+      <label>???? ???? ??? ????
+        <div class="radio-group">
+          <label class="radio-option"><input type="radio" name="autre_revenu" value="???"> ???</label>
+          <label class="radio-option"><input type="radio" name="autre_revenu" value="??"> ??</label>
+        </div>
+      </label>
+      <label id="preciser_revenu_label" style="display:none">??? ????? ?????<input type="text" name="autre_revenu_precision"></label>
+    </fieldset>
+
+    <!-- SECTION 4: ???? ??? ?????? -->
+    <fieldset id="section4" style="display:none">
+      <legend>4) ???? ??? ?????? ????? ???????</legend>
+
+      <label class="required">???? ????? ??3 ???? ?? ??? 
+        <select name="evolution_demande" required>
+          <option value="">?????...</option>
+          <option value="???? ????">???? ????</option>
+          <option value="???? ????">???? ????</option>
+          <option value="?????">?????</option>
+          <option value="?? ????">?? ????</option>
+        </select>
+      </label>
+
+      <label>???????? ????????
+        <div class="checkbox-group">
+          <label class="checkbox-option"><input type="checkbox" name="concurrence[]" value="??????? ?????"> ??????? ?????</label>
+          <label class="checkbox-option"><input type="checkbox" name="concurrence[]" value="????? ????????"> ????? ????????</label>
+          <label class="checkbox-option"><input type="checkbox" name="concurrence[]" value="???????"> ???????</label>
+          <label class="checkbox-option"><input type="checkbox" name="concurrence[]" value="??????? ????"> ??????? ????</label>
+          <label class="checkbox-option"><input type="checkbox" name="concurrence[]" value="??? ???"> ????</label>
+        </div>
+      </label>
+
+      <div class="inline">
+        <label class="required">???? ?????????
+          <div class="radio-group">
+            <label class="radio-option"><input type="radio" name="smartphone" value="???" required> ???</label>
+            <label class="radio-option"><input type="radio" name="smartphone" value="??" required> ??</label>
+          </div>
+        </label>
+
+        <label>??????? ????? ???? ??????
+          <div class="radio-group">
+            <label class="radio-option"><input type="radio" name="app_reservation" value="???"> ???</label>
+            <label class="radio-option"><input type="radio" name="app_reservation" value="??"> ??</label>
+          </div>
+        </label>
+
+        <label>????? ?????? ???? ????? ??????????
+          <div class="radio-group">
+            <label class="radio-option"><input type="radio" name="centrale_telephonique" value="???"> ???</label>
+            <label class="radio-option"><input type="radio" name="centrale_telephonique" value="??"> ??</label>
+          </div>
+        </label>
+      </div>
+
+      <label>????? ???? ?? ??????? ?????:
+        <div class="checkbox-group">
+          <label class="checkbox-option"><input type="checkbox" name="equipements[]" value="GPS"> GPS</label>
+          <label class="checkbox-option"><input type="checkbox" name="equipements[]" value="?????"> ?????</label>
+          <label class="checkbox-option"><input type="checkbox" name="equipements[]" value="??? ????????"> ???? ??? ????????</label>
+        </div>
+      </label>
+
+      <label>????? ???? ??:
+        <div class="checkbox-group">
+          <label class="checkbox-option"><input type="checkbox" name="integrations[]" value="???????"> ???????</label>
+          <label class="checkbox-option"><input type="checkbox" name="integrations[]" value="???? ?????????"> ???? ?????????</label>
+          <label class="checkbox-option"><input type="checkbox" name="integrations[]" value="???? ?????"> ???? ?????</label>
+          <label class="checkbox-option"><input type="checkbox" name="integrations[]" value="??"> ??</label>
+        </div>
+      </label>
+
+      <label>??? ??????? ????????
+        <div class="checkbox-group">
+          <label class="checkbox-option"><input type="checkbox" name="risques[]" value="?????? ???????"> ?????? ???????</label>
+          <label class="checkbox-option"><input type="checkbox" name="risques[]" value="???????"> ???????</label>
+          <label class="checkbox-option"><input type="checkbox" name="risques[]" value="?????"> ?????</label>
+          <label class="checkbox-option"><input type="text" name="risques_autre" placeholder="????..."></label>
+        </div>
+      </label>
+    </fieldset>
+
+    <!-- SECTION 5: ??????? ? ???????? -->
+    <fieldset id="section5" style="display:none">
+      <legend>5) ????????? ???????????</legend>
+
+      <div class="inline">
+        <label class="required">?????? ????
+          <div class="radio-group">
+            <label class="radio-option"><input type="radio" name="valorisation_metier" value="??????" required> ??????</label>
+            <label class="radio-option"><input type="radio" name="valorisation_metier" value="??? ??????" required> ??? ??????</label>
+          </div>
+        </label>
+
+        <label class="required">?????
+          <div class="radio-group">
+            <label class="radio-option"><input type="radio" name="stabilite_metier" value="??????" required> ??????</label>
+            <label class="radio-option"><input type="radio" name="stabilite_metier" value="?? ?????" required> ?? ?????</label>
+          </div>
+        </label>
+
+        <label class="required">???? ???? ???? ???????
+          <div class="radio-group">
+            <label class="radio-option"><input type="radio" name="continuer_metier" value="???" required> ???</label>
+            <label class="radio-option"><input type="radio" name="continuer_metier" value="??" required> ??</label>
+          </div>
+        </label>
+
+        <label class="required">????? ??? ??????? ??????
+          <div class="radio-group">
+            <label class="radio-option"><input type="radio" name="formation_professionnelle" value="???" required> ???</label>
+            <label class="radio-option"><input type="radio" name="formation_professionnelle" value="??" required> ??</label>
+          </div>
+        </label>
+      </div>
+
+      <label class="required">???? 3 ????? ????
+        <input type="text" name="probleme1" placeholder="?????? 1" required>
+        <input type="text" name="probleme2" placeholder="?????? 2" required>
+        <input type="text" name="probleme3" placeholder="?????? 3" required>
+      </label>
+
+      <label>???????? ????? ??????? (????? ?????... )<textarea name="propositions" rows="4"></textarea></label>
+    </fieldset>
+
+    <!-- Navigation buttons -->
+    <div class="nav-buttons" id="navButtons">
+      <button type="button" id="prevBtn" class="btn-secondary" onclick="prevSection()">??????</button>
+      <button type="button" id="nextBtn" class="btn-primary" onclick="nextSection()">???????</button>
+    </div>
+
+    <div style="text-align:center;margin-top:8px">
+      <button type="submit" id="submitBtn" class="btn-primary" style="display:none;width:100%">???? ?????????</button>
+    </div>
+
+  </form>
+
+  <footer>� ???? ?????? ?????? � ??????? ????? ?????????</footer>
 </div>
 
-<div id="alert-error" class="alert alert-error">
-  عذراً، حدث خطأ أثناء الإرسال. يرجى المحاولة مرة أخرى.
-</div>
-
-<table width="100%" border="0">
-  <tr>
-    <tD><img src="1.png" width="100%"></tD>
-  </tr>
-</table>
-
-<div class="progress-container">  
-  <div class="progress-bar" id="progressBar"></div>  
-</div>  
-
-<!-- Modification du formulaire pour l'intégration Netlify + Google Sheets -->
-<form id="taxiForm" method="POST" name="taxiForm" action="https://script.google.com/macros/s/AKfycbxcuBjbEjQCsrqh30PKOnlHX7AqQrTrD_xxP8mAuW84fhBaImkDAtTWrkYJuCS5x_UE/exec">
-  <input name="form-name" type="hidden" value="taxiForm"/>  
-  
-  <!-- Champ honeypot pour la protection anti-spam -->
-  <p style="display: none;">
-    <label>لا تملأ هذا الحقل إذا كنت إنسان: <input name="bot-field"></label>
-  </p>
-
-
-
-
-<fieldset class="form-section" id="section0">  
-<legend>  قسم الباحث</legend>  
-<table width="100%" border="0">
-   <tr>
-	  <td bgcolor= "#3498db" align="center" height="35" >
-	  <label class="">  <span class="style2">  كود ديال الباحث</span>  
-	  </TD>
-	</tr>
-</table> 
-
-<input name="identifiant_enqueteur" type="text"/>  
-</label>  
-<table width="100%" border="0">
-   <tr>
-	  <td bgcolor= "#3498db" align="center" height="35">
-	  <label class="required">  <span class="style2">  المدينة / الجماعة </span>  
-	  </TD>
-	</tr>
-</table> 
-<input name="ville"   type="text"/>  
-</label>  
-<table width="100%" border="0">
-   <tr>
-	  <td bgcolor= "#3498db" align="center" height="35">
-	  <label >  <span class="style2">  بلاصة اللقاء
-	  </TD>
-	</tr>
-</table>
-<input name="lieu_entretien"  type="text"/>  
-</label>  
-<table width="100%" border="0">
-   <tr>
-	  <td bgcolor= "#3498db" align="center" height="35">
-	  <label class="">  <span class="style2">  التاريخ
-	  </TD>
-	</tr>
-</table><input name="date_enquete"  type="date"/>  
-</label>  
-<table width="100%" border="0">
-   <tr>
-	  <td bgcolor= "#3498db" align="center" height="35">
-	  <label class="">  <span class="style2">  الوقت
-	  </TD>
-	</tr>
-</table><input name="heure_enquete"  type="time"/>  
-</label>  
-</fieldset>  
-
-
-
-<fieldset class="form-section" id="section1" style="display:none;">  
-<h2>  1. Profil et statut professionnel</h2>  
-
-<table width="100%" border="0">
-   <tr>
-	  <td bgcolor= "#3498db" align="center" height="35">
-	  <label class="required">  <span class="style2">  نوع الطاكسي لي خدام بيه   </label>
-	  </TD>
-	</tr>
-</table> 
-<div class="radio-group">	
-<div class="radio-option">
-<input id="petit_taxi" name="type_taxi"  type="radio" value="petit"/>  
-<label for="petit_taxi">  طاكسي صغير  </label>  
-<input id="grand_taxi" name="type_taxi"  type="radio" value="grand"/>  
-<label for="grand_taxi">  طاكسي كبير  </label>  
-</div>
-</div>
-  
- 
-  
-<table width="100%" border="0">
-<tr>
-    <td  bgcolor= "#3498db" align="center" height="35">
-<label class="required">  <span class="style2"> العمر  </label></td>
-<tr> <td> 
- 
- <table><tr>
- <td > 
-	<div class="radio-group"> <div class="radio-option">
-<input id="age_moins30" name="age"  type="radio" value="&lt;30"/>  
-<label for="age_moins30">  اقل من 30 عام</label>  
-
-<input id="age_31-45" name="age"  type="radio" value="31-45"/>  
-<label for="age_31-45">  31-45 عام</label>  
-<BR>
- 
-<input id="age_45-60" name="age"  type="radio" value="45-60"/>  
-<label for="age_45-60">  45-60 عام</label>  
-
-<input id="age_plus60" name="age"  type="radio" value="&gt;60"/>  
-<label for="age_plus60">  اكثر من 60 عام</label> </BR> 
-</div>  
-</div> 
-  </td></TR>
- </table>  </td>
-</tR>
- <tr>
-    <td bgcolor= "#3498db" align="center" height="35"> <label class="required">  <span class="style2">  رخصة الثقة صالحة   
-	</label></td></tR>
-
-  <tr>
-<td  align="center">
- <div class="radio-group">
- <div class="radio-option">  
-<input id="permis_oui" name="permis_confiance"  type="radio" value="oui"/>  
-<label for="permis_oui">  إيه</label>  
-
-<input id="permis_non" name="permis_confiance"  type="radio" value="non"/>  
-<label for="permis_non">  لا</label>  
-</div></div>
-
- 
- </tD></tR> 
- <tr>
-    <td bgcolor= "#3498db" align="center" height="35">
-<label class="required">  <span class="style2">  كارتة السائق المهني صالحة </label> </tD></tr>
-<tr><tD> 
-<div class="radio-group"><div class="radio-option">  
-<input id="carte_oui" name="carte_conducteur"  type="radio" value="oui"/>  
-<label for="carte_oui">  إيه</label>  
-
-<input id="carte_non" name="carte_conducteur"  type="radio" value="non"/>  
-<label for="carte_non">  لا</label>  
-</div>  
-  
- </td>
- </tR>
- <tr>  <td bgcolor= "#3498db" align="center" height="35">  
-<label class="required">  <span class="style2">  المستوى الدراسي</label>  </TD></tr><tr >
-<TD>
-<select name="niveau_instruction" >  
-<option value="">  اختار...</option>  
-<option value="aucun">  ما كاينش</option>  
-<option value="primaire">  ابتدائي</option>  
-<option value="college">  إعدادي</option>  
-<option value="lycee">  ثانوي</option>  
-<option value="superieur">  جامعي</option>  
-</select> 
-</tD>
-</tR>
-<tr> <td bgcolor= "#3498db" align="center" height="35">   
-<label class="required">  <span class="style2">  الخدمة  </tD></tr><tr><tD>
-<div class="radio-group"><div class="radio-option">  
-<input id="service_libre" name="service"  type="radio" value="course_libre"/>  
-<label for="service_libre">  كاري حر</label>  
-
-<input id="service_ligne" name="service"  type="radio" value="ligne"/>  
-<label for="service_ligne">  خط</label>  
-</div>  
-</div>  
- </tD></label></tR> 
- <tr ><td bgcolor= "#3498db" align="center" height="35">   
-<label class="required">  <span class="style2">  عندو لكريمة  </label></tD></tr><tr><tD>
-<div class="radio-group"><div class="radio-option">  
-<input id="agrement_oui" name="detenteur_agrement"  type="radio" value="oui"/>  
-<label for="agrement_oui">  إيه</label>  
-
-<input id="agrement_non" name="detenteur_agrement"  type="radio" value="non"/>  
-<label for="agrement_non">  لا</label>  
-</div>  
-</div>  </tD></label></tR>  
- <tr> <td bgcolor= "#3498db" align="center" height="35">    
-<label>  <span class="style2">  كونطرا ديال الاستغلال (إلا ماعندوش لكريمة)  </tD></tr><tr><tD>
-<div class="radio-group"><div class="radio-option">  
-<input id="contrat_oui" name="contrat_licence" type="radio" value="oui"/>  
-<label for="contrat_oui">  إيه</label>  
-
-<input id="contrat_non" name="contrat_licence" type="radio" value="non"/>  
-<label for="contrat_non">  لا</label>  
-</div>  
-</div>  
-</tD></label></tR>  
-
-
- </table>
- 
- 
- <table width="100%" border="0">
-   <tr>
-	  <td bgcolor= "#3498db" align="center" height="35">
-	  <label class="required">  <span class="style2">  مول الطاكسي    </label>
-	  </TD>
-	</tr>
-</table> 
- 
-<div class="radio-group"><div class="radio-option">  
-<input id="proprietaire_oui" name="proprietaire_taxi"  type="radio" value="oui"/>  
-<label for="proprietaire_oui">  إيه</label>  
-
-<input id="proprietaire_non" name="proprietaire_taxi"  type="radio" value="non"/>  
-<label for="proprietaire_non">  لا</label>  
-</div>   </div> 
-</label> 
-
-<table width="100%" border="0">
-   <tr>
-	  <td bgcolor= "#3498db" align="center" height="35">
-	  <label class="required">  <span class="style2">  الحالة المهنية 
-	  </TD>
-	</tr>
-</table> 
- 
- 
-<select name="statut_professionnel" > 
-<option value="">  اختار...</option>  
-<option value="independant">  شيفور حر</option>  
-<option value="salarie">  شيفور خدام عند شي حد</option>  
-<option value="autre">  آخر</option>  
-</select>  
-</label>  
-
-<table width="100%" border="0">
-   <tr>
-	  <td bgcolor= "#3498db" align="center" height="35">
-	 <label class="required">  <span class="style2">  شحال هادي وانت خدام
-	  </TD>
-	</tr>
-</table> 
-
-<select name="anciennete" >  
-<option value="">  اختار...</option>  
-<option value="&lt;1">  اقل من عام</option>  
-<option value="1-5">  1-5 سنين</option>  
-<option value="5-10">  5-10 سنين</option>  
-<option value="10-20">  10-20 سنين</option>  
-<option value="&gt;20">  اكثر من 20 عام</option>  
-</select>  
-</label>  
-
-<table width="100%" border="0">
-   <tr>
-	  <td bgcolor= "#3498db" align="center" height="35">
-	 <label class="required">  <span class="style2">  تكوينات مهنية دوزتي
-	  </TD>
-	</tr>
-</table> 
-<div class="checkbox-group">  
-<div class="checkbox-option">  
-<input id="formation_initiale" name="formations[]" type="checkbox" value="qualification_initiale"/>  
-<label for="formation_initiale">  تكوين أولي</label>  
-
-<input id="formation_continue" name="formations[]" type="checkbox" value="continue"/>  
-<label for="formation_continue">  تكوين مستمر</label>  
-
-<input id="formation_aucune" name="formations[]" type="checkbox" value="aucune"/>  
-<label for="formation_aucune">  ما كاينش</label>  
-</div>  
-</div>  
-</label> 
- 
- <table width="100%" border="0">
-   <tr>
-	  <td bgcolor= "#3498db" align="center" height="35">
-	 <label class="required">  <span class="style2">  فين خدام  
-	  </TD>
-	</tr>
-</table> 
-<div class="radio-group"> 
-<div class="radio-option">  
-<input id="lieu_urbain" name="lieu_activite"  type="radio" value="urbain"/>  
-<label for="lieu_urbain">  حضري</label>  
-<input id="lieu_rural" name="lieu_activite"  type="radio" value="rural"/>  
-<label for="lieu_rural">  قروي</label>  
-
-<input id="lieu_intercommunal" name="lieu_activite"  type="radio" value="intercommunal"/>  
-<label for="lieu_intercommunal">  بين الجماعات (نفس العمالة)</label>  
-
-<input id="lieu_interprovincial" name="lieu_activite"  type="radio" value="interprovincial"/>  
-<label for="lieu_interprovincial">  بين العمالات</label>  
-</div>  
-</div>  
-</label> 
-<table width="100%" border="0">
-   <tr>
-	  <td bgcolor= "#3498db" align="center" height="35">
-	 <label class="required">  <span class="style2">  تغطية صحية (AMO)  
-	  </TD>
-	</tr>
-</table>  
-<div class="radio-group">
-<div class="radio-option">  
-<input id="amo_oui" name="couverture_medicale"  type="radio" value="oui"/>  
-<label for="amo_oui">  إيه</label>  
-
-<input id="amo_non" name="couverture_medicale"  type="radio" value="non"/>  
-<label for="amo_non">  لا</label>  
-</div>  
-</div>  
-</label> 
-<table width="100%" border="0">
-   <tr>
-	  <td bgcolor= "#3498db" align="center" height="35">
-	 <label class="required">  <span class="style2">  مسجل فشي نظام ديال التقاعد   
-	  </TD>
-	</tr>
-</table>   
-
-<div class="radio-group"> <div class="radio-option">  
-<input id="pension_oui" name="regime_pension"  type="radio" value="oui"/>  
-<label for="pension_oui">  إيه</label>  
-
-<input id="pension_non" name="regime_pension"  type="radio" value="non"/>  
-<label for="pension_non">  لا</label>  
-</div>  
-</div>  
-</label>
-<table width="100%" border="0">
-   <tr>
-	  <td bgcolor= "#3498db" align="center" height="35">
-	<label class="required">  <span class="style2">  عندو تقاعد   
-	  </TD>
-	</tr>
-</table> 
-  
-<div class="radio-group">
-<div class="radio-option">  
-<input id="retraite_oui" name="retraite"  type="radio" value="oui"/>  
-<label for="retraite_oui">  إيه</label>  
-
-<input id="retraite_non" name="retraite"  type="radio" value="non"/>  
-<label for="retraite_non">  لا</label>  
-</div>  
-</div>  
-</label> 
- <table width="100%" border="0">
-   <tr>
-	  <td bgcolor= "#3498db" align="center" height="35">
-	<label class="required">  <span class="style2">  عدد المناوبات فالنهار   
-	  </TD>
-	</tr>
-</table> 
-<div class="radio-group">
-<div class="radio-option">  
-<input id="shifts_1" name="shifts_par_jour"  type="radio" value="1"/>  
-<label for="shifts_1">  1</label>  
-
-<input id="shifts_2" name="shifts_par_jour"  type="radio" value="2"/>  
-<label for="shifts_2">  2</label>  
-
-<input id="shifts_plus" name="shifts_par_jour"  type="radio" value="plus"/>  
-<label for="shifts_plus">  Plus</label>  
-</div>  
-</div>  
-</label>  
-<table width="100%" border="0">
-   <tr>
-	  <td bgcolor= "#3498db" align="center" height="35">
-	<label class="required">  <span class="style2">  عدد الشيفورات فالطوموبيل وحدة  
-	  </TD>
-	</tr>
-</table> 
-<div class="radio-group">
-<div class="radio-option">  
-<input id="chauffeurs_1" name="nb_chauffeurs"  type="radio" value="1"/>  
-<label for="chauffeurs_1">  1</label>  
-
-<input id="chauffeurs_2" name="nb_chauffeurs"  type="radio" value="2"/>  
-<label for="chauffeurs_2">  2</label>  
-
-<input id="chauffeurs_plus" name="nb_chauffeurs"  type="radio" value="plus"/>  
-<label for="chauffeurs_plus">  Plus</label>  
-</div>  
-</div>  
-</label> 
-<table width="100%" border="0">
-   <tr>
-	  <td bgcolor= "#3498db" align="center" height="35">
-	<label>  <span class="style2">  تنظيم الشيفورات فنهار واحد
-	  </TD>
-	</tr>
-</table>  
-<textarea name="organisation_chauffeurs" rows="2">  </textarea>  
-</label> 
-<table width="100%" border="0">
-   <tr>
-	  <td bgcolor= "#3498db" align="center" height="35">
-	<label class="required">  <span class="style2">  مدة الخدمة فالنهار (بالساعة)
-	  </TD>
-	</tr>
-</table>   
-<input max="24" min="1" name="temps_travail"  type="number"/>  
-</label> 
-<table width="100%" border="0">
-   <tr>
-	  <td bgcolor= "#3498db" align="center" height="35">
-	<label class="required">  <span class="style2">  خدمة بالليل  
-	  </TD>
-	</tr>
-</table>  
-<div class="radio-group">  
-<div class="radio-option">  
-<input id="nuit_oui" name="travail_nuit"  type="radio" value="oui"/>  
-<label for="nuit_oui">  إيه</label>  
-<input id="nuit_non" name="travail_nuit"  type="radio" value="non"/>  
-<label for="nuit_non">  لا</label>  
-</div>  
-</div>  
-</label>  
-<table width="100%" border="0">
-   <tr>
-	  <td bgcolor= "#3498db" align="center" height="35">
-	<label class="required">  <span class="style2">  ايام الخدمة فالاسبوع
-	  </TD>
-	</tr>
-</table>  
-<input max="7" min="1" name="jours_travail_semaine"  type="number"/>  
-</label>
-<table width="100%" border="0">
-   <tr>
-	  <td bgcolor= "#3498db" align="center" height="35">
-	<label class="required">  <span class="style2">  العطلة السنوية (بالأيام)
-	  </TD>
-	</tr>
-</table>    
-<input min="0" name="conge_annuel"  type="number"/>  
-</label> 
- <table width="100%" border="0">
-   <tr>
-	  <td bgcolor= "#3498db" align="center" height="35">
-	<label>  <span class="style2">  خدمة اخرى ماشي ديال الطاكسي 
-	  </TD>
-	</tr>
-</table>  
- <div class="radio-group"> 
-<div class="radio-option">  
-<input id="autre_activite_oui" name="autre_activite" type="radio" value="oui"/>  
-<label for="autre_activite_oui">  إيه</label>  
-
-<input id="autre_activite_non" name="autre_activite" type="radio" value="non"/>  
-<label for="autre_activite_non">  لا</label>  
-</div>  
-</div>  
-</label>  
-<label id="preciser_activite_label" style="display:none;">  وضح ليا الخدمة الأخرى<input name="autre_activite_precision" type="text"/>  
-</label>  
-</fieldset>  
-
-
-<fieldset class="form-section" id="section2" style="display:none;">  
-<h2>  2. Organisation de la profession</h2>  
-<label>  كافي باركينغ فالطاكسيات  
-<div class="radio-option">  
-<input id="station_oui" name="station_suffisante" type="radio" value="oui"/>  
-<label for="station_oui">  إيه</label>  
-
-<input id="station_non" name="station_suffisante" type="radio" value="non"/>  
-<label for="station_non">  لا</label>  
-</div>  
-</div>  
-</label>  
-<label>  معروف شكون المسؤول فالطاكسيات  
-<div class="radio-option">  
-<input id="responsable_oui" name="responsable_station" type="radio" value="oui"/>  
-<label for="responsable_oui">  إيه</label>  
-
-<input id="responsable_non" name="responsable_station" type="radio" value="non"/>  
-<label for="responsable_non">  لا</label>  
-</div>  
-</div>  
-</label>  
-<label>  قوانين الدور  
-<div class="radio-option">  
-<input id="regles_oui" name="regles_priorite" type="radio" value="oui"/>  
-<label for="regles_oui">  إيه</label>  
-
-<input id="regles_non" name="regles_priorite" type="radio" value="non"/>  
-<label for="regles_non">  لا</label>  
-</div>  
-</div>  
-</label>  
-<label id="respect_regles_label" style="display:none;">  احترام القوانين<select name="respect_regles">  
-<option value="toujours">  Toujours</option>  
-<option value="parfois">  Parfois</option>  
-<option value="rarement">  Rarement</option>  
-<option value="jamais">  Jamais</option>  
-</select>  
-</label>  
-<label>  سيستام ديال التنقيط مراقب  
-<div class="radio-option">  
-<input id="pointage_oui" name="pointage_controle" type="radio" value="oui"/>  
-<label for="pointage_oui">  إيه</label>  
-
-<input id="pointage_non" name="pointage_controle" type="radio" value="non"/>  
-<label for="pointage_non">  لا</label>  
-</div>  
-</div>  
-</label>  
-<label id="autorite_controle_label" style="display:none;">  الجهة لي كاتراقب<input name="autorite_controle" type="text"/>  
-</label>  
-<label id="controle_efficace_label" style="display:none;">  مراقبة مزيانة  
-<div class="radio-option">  
-<input id="efficace_oui" name="controle_efficace" type="radio" value="oui"/>  
-<label for="efficace_oui">  إيه</label>  
-
-<input id="efficace_non" name="controle_efficace" type="radio" value="non"/>  
-<label for="efficace_non">  لا</label>  
-</div>  
-</div>  
-</label>  
-<label>  كاينين مشاكل فالطاكسيات  
-<div class="radio-option">  
-<input id="conflits_oui" name="conflits_station" type="radio" value="oui"/>  
-<label for="conflits_oui">  إيه</label>  
-
-<input id="conflits_non" name="conflits_station" type="radio" value="non"/>  
-<label for="conflits_non">  لا</label>  
-</div>  
-</div>  
-</label>  
-<label id="nature_conflits_label" style="display:none;">  نوع المشاكل<textarea name="nature_conflits" rows="2">  </textarea>  
-</label>  
-<label>  تدخل السلطة فالمشاكل  
-<div class="radio-option">  
-<input id="intervention_oui" name="intervention_autorites" type="radio" value="oui"/>  
-<label for="intervention_oui">  إيه</label>  
-
-<input id="intervention_non" name="intervention_autorites" type="radio" value="non"/>  
-<label for="intervention_non">  لا</label>  
-</div>  
-</div>  
-</label>  
-</fieldset>  
-
-
-
-
-<fieldset class="form-section" id="section3" style="display:none;">  
-<h2>  3. Aspects économiques</h2>  
-<label class="required">  <span class="style2">  طريقة خلصك  
-<div class="radio-option">  
-<input id="retribution_fixe" name="modalite_retribution"  type="radio" value="fixe"/>  
-<label for="retribution_fixe">  مبلغ يومي ثابت</label>  
-
-<input id="retribution_pourcentage" name="modalite_retribution"  type="radio" value="pourcentage"/>  
-<label for="retribution_pourcentage">  بالمية من المداخيل</label>  
-
-<input id="retribution_recette" name="modalite_retribution"  type="radio" value="recette"/>  
-<label for="retribution_recette">  الربح بعد ما نقصو المصاريف</label>  
-
-<input id="retribution_autre" name="modalite_retribution"  type="radio" value="autre"/>  
-<label for="retribution_autre">  آخر</label>  
-</div>  
-</div>  
-</label>  
-<label id="autre_retribution_label" style="display:none;">  وضح طريقة أخرى<input name="autre_modalite_retribution" type="text"/>  
-</label>  
-<label class="required">  <span class="style2">  مصاريف البنزين (درهم/نهار)<input min="0" name="depense_carburant"  type="number"/>  
-</label>  
-<label>  كراء الطوموبيل (درهم/نهار)<input min="0" name="depense_location" type="number"/>  
-</label>  
-<label>  صيانة/تأمين (درهم/عام)<input min="0" name="depense_entretien" type="number"/>  
-</label>  
-<label>  مصاريف أخرى (باركينغ، لافاج...) - المبلغ<input min="0" name="autres_depenses_montant" type="number"/>  
-</label>  
-<label>  مصاريف أخرى - المدة<input name="autres_depenses_periodicite" type="text"/>  
-</label>  
-<label>  واجب الكريمة (درهم/شهر)<input min="0" name="redevance_mois" type="number"/>  
-</label>  
-<label>  واجب الكريمة (درهم/10 سنين)<input min="0" name="redevance_10ans" type="number"/>  
-</label>  
-<label>  مدة أخرى للواجب<input name="autre_periodicite_redevance" type="text"/>  
-</label>  
-<label class="required">  <span class="style2">  المسافة اليومية (كلم)<input min="1" name="distance_parcourue"  type="number"/>  
-</label>  
-<label class="required">  <span class="style2">  عدد الكويرسات فالنهار<input min="0" name="courses_par_jour"  type="number"/>  
-</label>  
-<label class="required">  <span class="style2">  عدد الكليان فالنهار<input min="0" name="passagers_par_jour"  type="number"/>  
-</label>  
-<label>  شكون كايخلص التأمين؟  
-<div class="radio-option">  
-<input id="assurance_vous" name="prise_charge_assurance" type="radio" value="vous"/>  
-<label for="assurance_vous">  نتا</label>  
-
-<input id="assurance_proprio" name="prise_charge_assurance" type="radio" value="proprietaire"/>  
-<label for="assurance_proprio">  مول الطاكسي</label>  
-
-<input id="assurance_partage" name="prise_charge_assurance" type="radio" value="partage"/>  
-<label for="assurance_partage">  مقسم</label>  
-</div>  
-</div>  
-</label>  
-<label id="part_assurance_label" style="display:none;">  النسبة لي عليك فالتأمين (%)<input max="100" min="0" name="part_assurance" type="number"/>  
-</label>  
-<label>  شكون كايخلص الصيانة؟  
-<div class="radio-option">  
-<input id="entretien_vous" name="prise_charge_entretien" type="radio" value="vous"/>  
-<label for="entretien_vous">  نتا</label>  
-
-<input id="entretien_proprio" name="prise_charge_entretien" type="radio" value="proprietaire"/>  
-<label for="entretien_proprio">  مول الطاكسي</label>  
-
-<input id="entretien_partage" name="prise_charge_entretien" type="radio" value="partage"/>  
-<label for="entretien_partage">  مقسم</label>  
-</div>  
-</div>  
-</label>  
-<label id="part_entretien_label" style="display:none;">  النسبة لي عليك فالصيانة (%)<input max="100" min="0" name="part_entretien" type="number"/>  
-</label>  
-<label>  شكون كايخلص الريباراسيون؟  
-<div class="radio-option">  
-<input id="reparations_vous" name="prise_charge_reparations" type="radio" value="vous"/>  
-<label for="reparations_vous">  نتا</label>  
-
-<input id="reparations_proprio" name="prise_charge_reparations" type="radio" value="proprietaire"/>  
-<label for="reparations_proprio">  مول الطاكسي</label>  
-
-<input id="reparations_partage" name="prise_charge_reparations" type="radio" value="partage"/>  
-<label for="reparations_partage">  مقسم</label>  
-</div>  
-</div>  
-</label>  
-<label id="part_reparations_label" style="display:none;">  النسبة لي عليك فالريباراسيون (%)<input max="100" min="0" name="part_reparations" type="number"/>  
-</label>  
-<label class="required">  <span class="style2">  المدخول الخام فالنهار (درهم)<input min="0" name="revenu_brut"  type="number"/>  
-</label>  
-<label class="required">  <span class="style2">  المدخول الصافي فالنهار (درهم)<input min="0" name="revenu_net"  type="number"/>  
-</label>  
-<label>  واش كاتستعمل شي وسيلة باش تراقب المداخيل  
-<div class="radio-option">  
-<input id="suivi_cahier" name="outil_suivi" type="radio" value="cahier"/>  
-<label for="suivi_cahier">  كناش</label>  
-
-<input id="suivi_app" name="outil_suivi" type="radio" value="application"/>  
-<label for="suivi_app">  تطبيق</label>  
-
-<input id="suivi_aucun" name="outil_suivi" type="radio" value="aucun"/>  
-<label for="suivi_aucun">  ما كاينش</label>  
-</div>  
-</div>  
-</label>  
-<label>  مدخول آخر  
-<div class="radio-option">  
-<input id="autre_revenu_oui" name="autre_revenu" type="radio" value="oui"/>  
-<label for="autre_revenu_oui">  إيه</label>  
-
-<input id="autre_revenu_non" name="autre_revenu" type="radio" value="non"/>  
-<label for="autre_revenu_non">  لا</label>  
-</div>  
-</div>  
-</label>  
-<label id="preciser_revenu_label" style="display:none;">  وضح ليا المدخول الآخر<input name="autre_revenu_precision" type="text"/>  
-</label>  
-</fieldset>  
-
-<fieldset class="form-section" id="section4" style="display:none;">  
-<h2>  4. Perception du métier</h2>  
-<label class="required">  <span class="style2">  تطور الطلب (فـ3 سنين لي فاتت)<select name="evolution_demande" >  
-<option value="">  اختار...</option>  
-<option value="forte_baisse">  نقص كبير</option>  
-<option value="legere_baisse">  نقص بسيط</option>  
-<option value="stable">  مستقر</option>  
-<option value="hausse">  زايد</option>  
-</select>  
-</label>  
-<label>  المنافسة الكبيرة<div class="checkbox-group">  
-<div class="checkbox-option">  
-<input id="concurrence_plateformes" name="concurrence[]" type="checkbox" value="plateformes"/>  
-<label for="concurrence_plateformes">  منصات ف الانترنت</label>  
-</div>  
-<div class="checkbox-option">  
-<input id="concurrence_informel" name="concurrence[]" type="checkbox" value="informel"/>  
-<label for="concurrence_informel">  طروطوار/طاكسيات بلا قانون</label>  
-</div>  
-<div class="checkbox-option">  
-<input id="concurrence_bus" name="concurrence[]" type="checkbox" value="bus"/>  
-<label for="concurrence_bus">  طوبيسات</label>  
-</div>  
-<div class="checkbox-option">  
-<input id="concurrence_taxis" name="concurrence[]" type="checkbox" value="taxis"/>  
-<label for="concurrence_taxis">  طاكسيات أخرى</label>  
-</div>  
-<div class="checkbox-option">  
-<input id="concurrence_aucun" name="concurrence[]" type="checkbox" value="aucun"/>  
-<label for="concurrence_aucun">  ما كاينش</label>  
-</div>  
-</div>  
-</label>  
-<label class="required">  <span class="style2">  واش عندك تليفون نيت؟  
-<div class="radio-option">  
-<input id="smartphone_oui" name="smartphone"  type="radio" value="oui"/>  
-<label for="smartphone_oui">  إيه</label>  
-
-<input id="smartphone_non" name="smartphone"  type="radio" value="non"/>  
-<label for="smartphone_non">  لا</label>  
-</div>  
-</div>  
-</label>  
-<label>  واش كاتستعمل تطبيق باش تجيب الكليان؟  
-<div class="radio-option">  
-<input id="app_oui" name="app_reservation" type="radio" value="oui"/>  
-<label for="app_oui">  إيه</label>  
-
-<input id="app_non" name="app_reservation" type="radio" value="non"/>  
-<label for="app_non">  لا</label>  
-</div>  
-</div>  
-</label>  
-<label>  منتمي لشي سنترال ديال التليفون؟  
-<div class="radio-option">  
-<input id="centrale_oui" name="centrale_telephonique" type="radio" value="oui"/>  
-<label for="centrale_oui">  إيه</label>  
-
-<input id="centrale_non" name="centrale_telephonique" type="radio" value="non"/>  
-<label for="centrale_non">  لا</label>  
-</div>  
-</div>  
-</label>  
-<label>  واش واجد تزود طاكسي ديالك ب:<div class="checkbox-group">  
-<div class="checkbox-option">  
-<input id="equipement_gps" name="equipements[]" type="checkbox" value="gps"/>  
-<label for="equipement_gps">  جي بي إس</label>  
-
-<input id="equipement_app" name="equipements[]" type="checkbox" value="application"/>  
-<label for="equipement_app">  تطبيق مهني</label>  
-
-<input id="equipement_paiement" name="equipements[]" type="checkbox" value="paiement"/>  
-<label for="equipement_paiement">  تيرمينال ديال الخلاص</label>  
-</div>  
-</div>  
-</label>  
-<label>  واش واجد تدخل ل:<div class="checkbox-group">  
-<div class="checkbox-option">  
-<input id="integration_coop" name="integrations[]" type="checkbox" value="cooperative"/>  
-<label for="integration_coop">  تعاونية</label>  
-
-<input id="integration_plateforme" name="integrations[]" type="checkbox" value="plateforme"/>  
-<label for="integration_plateforme">  منصة إلكترونية</label>  
-
-<input id="integration_societe" name="integrations[]" type="checkbox" value="societe"/>  
-<label for="integration_societe">  شركة ديال التسيير</label>  
-
-<input id="integration_centrale" name="integrations[]" type="checkbox" value="centrale"/>  
-<label for="integration_centrale">  سنترال ديال التليفون</label>  
-
-<input id="integration_aucun" name="integrations[]" type="checkbox" value="aucun"/>  
-<label for="integration_aucun">  Aucune</label>  
-</div>  
-</div>  
-</label>  
-</fieldset>  
-
-
-
-<fieldset class="form-section" id="section5" style="display:none;">  
-<h2>  5. Représentations et suggestions</h2>  
-<label class="required">  <span class="style2">  كيفاش كيبان ليك هاد الخدمة دابا:  
-<div class="radio-option">  
-<input id="valorise_oui" name="valorisation_metier"  type="radio" value="valorise"/>  
-<label for="valorise_oui">  معتبر</label>  
-
-<input id="valorise_non" name="valorisation_metier"  type="radio" value="devalorise"/>  
-<label for="valorise_non">  محكور</label>  
-</div>  
-</div>  
-</label>  
-<label class="required">  <span class="style2">  كيفاش كيبان ليك هاد الخدمة دابا:  
-<div class="radio-option">  
-<input id="stable_oui" name="stabilite_metier"  type="radio" value="stable"/>  
-<label for="stable_oui">  مستقر</label>  
-
-<input id="stable_non" name="stabilite_metier"  type="radio" value="declinant"/>  
-<label for="stable_non">  ناقص</label>  
-</div>  
-</div>  
-</label>  
-<label class="required">  <span class="style2">  بغيتي تبقى فهاد الخدمة؟  
-<div class="radio-option">  
-<input id="continuer_oui" name="continuer_metier"  type="radio" value="oui"/>  
-<label for="continuer_oui">  إيه</label>  
-
-<input id="continuer_non" name="continuer_metier"  type="radio" value="non"/>  
-<label for="continuer_non">  لا</label>  
-</div>  
-</div>  
-</label>  
-<label class="required">  <span class="style2">  بغيتي تدوز تكوينات مهنية？  
-<div class="radio-option">  
-<input id="formation_oui" name="formation_professionnelle"  type="radio" value="oui"/>  
-<label for="formation_oui">  إيه</label>  
-
-<input id="formation_non" name="formation_professionnelle"  type="radio" value="non"/>  
-<label for="formation_non">  لا</label>  
-</div>  
-</div>  
-</label>  
-<label class="required">  <span class="style2">شنو هما أكبر 3 مشاكل فهاد القطاع؟<div style="margin-bottom: 10px;">
-<input name="probleme1" placeholder="Problème 1"  type="text"/>
-</div>
-<div style="margin-bottom: 10px;">
-<input name="probleme2" placeholder="Problème 2"  type="text"/>
-</div>
-<div>
-<input name="probleme3" placeholder="Problème 3"  type="text"/>
-</div>
-</label>
-<label>اقتراحات للتحسين (الراحة، السلامة...)<textarea name="propositions" rows="4"></textarea>
-</label>
-</fieldset>
-<div class="section-nav" id="navButtons0">
-<button disabled="" type="button">السابق</button>
-<button id="nextBtn0" onClick="nextSection(0)" type="button">الموالي</button>
-</div>
-<div class="section-nav" id="navButtons1" style="display:none;">
-<button id="prevBtn1" onClick="prevSection(1)" type="button">السابق</button>
-<button id="nextBtn1" onClick="nextSection(1)" type="button">الموالي</button>
-</div>
-<div class="section-nav" id="navButtons2" style="display:none;">
-<button id="prevBtn2" onClick="prevSection(2)" type="button">السابق</button>
-<button id="nextBtn2" onClick="nextSection(2)" type="button">الموالي</button>
-</div>
-<div class="section-nav" id="navButtons3" style="display:none;">
-<button id="prevBtn3" onClick="prevSection(3)" type="button">السابق</button>
-<button id="nextBtn3" onClick="nextSection(3)" type="button">الموالي</button>
-</div>
-<div class="section-nav" id="navButtons4" style="display:none;">
-<button id="prevBtn4" onClick="prevSection(4)" type="button">السابق</button>
-<button id="nextBtn4" onClick="nextSection(4)" type="button">الموالي</button>
-</div>
-<button id="submitBtn" style="display:none;" type="submit">صيفط الاستمارة</button>
-</form>
-
-
-<script>// Variables globales
+<script>
+/* Wizard state */
 let currentSection = 0;
-const totalSections = 5;
+const totalSections = 6; // sections 0..5
 
-// Afficher la première section au chargement
-document.getElementById('section0').style.display = 'block';
-updateProgressBar();
-
-// Gestion des champs conditionnels
-document.querySelectorAll('input[name="autre_activite"]').forEach(radio => {
-  radio.addEventListener('change', function() {
-    document.getElementById('preciser_activite_label').style.display = 
-      this.value === 'oui' ? 'block' : 'none';
-  });
-});
-
-document.querySelectorAll('input[name="regles_priorite"]').forEach(radio => {
-  radio.addEventListener('change', function() {
-    document.getElementById('respect_regles_label').style.display = 
-      this.value === 'oui' ? 'block' : 'none';
-  });
-});
-
-document.querySelectorAll('input[name="pointage_controle"]').forEach(radio => {
-  radio.addEventListener('change', function() {
-    const show = this.value === 'oui';
-    document.getElementById('autorite_controle_label').style.display = show ? 'block' : 'none';
-    document.getElementById('controle_efficace_label').style.display = show ? 'block' : 'none';
-  });
-});
-
-document.querySelectorAll('input[name="conflits_station"]').forEach(radio => {
-  radio.addEventListener('change', function() {
-    document.getElementById('nature_conflits_label').style.display = 
-      this.value === 'oui' ? 'block' : 'none';
-  });
-});
-
-document.querySelectorAll('input[name="modalite_retribution"]').forEach(radio => {
-  radio.addEventListener('change', function() {
-    document.getElementById('autre_retribution_label').style.display = 
-      this.value === 'autre' ? 'block' : 'none';
-  });
-});
-
-document.querySelectorAll('input[name="prise_charge_assurance"]').forEach(radio => {
-  radio.addEventListener('change', function() {
-    document.getElementById('part_assurance_label').style.display = 
-      this.value === 'partage' ? 'block' : 'none';
-  });
-});
-
-document.querySelectorAll('input[name="prise_charge_entretien"]').forEach(radio => {
-  radio.addEventListener('change', function() {
-    document.getElementById('part_entretien_label').style.display = 
-      this.value === 'partage' ? 'block' : 'none';
-  });
-});
-
-document.querySelectorAll('input[name="prise_charge_reparations"]').forEach(radio => {
-  radio.addEventListener('change', function() {
-    document.getElementById('part_reparations_label').style.display = 
-      this.value === 'partage' ? 'block' : 'none';
-  });
-});
-
-document.querySelectorAll('input[name="autre_revenu"]').forEach(radio => {
-  radio.addEventListener('change', function() {
-    document.getElementById('preciser_revenu_label').style.display = 
-      this.value === 'oui' ? 'block' : 'none';
-  });
-});
-
-// Navigation entre sections
-function nextSection(sectionNum) {
-  if (!validateSection(sectionNum)) return;
-  
-  document.getElementById(`section${sectionNum}`).style.display = 'none';
-  document.getElementById(`navButtons${sectionNum}`).style.display = 'none';
-  
-  currentSection = sectionNum + 1;
-  document.getElementById(`section${currentSection}`).style.display = 'block';
-  
-  if (currentSection < totalSections) {
-    document.getElementById(`navButtons${currentSection}`).style.display = 'flex';
-  } else {
-    document.getElementById('submitBtn').style.display = 'block';
+function showSection(i){
+  for(let s=0;s<totalSections;s++){
+    const sec = document.getElementById('section'+s);
+    if(sec) sec.style.display = (s===i)?'block':'none';
   }
-  
+  document.getElementById('prevBtn').style.display = (i===0)?'none':'inline-block';
+  document.getElementById('nextBtn').style.display = (i===totalSections-1)?'none':'inline-block';
+  document.getElementById('submitBtn').style.display = (i===totalSections-1)?'inline-block':'none';
   updateProgressBar();
-  window.scrollTo(0, 0);
+  window.scrollTo({top:0,behavior:'smooth'});
 }
 
-function prevSection(sectionNum) {
-  document.getElementById(`section${sectionNum}`).style.display = 'none';
-  document.getElementById(`navButtons${sectionNum}`).style.display = 'none';
-  
-  currentSection = sectionNum - 1;
-  document.getElementById(`section${currentSection}`).style.display = 'block';
-  
-  if (currentSection < totalSections) {
-    document.getElementById(`navButtons${currentSection}`).style.display = 'flex';
-    document.getElementById('submitBtn').style.display = 'none';
-  }
-  
-  updateProgressBar();
-  window.scrollTo(0, 0);
+function nextSection(){
+  if(!validateSection(currentSection)) return;
+  currentSection = Math.min(currentSection+1, totalSections-1);
+  showSection(currentSection);
+}
+function prevSection(){
+  currentSection = Math.max(currentSection-1,0);
+  showSection(currentSection);
 }
 
-// Validation des champs obligatoires par section
-function validateSection(sectionNum) {
-  let isValid = true;
-  const section = document.getElementById(`section${sectionNum}`);
-  const requiredInputs = section.querySelectorAll('[required]');
-  
-  requiredInputs.forEach(input => {
-    if (input.type === 'checkbox' || input.type === 'radio') {
-      const name = input.name;
-      const checked = section.querySelector(`input[name="${name}"]:checked`);
-      if (!checked) {
-        isValid = false;
-        // Mettre en évidence le groupe de boutons radio
-        const group = input.closest('.radio-group') || input.closest('.checkbox-group');
-        if (group) group.style.border = '1px solid red';
-      }
-    } else if (!input.value) {
-      input.classList.add('error');
-      isValid = false;
+/* Basic validation: required fields in visible section */
+function validateSection(idx){
+  const section = document.getElementById('section'+idx);
+  const requiredControls = section.querySelectorAll('[required]');
+  let ok = true;
+  requiredControls.forEach(ctrl=>{
+    if(ctrl.type === 'radio'){
+      const group = section.querySelectorAll('input[name="'+ctrl.name+'"]');
+      const anyChecked = Array.from(group).some(r=>r.checked);
+      if(!anyChecked){ ok=false; group.forEach(g=>g.classList.add('error')); }
+      else group.forEach(g=>g.classList.remove('error'));
     } else {
-      input.classList.remove('error');
+      if(!ctrl.value || ctrl.value.trim()===""){ ctrl.classList.add('error'); ok=false; }
+      else ctrl.classList.remove('error');
     }
   });
-  
-  if (!isValid) {
-    alert('Veuillez remplir tous les champs obligatoires marqués d\'un astérisque (*)');
-    const firstError = section.querySelector('.error') || 
-                      section.querySelector('input[required]:not(:checked)');
-    if (firstError) {
-      firstError.scrollIntoView({ behavior: 'smooth', block: 'center' });
-      if (firstError.type !== 'radio' && firstError.type !== 'checkbox') {
-        firstError.focus();
-      }
-    }
-  }
-  
-  return isValid;
-
+  if(!ok){ alert('????? ????? ?????? ????????? (*) ???? ?????.'); }
+  return ok;
 }
 
-// Mise à jour de la barre de progression
-function updateProgressBar() {
-  const progress = (currentSection / totalSections) * 100;
-  document.getElementById('progressBar').style.width = `${progress}%`;
+/* Progress bar */
+function updateProgressBar(){
+  const percent = (currentSection/(totalSections-1))*100;
+  document.getElementById('progressBar').style.width = percent + '%';
 }
 
-// Soumission du formulaire (gérée par Netlify)
-document.getElementById('taxiForm').addEventListener('submit', function(e) {
-  // Netlify gère automatiquement la soumission
-  // Nous ajoutons juste un feedback visuel
-  const submitBtn = document.getElementById('submitBtn');
-  submitBtn.disabled = true;
-  submitBtn.textContent = 'Envoi en cours...';
-  // window.location.href = "SUCCES.html";
-  
-  // Réinitialiser après 5 secondes (au cas où la redirection ne fonctionne pas)
-  setTimeout(() => {
-    submitBtn.disabled = false;
-    submitBtn.textContent = 'Soumettre le questionnaire';
-  }
- , 5000);
+/* Consent check on submit (if needed). If you used initial consent radio, adapt here. */
+function checkConsent(){
+  // if you want a required consent step, implement here. Currently returns true.
+  return true;
+}
+
+/* Conditional UI logic based on answers */
+function toggle(id, show){ const el=document.getElementById(id); if(!el) return; el.style.display = show ? 'block' : 'none'; }
+
+/* detenteur_agrement -> contrat */
+document.querySelectorAll('input[name="detenteur_agrement"]').forEach(r=>{
+  r.addEventListener('change', e => toggle('bloc_contrat', e.target.value === '??'));
+});
+document.querySelectorAll('input[name="contrat_licence"]').forEach(r=>{
+  r.addEventListener('change', e => toggle('bloc_type_contrat', e.target.value === '???'));
 });
 
+/* autre activit� */
+document.querySelectorAll('input[name="autre_activite"]').forEach(r=>{
+  r.addEventListener('change', e => toggle('preciser_activite_label', e.target.value === '???'));
+});
+
+/* r�gles priorit� */
+document.querySelectorAll('input[name="regles_priorite"]').forEach(r=>{
+  r.addEventListener('change', e => toggle('respect_regles_label', e.target.value === '???'));
+});
+
+/* contr�le & pointage */
+document.querySelectorAll('input[name="pointage_controle"]').forEach(r=>{
+  r.addEventListener('change', e => toggle('bloc_controle', e.target.value === '???'));
+});
+document.querySelectorAll('input[name="pointage_systeme"]').forEach(r=>{
+  r.addEventListener('change', e => toggle('bloc_pointage', e.target.value === '???'));
+});
+
+/* service collectif -> partage */
+function updateCollectif(){
+  const checked = Array.from(document.querySelectorAll('input[name="service_mode[]"]')).some(c=>c.checked && c.value.includes('?????'));
+  toggle('bloc_collectif', checked);
+}
+document.querySelectorAll('input[name="service_mode[]"]').forEach(c=>c.addEventListener('change', updateCollectif));
+
+/* type service: ligne vs demande */
+document.querySelectorAll('input[name="type_service"]').forEach(r=>{
+  r.addEventListener('change', e=>{
+    toggle('bloc_ligne', e.target.value === '????');
+    toggle('bloc_demande', e.target.value === '??? ??? ?????');
+  });
+});
+
+/* partage percent inputs */
+document.querySelectorAll('input[name="prise_charge_assurance"]').forEach(r=>r.addEventListener('change', e=>toggle('part_assurance_label', e.target.value==='??????')));
+document.querySelectorAll('input[name="prise_charge_entretien"]').forEach(r=>r.addEventListener('change', e=>toggle('part_entretien_label', e.target.value==='??????')));
+document.querySelectorAll('input[name="prise_charge_reparations"]').forEach(r=>r.addEventListener('change', e=>toggle('part_reparations_label', e.target.value==='??????')));
+
+/* conflits */
+document.querySelectorAll('input[name="conflits_station"]').forEach(r=>r.addEventListener('change', e=>toggle('nature_conflits_label', e.target.value==='???')));
+
+/* autre retribution */
+document.querySelectorAll('input[name="modalite_retribution"]').forEach(r=>r.addEventListener('change', e=>toggle('autre_retribution_label', e.target.value==='????')));
+
+/* autre revenu */
+document.querySelectorAll('input[name="autre_revenu"]').forEach(r=>r.addEventListener('change', e=>toggle('preciser_revenu_label', e.target.value==='???')));
+
+/* init */
+showSection(0);
+updateCollectif();
+
+/* small UX: disable submit while sending */
+document.getElementById('taxiForm').addEventListener('submit', function(e){
+  const btn = document.getElementById('submitBtn');
+  btn.disabled = true;
+  btn.textContent = '???? ???????...';
+  // allow the form to submit normally; if using fetch, implement here.
+  setTimeout(()=>{ btn.disabled=false; btn.textContent='???? ?????????'; }, 5000);
+});
 </script>
+
 </body>
 </html>
+
