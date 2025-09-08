@@ -419,7 +419,7 @@ footer {
     <div id="progressBar" class="progress-bar"></div>
   </div>
 
-  <form id="taxiForm" method="POST" action="https://script.google.com/macros/s/AKfycbzJNigrHUiEmey52QZi5HvvYJD-YgwlBm4zH4XCqg5wG28YzMX1jKtCFMw86yvgUIzB/exec" onSubmit="return checkConsent();">
+  <form id="taxiForm" method="POST" action="https://script.google.com/macros/s/AKfycbzUJg6_s4NeM9pjQPv6xTJNb6UlyMfEyMj7P7D3kVzFrvmm-CGApFgqTHq_mBXTPiuH/exec" onSubmit="return checkConsent();">
     <input type="hidden" name="form-name" value="taxiForm">
     <p style="display:none"><label>لا تملأ هذا الحقل: <input name="bot-field"></label></p>
 
@@ -1263,6 +1263,32 @@ document.getElementById('taxiForm').addEventListener('submit', function(e){
   setTimeout(()=>{ btn.disabled=false; btn.textContent='صيفط الاستمارة'; }, 5000);
   
 });
+  const form = document.getElementById('taxiForm');
+  const responseMessage = document.getElementById('responseMessage');
+
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    const formData = new FormData(form);
+
+    fetch("https://script.google.com/macros/s/AKfycbzUJg6_s4NeM9pjQPv6xTJNb6UlyMfEyMj7P7D3kVzFrvmm-CGApFgqTHq_mBXTPiuH/exec", {
+      method: "POST",
+      body: formData
+    })
+    .then(response => response.json())
+    .then(data => {
+      if (data.result === "success") {
+        alert(data.message);   // ✅ affiche l’alerte
+        form.reset();          // ✅ vide le formulaire
+      } else {
+        alert("Erreur : " + data.error);
+      }
+    })
+    .catch(error => {
+      alert("Erreur réseau ❌");
+      console.error(error);
+    });
+  });
 </script>
 
 </body>
