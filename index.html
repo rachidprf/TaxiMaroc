@@ -1280,6 +1280,7 @@ document.getElementById('taxiForm').addEventListener('submit', function(e){
       if (data.result === "success") {
         alert(data.message);   // ✅ affiche l’alerte
         form.reset();          // ✅ vide le formulaire
+		window.location.href = "https://rachidprf.github.io/TaxiMaroc/"
       } else {
         alert("Erreur : " + data.error);
       }
