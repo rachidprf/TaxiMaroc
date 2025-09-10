@@ -407,7 +407,7 @@ footer {
 <body>
 
 <div id="headerImage" class="header-image">
-  <img src="1.png" alt="Banner">
+  <img src="1.png" width="150%" alt="Banner">
 </div>
 
 <div id="headerTXT" class="welcome-text">
@@ -873,8 +873,135 @@ footer {
       </label>
     </fieldset>
 
-    <!-- SECTION 3: الجوانب الاقتصادية -->
+    
+    <!-- SECTION 3: نظرة على المهنة -->
     <fieldset id="section3" style="display:none">
+      <legend>4) نظرة على المهنة وآفاق التطوير</legend>
+
+      <div class="section-header">تطور الطلب فـ3 سنين لي مرو</div>
+      <label class="required">
+        <select name="evolution_demande" required >
+          <option value="">اختار...</option>
+          <option value="هبوط كبير">هبوط كبير</option>
+          <option value="هبوط بسيط">هبوط بسيط</option>
+          <option value="مستقر">مستقر</option>
+          <option value="في طلوع">في طلوع</option>
+        </select>
+      </label>
+
+      <div class="section-header">المنافسة الرئيسية</div>
+      <label>
+        <div class="checkbox-group">
+          <label class="checkbox-option"><input type="checkbox" name="concurrence" value="تطبيقات الحجز"> تطبيقات الحجز</label>
+          <label class="checkbox-option"><input type="checkbox" name="concurrence" value="النقل العشوائي"> النقل العشوائي</label>
+          <label class="checkbox-option"><input type="checkbox" name="concurrence" value="الطوبيس"> الطوبيس</label>
+          <label class="checkbox-option"><input type="checkbox" name="concurrence" value="طاكسيات أخرى"> طاكسيات أخرى</label>
+          <label class="checkbox-option"><input type="checkbox" name="concurrence" value="غير ذلك"> أخرى</label>
+        </div>
+      </label>
+
+            <div class="section-header">التكنولوجيا والتطبيقات</div>
+      <div class="inline">
+        <label class="required">عندك سمارتفون؟
+          <div class="radio-group">
+            <label class="radio-option"><input type="radio" name="smartphone" value="نعم" required > نعم</label>
+            <label class="radio-option"><input type="radio" name="smartphone" value="لا" required > لا</label>
+          </div>
+        </label>
+
+        <label>كتستعمل تطبيق ديال الحجز؟
+          <div class="radio-group">
+            <label class="radio-option"><input type="radio" name="app_reservation" value="نعم"> نعم</label>
+            <label class="radio-option"><input type="radio" name="app_reservation" value="لا"> لا</label>
+          </div>
+        </label>
+
+        <label>منخرط فمصلحة ديال الحجز بالتليفون؟
+          <div class="radio-group">
+            <label class="radio-option"><input type="radio" name="centrale_telephonique" value="نعم"> نعم</label>
+            <label class="radio-option"><input type="radio" name="centrale_telephonique" value="لا"> لا</label>
+          </div>
+        </label>
+      </div>
+
+      <div class="section-header">مستعد تركب في الطاكسي ديالك:</div>
+      <label>
+        <div class="checkbox-group">
+          <label class="checkbox-option"><input type="checkbox" name="equipements" value="GPS"> GPS</label>
+          <label class="checkbox-option"><input type="checkbox" name="equipements" value="تطبيق"> تطبيق</label>
+          <label class="checkbox-option"><input type="checkbox" name="equipements" value="دفع الكتروني"> جهاز دفع بالبطاقة</label>
+        </div>
+      </label>
+
+      <div class="section-header">موافق تدخل مع:</div>
+      <label>
+        <div class="checkbox-group">
+          <label class="checkbox-option"><input type="checkbox" name="integrations" value="تعاونية"> تعاونية</label>
+          <label class="checkbox-option"><input type="checkbox" name="integrations" value="منصة الكترونية"> منصة إلكترونية</label>
+          <label class="checkbox-option"><input type="checkbox" name="integrations" value="شركة تسيير"> شركة تسيير</label>
+          <label class="checkbox-option"><input type="checkbox" name="integrations" value="لا"> لا</label>
+        </div>
+      </label>
+
+      <div class="section-header">شنو المخاطر الكبيرة؟</div>
+      <label>
+        <div class="checkbox-group">
+          <label class="checkbox-option"><input type="checkbox" name="risques" value="انعدام السلامة"> انعدام السلامة</label>
+          <label class="checkbox-option"><input type="checkbox" name="risques" value="الحوادث"> الحوادث</label>
+          <label class="checkbox-option"><input type="checkbox" name="risques" value="المرض"> المرض</label>
+          <label class="checkbox-option"><input type="text" name="risques_autre" placeholder="أخرى..."></label>
+        </div>
+      </label>
+    </fieldset>
+
+    <!-- SECTION 4: ملاحظات و اقتراحات -->
+    <fieldset id="section4" style="display:none">
+      <legend>5) الملاحظات والاقتراحات</legend>
+
+      <div class="section-header">التقييم العام للمهنة</div>
+      <div class="inline">
+        <label class="required">المهنة دابا
+          <div class="radio-group">
+            <label class="radio-option"><input type="radio" name="valorisation_metier" value="مقدّرة" required > مقدّرة</label>
+            <label class="radio-option"><input type="radio" name="valorisation_metier" value="غير مقدّرة" required > غير مقدّرة</label>
+          </div>
+        </label>
+
+        <label class="required">الوضع
+          <div class="radio-group">
+            <label class="radio-option"><input type="radio" name="stabilite_metier" value="مستقرة" required > مستقرة</label>
+            <label class="radio-option"><input type="radio" name="stabilite_metier" value="في تراجع" required > في تراجع</label>
+          </div>
+        </label>
+
+        <label class="required">ناوي تكمل فهاد المهنة؟
+          <div class="radio-group">
+            <label class="radio-option"><input type="radio" name="continuer_metier" value="نعم" required > نعم</label>
+            <label class="radio-option"><input type="radio" name="continuer_metier" value="لا" required > لا</label>
+          </div>
+        </label>
+
+        <label class="required">موافق على تكوينات مهنية؟
+          <div class="radio-group">
+            <label class="radio-option"><input type="radio" name="formation_professionnelle" value="نعم" required > نعم</label>
+            <label class="radio-option"><input type="radio" name="formation_professionnelle" value="لا" required > لا</label>
+          </div>
+        </label>
+      </div>
+
+      <div class="section-header">أكبر 3 مشاكل الآن</div>
+      <label class="required">
+        <input type="text" name="probleme1" placeholder="المشكل 1" required >
+        <input type="text" name="probleme2" placeholder="المشكل 2" required >
+        <input type="text" name="probleme3" placeholder="المشكل 3" required >
+      </label>
+
+      <div class="section-header">اقتراحات عملية للتحسين (راحة، سلامة...)</div>
+      <label><textarea name="propositions" rows="4"></textarea></label>
+    </fieldset>
+	
+	<!-- SECTION 5: الجوانب الاقتصادية -->
+    <fieldset id="section5" style="display:none">
       <legend>3) الجوانب الاقتصادية ومصاريف الخدمة</legend>
 
       <div class="section-header">طريقة الخلاص</div>
@@ -994,131 +1121,6 @@ footer {
       </label>
     </fieldset>
 
-    <!-- SECTION 4: نظرة على المهنة -->
-    <fieldset id="section4" style="display:none">
-      <legend>4) نظرة على المهنة وآفاق التطوير</legend>
-
-      <div class="section-header">تطور الطلب فـ3 سنين لي مرو</div>
-      <label class="required">
-        <select name="evolution_demande" required >
-          <option value="">اختار...</option>
-          <option value="هبوط كبير">هبوط كبير</option>
-          <option value="هبوط بسيط">هبوط بسيط</option>
-          <option value="مستقر">مستقر</option>
-          <option value="في طلوع">في طلوع</option>
-        </select>
-      </label>
-
-      <div class="section-header">المنافسة الرئيسية</div>
-      <label>
-        <div class="checkbox-group">
-          <label class="checkbox-option"><input type="checkbox" name="concurrence" value="تطبيقات الحجز"> تطبيقات الحجز</label>
-          <label class="checkbox-option"><input type="checkbox" name="concurrence" value="النقل العشوائي"> النقل العشوائي</label>
-          <label class="checkbox-option"><input type="checkbox" name="concurrence" value="الطوبيس"> الطوبيس</label>
-          <label class="checkbox-option"><input type="checkbox" name="concurrence" value="طاكسيات أخرى"> طاكسيات أخرى</label>
-          <label class="checkbox-option"><input type="checkbox" name="concurrence" value="غير ذلك"> أخرى</label>
-        </div>
-      </label>
-
-            <div class="section-header">التكنولوجيا والتطبيقات</div>
-      <div class="inline">
-        <label class="required">عندك سمارتفون؟
-          <div class="radio-group">
-            <label class="radio-option"><input type="radio" name="smartphone" value="نعم" required > نعم</label>
-            <label class="radio-option"><input type="radio" name="smartphone" value="لا" required > لا</label>
-          </div>
-        </label>
-
-        <label>كتستعمل تطبيق ديال الحجز؟
-          <div class="radio-group">
-            <label class="radio-option"><input type="radio" name="app_reservation" value="نعم"> نعم</label>
-            <label class="radio-option"><input type="radio" name="app_reservation" value="لا"> لا</label>
-          </div>
-        </label>
-
-        <label>منخرط فمصلحة ديال الحجز بالتليفون؟
-          <div class="radio-group">
-            <label class="radio-option"><input type="radio" name="centrale_telephonique" value="نعم"> نعم</label>
-            <label class="radio-option"><input type="radio" name="centrale_telephonique" value="لا"> لا</label>
-          </div>
-        </label>
-      </div>
-
-      <div class="section-header">مستعد تركب في الطاكسي ديالك:</div>
-      <label>
-        <div class="checkbox-group">
-          <label class="checkbox-option"><input type="checkbox" name="equipements" value="GPS"> GPS</label>
-          <label class="checkbox-option"><input type="checkbox" name="equipements" value="تطبيق"> تطبيق</label>
-          <label class="checkbox-option"><input type="checkbox" name="equipements" value="دفع الكتروني"> جهاز دفع بالبطاقة</label>
-        </div>
-      </label>
-
-      <div class="section-header">موافق تدخل مع:</div>
-      <label>
-        <div class="checkbox-group">
-          <label class="checkbox-option"><input type="checkbox" name="integrations" value="تعاونية"> تعاونية</label>
-          <label class="checkbox-option"><input type="checkbox" name="integrations" value="منصة الكترونية"> منصة إلكترونية</label>
-          <label class="checkbox-option"><input type="checkbox" name="integrations" value="شركة تسيير"> شركة تسيير</label>
-          <label class="checkbox-option"><input type="checkbox" name="integrations" value="لا"> لا</label>
-        </div>
-      </label>
-
-      <div class="section-header">شنو المخاطر الكبيرة؟</div>
-      <label>
-        <div class="checkbox-group">
-          <label class="checkbox-option"><input type="checkbox" name="risques" value="انعدام السلامة"> انعدام السلامة</label>
-          <label class="checkbox-option"><input type="checkbox" name="risques" value="الحوادث"> الحوادث</label>
-          <label class="checkbox-option"><input type="checkbox" name="risques" value="المرض"> المرض</label>
-          <label class="checkbox-option"><input type="text" name="risques_autre" placeholder="أخرى..."></label>
-        </div>
-      </label>
-    </fieldset>
-
-    <!-- SECTION 5: ملاحظات و اقتراحات -->
-    <fieldset id="section5" style="display:none">
-      <legend>5) الملاحظات والاقتراحات</legend>
-
-      <div class="section-header">التقييم العام للمهنة</div>
-      <div class="inline">
-        <label class="required">المهنة دابا
-          <div class="radio-group">
-            <label class="radio-option"><input type="radio" name="valorisation_metier" value="مقدّرة" required > مقدّرة</label>
-            <label class="radio-option"><input type="radio" name="valorisation_metier" value="غير مقدّرة" required > غير مقدّرة</label>
-          </div>
-        </label>
-
-        <label class="required">الوضع
-          <div class="radio-group">
-            <label class="radio-option"><input type="radio" name="stabilite_metier" value="مستقرة" required > مستقرة</label>
-            <label class="radio-option"><input type="radio" name="stabilite_metier" value="في تراجع" required > في تراجع</label>
-          </div>
-        </label>
-
-        <label class="required">ناوي تكمل فهاد المهنة؟
-          <div class="radio-group">
-            <label class="radio-option"><input type="radio" name="continuer_metier" value="نعم" required > نعم</label>
-            <label class="radio-option"><input type="radio" name="continuer_metier" value="لا" required > لا</label>
-          </div>
-        </label>
-
-        <label class="required">موافق على تكوينات مهنية؟
-          <div class="radio-group">
-            <label class="radio-option"><input type="radio" name="formation_professionnelle" value="نعم" required > نعم</label>
-            <label class="radio-option"><input type="radio" name="formation_professionnelle" value="لا" required > لا</label>
-          </div>
-        </label>
-      </div>
-
-      <div class="section-header">أكبر 3 مشاكل الآن</div>
-      <label class="required">
-        <input type="text" name="probleme1" placeholder="المشكل 1" required >
-        <input type="text" name="probleme2" placeholder="المشكل 2" required >
-        <input type="text" name="probleme3" placeholder="المشكل 3" required >
-      </label>
-
-      <div class="section-header">اقتراحات عملية للتحسين (راحة، سلامة...)</div>
-      <label><textarea name="propositions" rows="4"></textarea></label>
-    </fieldset>
 
     <!-- Navigation buttons -->
     <div class="nav-buttons" id="navButtons">
