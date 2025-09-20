@@ -187,7 +187,7 @@ textarea {
   flex-wrap: wrap;
 }
 
-.inline  > * {
+.inline required > * {
   flex: 1;
   min-width: 200px;
 }
@@ -257,7 +257,7 @@ textarea {
   cursor: not-allowed;
 }
 
-.::after {
+.required::after {
   content: " *";
   color: var(--secondary);
   font-weight: bold;
@@ -364,7 +364,7 @@ footer {
     gap: 15px;
   }
   
-  .inline  > * {
+  .inline required > * {
     min-width: 100%;
   }
   
@@ -419,7 +419,7 @@ footer {
     <div id="progressBar" class="progress-bar"></div>
   </div>
 
-  <form id="taxiForm"  >
+  <form id="taxiForm">
     <input type="hidden" name="form-name" value="taxiForm">
     <p style="display:none"><label>لا تملأ هذا الحقل: <input name="bot-field"></label></p>
 
@@ -427,10 +427,10 @@ footer {
     <fieldset id="section0">
       <legend>قسم الباحث</legend>
       <div class="section-header">كود الباحث</div>
-      <label class=""><input type="text" name="identifiant_enqueteur"  ></label>
+      <label class="required"><input type="text" name="identifiant_enqueteur" required ></label>
       
       <div class="section-header">المدينة / الجماعة</div>
-      <label class=""><input type="text" name="ville"  ></label>
+      <label class="required"><input type="text" name="ville" required ></label>
       
       <div class="section-header">بلاصة اللقاء</div>
       <label><input type="text" name="lieu_entretien"></label>
@@ -448,42 +448,42 @@ footer {
       <legend>1) الملف الشخصي والحالة المهنية</legend>
 	  
       <div class="section-header">نوع الطاكسي</div>
-      <label class="">
+      <label class="required">
         <div class="radio-group">
-          <label class="radio-option"><input type="radio" name="type_taxi" value="طاكسي صغير"  > طاكسي صغير</label>
-          <label class="radio-option"><input type="radio" name="type_taxi" value="طاكسي كبير"  > طاكسي كبير</label>
+          <label class="radio-option"><input type="radio" name="type_taxi" value="طاكسي صغير" required > طاكسي صغير</label>
+          <label class="radio-option"><input type="radio" name="type_taxi" value="طاكسي كبير" required > طاكسي كبير</label>
         </div>
       </label>
 
       <div class="section-header">الفئة العمرية</div>
-      <label class="">
+      <label class="required">
         <div class="radio-group">
-          <label class="radio-option"><input type="radio" name="age" value="أقل من 30"  > أقل من 30 عام</label>
-          <label class="radio-option"><input type="radio" name="age" value="31-45"  > من 31 حتى 45 عام</label>
-          <label class="radio-option"><input type="radio" name="age" value="45-60"  > من 45 حتى 60 عام</label>
-          <label class="radio-option"><input type="radio" name="age" value="أكثر من 60"  > أكثر من 60 عام</label>
+          <label class="radio-option"><input type="radio" name="age" value="أقل من 30" required > أقل من 30 عام</label>
+          <label class="radio-option"><input type="radio" name="age" value="31-45" required > من 31 حتى 45 عام</label>
+          <label class="radio-option"><input type="radio" name="age" value="45-60" required > من 45 حتى 60 عام</label>
+          <label class="radio-option"><input type="radio" name="age" value="أكثر من 60" required > أكثر من 60 عام</label>
         </div>
       </label>
 
       <div class="section-header"> واش عندك رخصة الثقة صالحة؟ </div>
-      <label class="">
+      <label class="required">
         <div class="radio-group">
-          <label class="radio-option"><input type="radio" name="permis_confiance" value="نعم"  > نعم</label>
-          <label class="radio-option"><input type="radio" name="permis_confiance" value="لا"  > لا</label>
+          <label class="radio-option"><input type="radio" name="permis_confiance" value="نعم" required > نعم</label>
+          <label class="radio-option"><input type="radio" name="permis_confiance" value="لا" required > لا</label>
         </div>
       </label>
 
       <div class="section-header">واش عندك كارط ديال السائق المهني صالحة؟ </div>
-      <label class="">
+      <label class="required">
         <div class="radio-group">
-          <label class="radio-option"><input type="radio" name="carte_conducteur" value="نعم"  > نعم</label>
-          <label class="radio-option"><input type="radio" name="carte_conducteur" value="لا"  > لا</label>
+          <label class="radio-option"><input type="radio" name="carte_conducteur" value="نعم" required > نعم</label>
+          <label class="radio-option"><input type="radio" name="carte_conducteur" value="لا" required > لا</label>
         </div>
       </label>
 
       <div class="section-header">المستوى الدراسي</div>
-      <label class="">
-        <select name="niveau_instruction"  >
+      <label class="required">
+        <select name="niveau_instruction" required >
           <option value="">اختار...</option>
           <option value="ما قريتش">ما قريتش</option>
           <option value="ابتدائي">ابتدائي</option>
@@ -508,16 +508,16 @@ footer {
       <hr>
 
       <div class="section-header">	واش انتَ مول لكريمة؟ </div>
-      <label class="">
+      <label class="required">
         <div class="radio-group">
-          <label class="radio-option"><input type="radio" name="detenteur_agrement" value="نعم"  > نعم</label>
-          <label class="radio-option"><input type="radio" name="detenteur_agrement" value="لا"  > لا</label>
+          <label class="radio-option"><input type="radio" name="detenteur_agrement" value="نعم" required > نعم</label>
+          <label class="radio-option"><input type="radio" name="detenteur_agrement" value="لا" required > لا</label>
         </div>
       </label>
 
       <div id="bloc_contrat" style="display:none">
         <div class="section-header">	إلا كان لا ,واش عندك عقد استغلال مع مول لكريمة؟ </div>
-        <label class="">
+        <label class="required">
           <div class="radio-group">
             <label class="radio-option"><input type="radio" name="contrat_licence" value="نعم"> نعم</label>
             <label class="radio-option"><input type="radio" name="contrat_licence" value="لا"> لا</label>
@@ -538,15 +538,15 @@ footer {
       </div>
 
             <div class="section-header">	واش انتَ مول الطاكسي؟ </div>
-      <label class="">
+      <label class="required">
         <div class="radio-group">
-          <label class="radio-option"><input type="radio" name="proprietaire_taxi" value="نعم"  > نعم</label>
-          <label class="radio-option"><input type="radio" name="proprietaire_taxi" value="لا"  > لا</label>
+          <label class="radio-option"><input type="radio" name="proprietaire_taxi" value="نعم" required > نعم</label>
+          <label class="radio-option"><input type="radio" name="proprietaire_taxi" value="لا" required > لا</label>
         </div>
       </label>
 
       <div class="section-header">إلا ماشي نتا مول الطاكسي , كتخدم كسائق طاكسي</div>
-      <label class="">
+      <label class="required">
         <select name="statut_professionnel"  >
           <option value="">اختار...</option>
           <option value="حر">حر</option>
@@ -556,8 +556,8 @@ footer {
       </label>
 
       <div class="section-header">الأقدمية في الميدان</div>
-      <label class="">
-        <select name="anciennete"  >
+      <label class="required">
+        <select name="anciennete" required >
           <option value="">اختار...</option>
           <option value="أقل من عام">أقل من عام</option>
           <option value="1-5">من 1 حتى 5 سنين</option>
@@ -568,7 +568,7 @@ footer {
       </label>
 
       <div class="section-header">واش درتي تكوينات مهنية فالميدان ديال الطاكسيات</div>
-      <label class="">
+      <label class="required">
         <div class="checkbox-group">
           <label class="checkbox-option"><input type="checkbox" name="formations" value="تكوين أولي"> تكوين أولي</label>
           <label class="checkbox-option"><input type="checkbox" name="formations" value="تكوين مستمر"> تكوين مستمر</label>
@@ -577,54 +577,54 @@ footer {
       </label>
 
       <div class="section-header">مكان الخدمة</div>
-      <label class="">
+      <label class="required">
         <div class="radio-group">
-          <label class="radio-option"><input type="radio" name="lieu_activite" value="حضري"  > حضري</label>
-          <label class="radio-option"><input type="radio" name="lieu_activite" value="قروي"  > قروي</label>
-          <label class="radio-option"><input type="radio" name="lieu_activite" value="ما بين الجماعات"  > ما بين الجماعات</label>
-          <label class="radio-option"><input type="radio" name="lieu_activite" value="ما بين الأقاليم"  > ما بين الأقاليم</label>
+          <label class="radio-option"><input type="radio" name="lieu_activite" value="حضري" required > حضري</label>
+          <label class="radio-option"><input type="radio" name="lieu_activite" value="قروي" required > قروي</label>
+          <label class="radio-option"><input type="radio" name="lieu_activite" value="ما بين الجماعات" required > ما بين الجماعات</label>
+          <label class="radio-option"><input type="radio" name="lieu_activite" value="ما بين الأقاليم" required > ما بين الأقاليم</label>
         </div>
       </label>
 
       <div class="section-header">التغطية الصحية والتقاعد</div>
       <div class="inline">
-        <label class="">تغطية صحية (AMO)
+        <label class="required">تغطية صحية (AMO)
           <div class="radio-group">
-            <label class="radio-option"><input type="radio" name="couverture_medicale" value="نعم"  > نعم</label>
-            <label class="radio-option"><input type="radio" name="couverture_medicale" value="لا"  > لا</label>
+            <label class="radio-option"><input type="radio" name="couverture_medicale" value="نعم" required > نعم</label>
+            <label class="radio-option"><input type="radio" name="couverture_medicale" value="لا" required > لا</label>
           </div>
         </label>
 
-        <label class="">مسجل في نظام التقاعد
+        <label class="required">مسجل في نظام التقاعد
           <div class="radio-group">
-            <label class="radio-option"><input type="radio" name="regime_pension" value="نعم"  > نعم</label>
-            <label class="radio-option"><input type="radio" name="regime_pension" value="لا"  > لا</label>
+            <label class="radio-option"><input type="radio" name="regime_pension" value="نعم" required > نعم</label>
+            <label class="radio-option"><input type="radio" name="regime_pension" value="لا" required > لا</label>
           </div>
         </label>
 
-        <label class="">كتستافد من التقاعد
+        <label class="required">كتستافد من التقاعد
           <div class="radio-group">
-            <label class="radio-option"><input type="radio" name="retraite" value="نعم"  > نعم</label>
-            <label class="radio-option"><input type="radio" name="retraite" value="لا"  > لا</label>
+            <label class="radio-option"><input type="radio" name="retraite" value="نعم" required > نعم</label>
+            <label class="radio-option"><input type="radio" name="retraite" value="لا" required > لا</label>
           </div>
         </label>
       </div>
 
       <div class="section-header">الدوريات وعدد السائقين</div>
       <div class="inline">
-        <label class="">	شحال من دورية كتديرو فالنهار لكل طاكسي؟ 
+        <label class="required">	شحال من دورية كتديرو فالنهار لكل طاكسي؟ 
           <div class="radio-group">
-            <label class="radio-option"><input type="radio" name="shifts_par_jour" value="1"  > 1</label>
-            <label class="radio-option"><input type="radio" name="shifts_par_jour" value="2"  > 2</label>
-            <label class="radio-option"><input type="radio" name="shifts_par_jour" value="أكثر"  > أكثر</label>
+            <label class="radio-option"><input type="radio" name="shifts_par_jour" value="1" required > 1</label>
+            <label class="radio-option"><input type="radio" name="shifts_par_jour" value="2" required > 2</label>
+            <label class="radio-option"><input type="radio" name="shifts_par_jour" value="أكثر" required > أكثر</label>
           </div>
         </label>
 
-        <label class="">	شحال من شيفور كيسوق نفس الطاكسي؟ 
+        <label class="required">	شحال من شيفور كيسوق نفس الطاكسي؟ 
           <div class="radio-group">
-            <label class="radio-option"><input type="radio" name="nb_chauffeurs" value="1"  > 1</label>
-            <label class="radio-option"><input type="radio" name="nb_chauffeurs" value="2"  > 2</label>
-            <label class="radio-option"><input type="radio" name="nb_chauffeurs" value="أكثر"  > أكثر</label>
+            <label class="radio-option"><input type="radio" name="nb_chauffeurs" value="1" required > 1</label>
+            <label class="radio-option"><input type="radio" name="nb_chauffeurs" value="2" required > 2</label>
+            <label class="radio-option"><input type="radio" name="nb_chauffeurs" value="أكثر" required > أكثر</label>
           </div>
         </label>
       </div>
@@ -634,19 +634,19 @@ footer {
 
       <div class="section-header">مدة الخدمة</div>
       <div class="inline">
-        <label class="">	مدة الخدمة ديالك نتا  فالنهار (بالساعة)<input type="number" name="temps_travail" min="1" max="24"  ></label>
-        <label class="">خدمة فالليل
+        <label class="required">	مدة الخدمة ديالك نتا  فالنهار (بالساعة)<input type="number" name="temps_travail" min="1" max="24" required ></label>
+        <label class="required">خدمة فالليل
           <div class="radio-group">
-            <label class="radio-option"><input type="radio" name="travail_nuit" value="نعم"  > نعم</label>
-            <label class="radio-option"><input type="radio" name="travail_nuit" value="لا"  > لا</label>
+            <label class="radio-option"><input type="radio" name="travail_nuit" value="نعم" required > نعم</label>
+            <label class="radio-option"><input type="radio" name="travail_nuit" value="لا" required > لا</label>
           </div>
         </label>
       </div>
 
       <div class="section-header">أيام العمل والعطلة</div>
       <div class="inline">
-        <label class="">عدد أيام الخدمة فالأسبوع<input type="number" name="jours_travail_semaine" min="1" max="7"  ></label>
-        <label class="">العطلة السنوية (أيام)<input type="number" name="conge_annuel" min="0"  ></label>
+        <label class="required">عدد أيام الخدمة فالأسبوع<input type="number" name="jours_travail_semaine" min="1" max="7" required ></label>
+        <label class="required">العطلة السنوية (أيام)<input type="number" name="conge_annuel" min="0" required ></label>
       </div>
 
       <div class="section-header">كتخدم فشي حاجة أخرى من غير الطاكسي؟</div>
@@ -666,26 +666,26 @@ footer {
       <p class="small">جاوب على المحطة الرئيسية إذا كتخدم فعدة محطات.</p>
 
       <div class="section-header">	واش البلايص فين تسطاسيوني فالمحطة كافيين </div>
-      <label class="">
+      <label class="required">
         <div class="radio-group">
-          <label class="radio-option"><input type="radio" name="station_suffisante" value="نعم"  > نعم</label>
-          <label class="radio-option"><input type="radio" name="station_suffisante" value="لا"  > لا</label>
+          <label class="radio-option"><input type="radio" name="station_suffisante" value="نعم" required > نعم</label>
+          <label class="radio-option"><input type="radio" name="station_suffisante" value="لا" required > لا</label>
         </div>
       </label>
 
       <div class="section-header">	واش كاين مسؤول أو رئيس معروف فالمحطة؟ </div>
-      <label class="">
+      <label class="required">
         <div class="radio-group">
-          <label class="radio-option"><input type="radio" name="responsable_station" value="نعم"  > نعم</label>
-          <label class="radio-option"><input type="radio" name="responsable_station" value="لا"  > لا</label>
+          <label class="radio-option"><input type="radio" name="responsable_station" value="نعم" required > نعم</label>
+          <label class="radio-option"><input type="radio" name="responsable_station" value="لا" required > لا</label>
         </div>
       </label>
 
          <div class="section-header">	واش كاينين قوانين ديال الأسبقية أولا التناوب؟ ؟</div>
-      <label class="">
+      <label class="required">
         <div class="radio-group">
-          <label class="radio-option"><input type="radio" name="regles_priorite" value="نعم"  > نعم</label>
-          <label class="radio-option"><input type="radio" name="regles_priorite" value="لا"  > لا</label>
+          <label class="radio-option"><input type="radio" name="regles_priorite" value="نعم" required > نعم</label>
+          <label class="radio-option"><input type="radio" name="regles_priorite" value="لا" required > لا</label>
         </div>
       </label>
       <div id="respect_regles_label" style="display:none">
@@ -701,10 +701,10 @@ footer {
       </div>
 
       <div class="section-header">	واش النظام ديال المحطة‍ كيتراقب من شي سلطة؟ </div>
-      <label class="">
+      <label class="required">
         <div class="radio-group">
-          <label class="radio-option"><input type="radio" name="pointage_controle" value="نعم"  > نعم</label>
-          <label class="radio-option"><input type="radio" name="pointage_controle" value="لا"  > لا</label>
+          <label class="radio-option"><input type="radio" name="pointage_controle" value="نعم" required > نعم</label>
+          <label class="radio-option"><input type="radio" name="pointage_controle" value="لا" required > لا</label>
         </div>
       </label>
 
@@ -719,8 +719,13 @@ footer {
             <label class="radio-option"><input type="radio" name="controle_efficace" value="لا"> لا</label>
           </div>
         </label>
+        
+      </div>
 
-        <div class="section-header">خاضعين لنظام البوانطاج؟</div>
+      <hr>
+
+
+<div class="section-header">خاضعين لنظام البوانطاج؟</div>
         <label>
           <div class="radio-group">
             <label class="radio-option"><input type="radio" name="pointage_systeme" value="نعم"> نعم</label>
@@ -742,12 +747,12 @@ footer {
           <div class="section-header">شكون كيراقب البوانطاج؟</div>
           <label><input type="text" name="responsable_pointage"></label>
         </div>
-      </div>
 
-      <hr>
+
+
 
       <div class="section-header">آش من سرفيس كتدير؟</div>
-      <label class="">
+      <label class="required">
         <div class="checkbox-group">
           <label class="checkbox-option"><input type="checkbox" name="service_mode" value="جماعي خط ثابت"> جماعي - خط ثابت</label>
           <label class="checkbox-option"><input type="checkbox" name="service_mode" value="جماعي حسب الطلب"> جماعي - حسب الطلب</label>
@@ -767,11 +772,14 @@ footer {
         </label>
       </div>
 
+
+
+
       <div class="section-header">كتخدم:</div>
-      <label class="">
+      <label class="required">
         <div class="radio-group">
-          <label class="radio-option"><input type="radio" name="type_service" value="الخط"  > فالخط (مسار ثابت)</label>
-          <label class="radio-option"><input type="radio" name="type_service" value="على حسب الطلب"  > على حسب الطلب</label>
+          <label class="radio-option"><input type="radio" name="type_service" value="الخط" required > فالخط (مسار ثابت)</label>
+          <label class="radio-option"><input type="radio" name="type_service" value="على حسب الطلب" required > على حسب الطلب</label>
         </div>
       </label>
 
@@ -853,10 +861,10 @@ footer {
       <hr>
 
       <div class="section-header">واش كاينين مشاكل فالمحطة؟</div>
-      <label class="">
+      <label class="required">
         <div class="radio-group">
-          <label class="radio-option"><input type="radio" name="conflits_station" value="نعم"  > نعم</label>
-          <label class="radio-option"><input type="radio" name="conflits_station" value="لا"  > لا</label>
+          <label class="radio-option"><input type="radio" name="conflits_station" value="نعم" required > نعم</label>
+          <label class="radio-option"><input type="radio" name="conflits_station" value="لا" required > لا</label>
         </div>
       </label>
       <label id="nature_conflits_label" style="display:none">
@@ -865,10 +873,10 @@ footer {
       </label>
 
         <div class="section-header">39.	واش السلطات (بوليس أو سلطات محلية) كيتدخلو إلا كان مشكل؟ </div>
-      <label class="">
+      <label class="required">
         <div class="radio-group">
-          <label class="radio-option"><input type="radio" name="intervention_autorites" value="نعم"  > نعم</label>
-          <label class="radio-option"><input type="radio" name="intervention_autorites" value="لا"  > لا</label>
+          <label class="radio-option"><input type="radio" name="intervention_autorites" value="نعم" required > نعم</label>
+          <label class="radio-option"><input type="radio" name="intervention_autorites" value="لا" required > لا</label>
         </div>
       </label>
     </fieldset>
@@ -879,8 +887,8 @@ footer {
       <legend>4) نظرة على المهنة وآفاق التطوير</legend>
 
       <div class="section-header">	واش لاحظت هبوط أو طلوع فالطلب فـ 3 سنين اللي فاتو</div>
-      <label class="">
-        <select name="evolution_demande"  >
+      <label class="required">
+        <select name="evolution_demande" required >
           <option value="">اختار...</option>
           <option value="هبوط كبير">هبوط كبير</option>
           <option value="هبوط بسيط">هبوط بسيط</option>
@@ -902,10 +910,10 @@ footer {
 
             <div class="section-header">التكنولوجيا والتطبيقات</div>
       <div class="inline">
-        <label class="">عندك سمارتفون؟
+        <label class="required">عندك سمارتفون؟
           <div class="radio-group">
-            <label class="radio-option"><input type="radio" name="smartphone" value="نعم"  > نعم</label>
-            <label class="radio-option"><input type="radio" name="smartphone" value="لا"  > لا</label>
+            <label class="radio-option"><input type="radio" name="smartphone" value="نعم" required > نعم</label>
+            <label class="radio-option"><input type="radio" name="smartphone" value="لا" required > لا</label>
           </div>
         </label>
 
@@ -939,6 +947,7 @@ footer {
           <label class="checkbox-option"><input type="checkbox" name="integrations" value="تعاونية"> تعاونية</label>
           <label class="checkbox-option"><input type="checkbox" name="integrations" value="منصة الكترونية"> منصة إلكترونية</label>
           <label class="checkbox-option"><input type="checkbox" name="integrations" value="شركة تسيير"> شركة تسيير</label>
+		  <label class="checkbox-option"><input type="checkbox" name="integrations" value="فمصلحة ديال الحجز بالتليفون"> فمصلحة ديال الحجز بالتليفون</label>
           <label class="checkbox-option"><input type="checkbox" name="integrations" value="لا"> لا</label>
         </div>
       </label>
@@ -960,40 +969,40 @@ footer {
 
       <div class="section-header">التقييم العام للمهنة</div>
       <div class="inline">
-        <label class="">المهنة دابا
+        <label class="required">المهنة دابا
           <div class="radio-group">
-            <label class="radio-option"><input type="radio" name="valorisation_metier" value="مقدّرة"  > مقدّرة</label>
-            <label class="radio-option"><input type="radio" name="valorisation_metier" value="غير مقدّرة"  > غير مقدّرة</label>
+            <label class="radio-option"><input type="radio" name="valorisation_metier" value="مقدّرة" required > مقدّرة</label>
+            <label class="radio-option"><input type="radio" name="valorisation_metier" value="غير مقدّرة" required > غير مقدّرة</label>
           </div>
         </label>
 
-        <label class="">الوضع
+        <label class="required">الوضع
           <div class="radio-group">
-            <label class="radio-option"><input type="radio" name="stabilite_metier" value="مستقرة"  > مستقرة</label>
-            <label class="radio-option"><input type="radio" name="stabilite_metier" value="في تراجع"  > في تراجع</label>
+            <label class="radio-option"><input type="radio" name="stabilite_metier" value="مستقرة" required > مستقرة</label>
+            <label class="radio-option"><input type="radio" name="stabilite_metier" value="في تراجع" required > في تراجع</label>
           </div>
         </label>
 
-        <label class="">	واش ناوي تكمل فهاد المهنة السنوات الجاية؟ 
+        <label class="required">	واش ناوي تكمل فهاد المهنة السنوات الجاية؟ 
           <div class="radio-group">
-            <label class="radio-option"><input type="radio" name="continuer_metier" value="نعم"  > نعم</label>
-            <label class="radio-option"><input type="radio" name="continuer_metier" value="لا"  > لا</label>
+            <label class="radio-option"><input type="radio" name="continuer_metier" value="نعم" required > نعم</label>
+            <label class="radio-option"><input type="radio" name="continuer_metier" value="لا" required > لا</label>
           </div>
         </label>
 
-        <label class="">	واش موافق على تكوينات مهنية (السلامة، الخدمة، السياقة، التسيير)؟ 
+        <label class="required">	واش موافق على تكوينات مهنية (السلامة، الخدمة، السياقة، التسيير)؟ 
           <div class="radio-group">
-            <label class="radio-option"><input type="radio" name="formation_professionnelle" value="نعم"  > نعم</label>
-            <label class="radio-option"><input type="radio" name="formation_professionnelle" value="لا"  > لا</label>
+            <label class="radio-option"><input type="radio" name="formation_professionnelle" value="نعم" required > نعم</label>
+            <label class="radio-option"><input type="radio" name="formation_professionnelle" value="لا" required > لا</label>
           </div>
         </label>
       </div>
 
       <div class="section-header">	شنو هما في نظرك 3 أكبر مشاكل فالقطاع دابا ؟</div>
-      <label class="">
-        <input type="text" name="probleme1" placeholder="المشكل 1"  >
-        <input type="text" name="probleme2" placeholder="المشكل 2"  >
-        <input type="text" name="probleme3" placeholder="المشكل 3"  >
+      <label class="required">
+        <input type="text" name="probleme1" placeholder="المشكل 1" required >
+        <input type="text" name="probleme2" placeholder="المشكل 2" required >
+        <input type="text" name="probleme3" placeholder="المشكل 3" required >
       </label>
 
       <div class="section-header">	عندك اقتراحات عملية للتحسين، بما فيها الراحة والسلامة ديالك </div>
@@ -1005,12 +1014,12 @@ footer {
       <legend>3) الجوانب الاقتصادية ومصاريف الخدمة</legend>
 
       <div class="section-header">طريقة الخلاص</div>
-      <label class="">
+      <label class="required">
         <div class="radio-group">
-          <label class="radio-option"><input type="radio" name="modalite_retribution" value="يومية ثابتة"  > يومية ثابتة</label>
-          <label class="radio-option"><input type="radio" name="modalite_retribution" value="نسبة من المداخيل"  > نسبة من المداخيل</label>
-          <label class="radio-option"><input type="radio" name="modalite_retribution" value="بعد المصاريف"  > بعد المصاريف</label>
-          <label class="radio-option"><input type="radio" name="modalite_retribution" value="أخرى"  > أخرى</label>
+          <label class="radio-option"><input type="radio" name="modalite_retribution" value="يومية ثابتة" required > يومية ثابتة</label>
+          <label class="radio-option"><input type="radio" name="modalite_retribution" value="نسبة من المداخيل" required > نسبة من المداخيل</label>
+          <label class="radio-option"><input type="radio" name="modalite_retribution" value="بعد المصاريف" required > بعد المصاريف</label>
+          <label class="radio-option"><input type="radio" name="modalite_retribution" value="أخرى" required > أخرى</label>
         </div>
       </label>
       <label id="autre_retribution_label" style="display:none">
@@ -1020,7 +1029,7 @@ footer {
 
       <div class="section-header">المصاريف اليومية</div>
       <div class="inline">
-        <label class="">الكازوال (درهم/اليوم)<input type="number" name="depense_carburant" min="0"  ></label>
+        <label class="required">الكازوال (درهم/اليوم)<input type="number" name="depense_carburant" min="0" required ></label>
         <label>كراء الطاكسي (درهم/اليوم)<input type="number" name="depense_location" min="0"></label>
       </div>
 
@@ -1049,7 +1058,7 @@ footer {
 
       <div class="section-header">الإحصائيات اليومية</div>
       <div class="inline">
-        <label class="">المسافة اليومية (كم)<input type="number" name="distance_parcourue" min="1"  ></label>
+        <label class="">المسافة اليومية (كم)<input type="number" name="distance_parcourue" min="1" required ></label>
         <label class="">عدد الكورصات فالنهار<input type="number" name="courses_par_jour" min="0"  ></label>
         <label class="">عدد الركاب فالنهار<input type="number" name="passagers_par_jour" min="0"  ></label>
       </div>
@@ -1270,7 +1279,7 @@ document.getElementById('taxiForm').addEventListener('submit', function(e){
   const btn = document.getElementById('submitBtn');
   btn.disabled = true;
   btn.textContent = 'جارٍ الإرسال...';
-  setTimeout(()=>{ btn.disabled=false; btn.textContent='صيفط الاستمارة'; }, 25000);
+  setTimeout(()=>{ btn.disabled=false; btn.textContent='صيفط الاستمارة'; }, 5000);
   
 });
   const form = document.getElementById('taxiForm');
